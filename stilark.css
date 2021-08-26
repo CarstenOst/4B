@@ -1,0 +1,16 @@
+*{
+    background-color: blue;
+    animation: red-purple-gold-blue 15s infinite;
+}
+
+@-webkit-keyframes red-purple-gold-blue{
+    0% {background-color: blue}
+    25% {background-color: darkred}
+    50% {background-color: #ffd700}
+    75% {background-color: purple}
+    100% {background-color: blue}
+
+
+
+
+}
