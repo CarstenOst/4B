@@ -1,0 +1,72 @@
+const canvas = document.querySelector("canvas");
+const generateButton = document.querySelector(".generer-tre-knapp");
+const toggleDarkMode = document.querySelector(".bg2")
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const ctx = canvas.getContext("2d");
+let curve;
+
+
+function tegnTre(startX, startY, len, angle, branchWidth, color1, color2) {
+    ctx.beginPath();
+    ctx.save();
+    ctx.strokeStyle = color1;
+    ctx.fillStyle = color2;
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "rgba(255,255,255,.5)";
+    ctx.lineWidth = branchWidth;
+    ctx.translate(startX, startY);
+    ctx.rotate(angle * Math.PI/180);
+    ctx.moveTo(0,0);
+    //ctx.lineTo(0,-len);
+    if (angle > 0){
+        ctx.bezierCurveTo(10, -len/2, 10, -len/2, 0, -len);
+    } else {
+        ctx.bezierCurveTo(10, -len/2, -10, -len/2, 0, -len);
+    }
+    ctx.stroke();
+
+    if (len < 9) {
+        //leaf
+        ctx.beginPath();
+        ctx.arc(0, -len, 10, 0, Math.PI/2);
+        ctx.fill();
+        ctx.restore();
+        return;
+    }
+    curve = (Math.random() * 10) + 10;
+    tegnTre(0, -len, len * 0.77, angle + curve, branchWidth * 0.8);
+    tegnTre(0, -len, len * 0.77, angle - curve, branchWidth * 0.7);
+    ctx.restore();
+}
+tegnTre(canvas.width/2, canvas.height - 80, 150, 0, 5, "#ffd700", "green")
+
+function generateRandomTre() {
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+    let centerPointX =canvas.width/2;
+    let len = Math.floor((Math.random() * 20) + 150);
+    let angle = 0;
+    let branchWidth = (Math.random() * 30) + 1;
+    let color1 = "rgb(" + Math.random() * 255 + "," + Math.random() * 255 + "," + Math.random() * 255 + ")";
+    let color2 = "rgb(" + Math.random() * 255 + "," + Math.random() * 255 + "," + Math.random() * 255 + ")";
+
+    generateButton.style.background = color1;
+    toggleDarkMode.style.background = color1;
+
+
+    tegnTre(centerPointX, canvas.height - 100, len, angle, branchWidth, color1, color2);
+
+}
+
+function bgToggle(){
+    if (canvas.style.background === "white"){
+        canvas.style.background = "black";
+        ctx.shadowColor = "black";
+    } else {
+        canvas.style.background = "white";
+    }
+
+}
+
+generateButton.addEventListener("click", generateRandomTre);
+toggleDarkMode.addEventListener("click", bgToggle);
