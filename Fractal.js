@@ -18,9 +18,6 @@ document.addEventListener("mousemove",function(event){
 
 });
 
-
-
-
 function tegnTre(startX, startY, len, angle, branchWidth, color1, color2) {
 
     ctx.beginPath();
