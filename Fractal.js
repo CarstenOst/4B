@@ -57,7 +57,7 @@ tegnTre(canvas.width/2, canvas.height - 80, 150, 0, 5, "#ffd700", "green")
 function generateRandomTre() {
     ctx.clearRect(0,0, canvas.width, canvas.height);
     let centerPointX =canvas.width/2;
-    let len = Math.floor((Math.random() * 60) + 150);
+    let len = Math.floor((Math.random() * 60) + 100);
     let angle = (Math.random() * 14) -7;
     let branchWidth = Math.floor((Math.random() * 30)) + 1;
     let color1 = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ")";
