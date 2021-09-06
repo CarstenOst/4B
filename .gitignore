@@ -4,6 +4,9 @@
 # Log file
 *.log
 *.idea
+*node_modules
+*package.json
+*package-lock.json
 
 # BlueJ files
 *.ctxt
