@@ -30,11 +30,24 @@ async function scrapeProduct(url) {
     const txt4 = await el5.getProperty("textContent");
     const stillingsTittel = await txt4.jsonValue();
 
+    //for å hente frist dato
+    const [el6] = await page.$x("/html/body/main/div/div[3]/div[1]/div/section[2]/dl/dd[3]"); // Copy xPath i inspect element
+    const txt5 = await el6.getProperty("textContent");
+    const frist = await txt5.jsonValue();
 
+    //for å hente ansettelsform
+    const [el7] = await page.$x("/html/body/main/div/div[3]/div[1]/div/section[2]/dl/dd[4]"); // Copy xPath i inspect element
+    const txt6 = await el7.getProperty("textContent");
+    const ansettelsesForm = await txt6.jsonValue();
 
-    console.log({arbeidsGiver, stillingsTittel, kontaktPerson, telefonNummer, imgURL});
+    //for å hente konkurrent
+    const [el8] = await page.$x("//*[@id=\"more-ads-from-this-org-link\"]"); // Copy xPath i inspect element
+    const txt7 = await el8.getProperty("textContent");
+    const konkurrent = await txt7.jsonValue();
+
+    console.log({arbeidsGiver, stillingsTittel, frist, ansettelsesForm, kontaktPerson, telefonNummer, konkurrent, imgURL});
 
     browser.close();
 }
 
-scrapeProduct("https://www.finn.no/job/fulltime/ad.html?finnkode=231059221");
+scrapeProduct("https://www.finn.no/job/fulltime/ad.html?finnkode=228885467");
