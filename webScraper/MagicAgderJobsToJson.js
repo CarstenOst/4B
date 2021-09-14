@@ -37,7 +37,7 @@ async function scrapeFinnLink(url) {
 
                 await ScrapeArticle(finnLinkAgder, TidUtsendt);
             }catch (err){
-                console.error(err.message + ". Fuck this..." + url)
+
                 console.log(". There are no more articles for yo. Yay, hurra Lars 😀");
                 {break;}
             }
