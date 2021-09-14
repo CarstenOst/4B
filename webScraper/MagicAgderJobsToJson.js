@@ -1,32 +1,55 @@
-//Speci_WebScraper - Carsten Østergaard - Styggaste koden i he sett - Bruker 80% av 5800X :)
+//Speci_WebScraper - Carsten Østergaard - Styggaste koden i he sett - Bruker 80% av 5800X uten await:)
 const puppeteer = require("puppeteer");
 
 async function scrapeFinnLink(url) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
-
     //for å hente ut text:
     for(let i = 2; i <= 51; i++){
         let finnArticleFromXpath = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/h2/a");
+        let FinnTid1 = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/div[3]/div"); //enkel søknad
+        let FinnTid2 = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/div[2]/div"); //uten enkel søknad
+
+
         try {
             const [el2] = await page.$x(finnArticleFromXpath); // Copy xPath i inspect element
             const href = await el2.getProperty("href");
-            if (el2.getProperty === "undefined"){break;}
-            const finnLinkAgder = await href.jsonValue();
+            //if (el2.getProperty === "undefined"){break;}
+            var finnLinkAgder = await href.jsonValue();
             console.log(i+" "+finnLinkAgder); //Denne kan trygt fjernes/endres
 
+            const [ell] = await page.$x(FinnTid2); // Copy xPath i inspect element
+            const tekst = await ell.getProperty("textContent");
+            var TidUtsendt = await tekst.jsonValue();
+
+
             //fjern await dersom det skal gå raskere (advarsel du vil trenge litt minne)
-            await ScrapeArticle(finnLinkAgder);
+
+            await ScrapeArticle(finnLinkAgder, TidUtsendt);
+
 
         } catch (err){
-            console.log(". There are no more articles for yo. Yay, hurra Lars 😀");
-            {break;}
+            try{
+
+                const [ell2] = await page.$x(FinnTid1); // Copy xPath i inspect element
+                const tekst2 = await ell2.getProperty("textContent");
+                TidUtsendt = await tekst2.jsonValue();
+
+                await ScrapeArticle(finnLinkAgder, TidUtsendt);
+            }catch (err){
+                console.error(err.message + ". Fuck this..." + url)
+                console.log(". There are no more articles for yo. Yay, hurra Lars 😀");
+                {break;}
+            }
+
         }
+
     }
     browser.close();
+
 }
-async function ScrapeArticle(url) {
+async function ScrapeArticle(url, TidUtsendt) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
@@ -49,7 +72,7 @@ async function ScrapeArticle(url) {
             var Telefonnummer = await txt2.jsonValue();
         } catch (err){
             try {
-                console.error(err.message + "-telefonnummer " + "Trying different xPath");
+                console.log("Telefonnummer undefined, trying different xPath");
                 Telefonnummer = "undefined";
                 const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div/dl/dd[2]/a"); // Copy xPath i inspect element
                 const txt2 = await el3.getProperty("textContent");
@@ -81,32 +104,31 @@ async function ScrapeArticle(url) {
             const txt4 = await el5.getProperty("textContent");
             var Stillingstittel = await txt4.jsonValue();
         } catch (err){
-                Stillingstittel = ("Å ingenting");
-                }
+                Stillingstittel = ("Å ingenting, sjekk manuelt")}
+
         //for å hente Frist dato
         try {
             const [el6] = await page.$x("/html/body/main/div/div[3]/div[1]/div/section[2]/dl/dd[3]"); // Copy xPath i inspect element
             const txt5 = await el6.getProperty("textContent");
             var Frist = await txt5.jsonValue();
-        }catch (err){Frist = ("Å ingenting")}
+        }catch (err){Frist = ("Å ingenting, sjekk manuelt")}
 
         //for å hente ansettelsform
         try {
             const [el7] = await page.$x("/html/body/main/div/div[3]/div[1]/div/section[2]/dl/dd[4]"); // Copy xPath i inspect element
             const txt6 = await el7.getProperty("textContent");
             var Ansettelses_Form = await txt6.jsonValue();
-        }catch (err){Ansettelses_Form = ("Å ingenting")}
+        } catch (err){Ansettelses_Form = ("Å ingenting, sjekk manuelt")}
         //for å hente Konkurrent
         try {
             const [el8] = await page.$x("//*[@id=\"more-ads-from-this-org-link\"]"); // Copy xPath i inspect element
             const txt7 = await el8.getProperty("textContent");
             var Konkurrent = await txt7.jsonValue();
-        }
-        catch (err){
-            console.error(err.message + " Possible no competition here :)");
+        } catch (err){
+            console.log("Possible no competition here :)");
             Konkurrent = "None";
         }
-        const All_Elements = {Arbeidsgiver, Stillingstittel, Frist, Ansettelses_Form, Kontakt_Person, Telefonnummer, Konkurrent, url};
+        const All_Elements = {Arbeidsgiver, Stillingstittel, Frist, Ansettelses_Form, Kontakt_Person, Telefonnummer, Konkurrent, TidUtsendt, url};
 
         const fs = require('fs');
         const saveData = (data, file) =>{
@@ -120,8 +142,7 @@ async function ScrapeArticle(url) {
         }
         saveData(All_Elements, "AllAgderJobs.json");
         browser.close(); // Obvious
-    }
-    catch (err){
+    } catch (err){
         console.error(err.message + ". Shiet, this link is not viable and did not get written. Please add it manually Lars: "+url);
     }
 }
@@ -135,26 +156,6 @@ async function FindFinnPages() { //loop som finner alle jobbene i agder
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
