@@ -38,7 +38,7 @@ async function scrapeFinnLink(url) {
                 await ScrapeArticle(finnLinkAgder, TidUtsendt);
             }catch (err){
 
-                console.log(". There are no more articles for yo. Yay, hurra Lars 😀");
+                console.log(". There are no more articles for you. Yay, hurra Lars 😀");
                 {break;}
             }
 
@@ -151,7 +151,7 @@ async function FindFinnPages() { //loop som finner alle jobbene i agder
             let FinnArticlePage = ("https://www.finn.no/job/fulltime/search.html?abTestKey=control&location=1.20001.22042&page=" + i + "&sort=RELEVANCE");
             await scrapeFinnLink(FinnArticlePage);
         } catch (err) {
-            console.error(err.message + " This means the program is finished :) Yay, hurra Lars 😀");
+            console.log(" This means the program is finished :) Yay, hurra Lars 😀");
         }
     }
 }
