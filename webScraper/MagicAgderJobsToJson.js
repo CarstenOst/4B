@@ -31,7 +31,6 @@ async function scrapeFinnLink(url) {
 
         } catch (err){
             try{
-
                 const [ell2] = await page.$x(FinnTid1); // Copy xPath i inspect element
                 const tekst2 = await ell2.getProperty("textContent");
                 TidUtsendt = await tekst2.jsonValue();
@@ -62,7 +61,7 @@ async function ScrapeArticle(url, TidUtsendt) {
             var Kontakt_Person = await txt.jsonValue();
         } catch (err){
             Kontakt_Person = "undefined";
-            console.error(err.message + "Kontaktpersonen er " + Kontakt_Person + ". Vennligst legg ved ny xPath eller sjekk");
+            console.error("Kontaktpersonen er " + Kontakt_Person + ". Vennligst legg ved ny xPath eller sjekk link" + url);
         }
 
         //for å hente ut tlfnr
@@ -80,12 +79,12 @@ async function ScrapeArticle(url, TidUtsendt) {
             }
             catch (err){
                 try {
-                    console.log(err.message + " Multiple contact information, only added first one");
+                    console.log("Multiple contact information, only added first one");
                     const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div[1]/dl/dd[3]/a"); // Copy xPath i inspect element
                     const txt2 = await el3.getProperty("textContent");
                     Telefonnummer = await txt2.jsonValue();
                 } catch (err){
-                    console.error(err.message + " No phone number written");
+                    console.error("No phone number written");
                     Telefonnummer = "None";
                 }
             }
@@ -96,7 +95,7 @@ async function ScrapeArticle(url, TidUtsendt) {
             const txt3 = await el4.getProperty("textContent");
             var Arbeidsgiver = await txt3.jsonValue();
         } catch (err){
-            console.error(err + "Ingen arbeidsgiver? Se link for info: " + url);
+            console.log("Ingen arbeidsgiver? Se link for info: " + url);
         }
         //for å hente Stillingstittel
         try {
