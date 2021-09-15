@@ -11,23 +11,26 @@ async function scrapeFinnLink(url) {
         let FinnTid1 = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/div[3]/div"); //enkel søknad
         let FinnTid2 = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/div[2]/div"); //uten enkel søknad
 
-
         try {
             const [el2] = await page.$x(finnArticleFromXpath); // Copy xPath i inspect element
             const href = await el2.getProperty("href");
             //if (el2.getProperty === "undefined"){break;}
             var finnLinkAgder = await href.jsonValue();
-            console.log(i+" "+finnLinkAgder); //Denne kan trygt fjernes/endres
+            console.log(i); //Denne kan trygt fjernes/endres
 
             const [ell] = await page.$x(FinnTid2); // Copy xPath i inspect element
             const tekst = await ell.getProperty("textContent");
             var TidUtsendt = await tekst.jsonValue();
 
-
-            //fjern await dersom det skal gå raskere (advarsel du vil trenge litt minne)
+            //----------------------------------------------------------------------------------------------------------------
+            //----------------------------------------------------------------------------------------------------------------
+            //fjern await under denne kommentaren, for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
 
             await ScrapeArticle(finnLinkAgder, TidUtsendt);
 
+            //fjern await over  denne kommentaren. for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
+            //----------------------------------------------------------------------------------------------------------------
+            //----------------------------------------------------------------------------------------------------------------
 
         } catch (err){
             try{
@@ -41,9 +44,7 @@ async function scrapeFinnLink(url) {
                 console.log(". There are no more articles for you. Yay, hurra Lars 😀");
                 {break;}
             }
-
         }
-
     }
     browser.close();
 
@@ -60,8 +61,14 @@ async function ScrapeArticle(url, TidUtsendt) {
             const txt = await el2.getProperty("textContent");
             var Kontakt_Person = await txt.jsonValue();
         } catch (err){
-            Kontakt_Person = "undefined";
-            console.error("Kontaktpersonen er " + Kontakt_Person + ". Vennligst legg ved ny xPath eller sjekk link" + url);
+            try {
+                const [el2] = await page.$x("/html/body/main/div/div[3]/div[2]/section[1]/div/dl/dd[1]"); // Copy xPath i inspect element
+                const txt = await el2.getProperty("textContent");
+                Kontakt_Person = await txt.jsonValue();
+            }catch (err){
+                Kontakt_Person = "undefined";
+                console.error("Kontaktpersonen er " + Kontakt_Person + ". Vennligst legg ved ny xPath eller sjekk link: " + url);
+            }
         }
 
         //for å hente ut tlfnr
@@ -71,21 +78,30 @@ async function ScrapeArticle(url, TidUtsendt) {
             var Telefonnummer = await txt2.jsonValue();
         } catch (err){
             try {
-                console.log("Telefonnummer undefined, trying different xPath");
                 Telefonnummer = "undefined";
                 const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div/dl/dd[2]/a"); // Copy xPath i inspect element
                 const txt2 = await el3.getProperty("textContent");
                 Telefonnummer = await txt2.jsonValue(); //Telefonnummer er allerede definert som var, trenger ikke definere igjen
+                console.log("Telefonnummer undefined, trying different xPath");
             }
             catch (err){
                 try {
-                    console.log("Multiple contact information, only added first one");
                     const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div[1]/dl/dd[3]/a"); // Copy xPath i inspect element
                     const txt2 = await el3.getProperty("textContent");
                     Telefonnummer = await txt2.jsonValue();
+                    console.log("Possible multiple contact information");
+
                 } catch (err){
-                    console.error("No phone number written");
-                    Telefonnummer = "None";
+                    try{
+
+                        const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[1]/div/dl/dd[3]/a"); // Copy xPath i inspect element
+                        const txt2 = await el3.getProperty("textContent");
+                        Telefonnummer = await txt2.jsonValue();
+                        console.log("Multiple contact information, only added first one");
+                    }catch (err) {
+                        console.error("No phone number written, see link: " + url);
+                        Telefonnummer = "None";
+                    }
                 }
             }
         }
@@ -124,7 +140,7 @@ async function ScrapeArticle(url, TidUtsendt) {
             const txt7 = await el8.getProperty("textContent");
             var Konkurrent = await txt7.jsonValue();
         } catch (err){
-            console.log("Possible no competition here :)");
+            console.log("No competition here :)");
             Konkurrent = "None";
         }
         const All_Elements = {Arbeidsgiver, Stillingstittel, Frist, Ansettelses_Form, Kontakt_Person, Telefonnummer, Konkurrent, TidUtsendt, url};
@@ -141,12 +157,19 @@ async function ScrapeArticle(url, TidUtsendt) {
         }
         saveData(All_Elements, "AllAgderJobs.json");
         browser.close(); // Obvious
+
     } catch (err){
-        console.error(err.message + ". Shiet, this link is not viable and did not get written. Please add it manually Lars: "+url);
+        console.log("-------------------------------------------------------------------------------------------------");
+        console.log("-------------------------------------------------------------------------------------------------");
+        console.error(err.message + ". Shiet, this link is not viable and did not get written. Please add it manually Lars: ");
+        console.log(url);
+        console.log("-------------------------------------------------------------------------------------------------");
+        console.log("-------------------------------------------------------------------------------------------------");
     }
 }
+
 async function FindFinnPages() { //loop som finner alle jobbene i agder
-    for (let i = 1; i <= 11; i++) {
+    for (let i = 1; i <= 12; i++) {
         try {
             let FinnArticlePage = ("https://www.finn.no/job/fulltime/search.html?abTestKey=control&location=1.20001.22042&page=" + i + "&sort=RELEVANCE");
             await scrapeFinnLink(FinnArticlePage);
@@ -155,6 +178,8 @@ async function FindFinnPages() { //loop som finner alle jobbene i agder
         }
     }
 }
+
+
 
 
 
