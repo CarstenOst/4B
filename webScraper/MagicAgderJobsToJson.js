@@ -16,6 +16,7 @@ async function scrapeFinnLink(url) {
             const href = await el2.getProperty("href");
             //if (el2.getProperty === "undefined"){break;}
             var finnLinkAgder = await href.jsonValue();
+
             console.log(i); //Denne kan trygt fjernes/endres
 
             const [ell] = await page.$x(FinnTid2); // Copy xPath i inspect element
@@ -83,13 +84,14 @@ async function ScrapeArticle(url, TidUtsendt) {
                 const txt2 = await el3.getProperty("textContent");
                 Telefonnummer = await txt2.jsonValue(); //Telefonnummer er allerede definert som var, trenger ikke definere igjen
                 console.log("Telefonnummer undefined, trying different xPath");
+
             }
             catch (err){
                 try {
                     const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div[1]/dl/dd[3]/a"); // Copy xPath i inspect element
                     const txt2 = await el3.getProperty("textContent");
                     Telefonnummer = await txt2.jsonValue();
-                    console.log("Possible multiple contact information");
+                    console.log("Possible multiple phone numbers");
 
                 } catch (err){
                     try{
@@ -161,7 +163,7 @@ async function ScrapeArticle(url, TidUtsendt) {
     } catch (err){
         console.log("-------------------------------------------------------------------------------------------------");
         console.log("-------------------------------------------------------------------------------------------------");
-        console.error(err.message + ". Shiet, this link is not viable and did not get written. Please add it manually Lars: ");
+        console.log("Shiet, this link is not viable and did not get written. Please add it manually Lars: ");
         console.log(url);
         console.log("-------------------------------------------------------------------------------------------------");
         console.log("-------------------------------------------------------------------------------------------------");
@@ -175,6 +177,9 @@ async function FindFinnPages() { //loop som finner alle jobbene i agder
             await scrapeFinnLink(FinnArticlePage);
         } catch (err) {
             console.log(" This means the program is finished :) Yay, hurra Lars 😀");
+            console.log("----------------------------------");
+            console.log("------------Success!--------------");
+            console.log("----------------------------------");
         }
     }
 }
