@@ -17,7 +17,7 @@ async function scrapeFinnLink(url) {
             //if (el2.getProperty === "undefined"){break;}
             var finnLinkAgder = await href.jsonValue();
 
-            console.log(i); //Denne kan trygt fjernes/endres
+            console.log(i-1); //Denne kan trygt fjernes/endres
 
             const [ell] = await page.$x(FinnTid2); // Copy xPath i inspect element
             const tekst = await ell.getProperty("textContent");
