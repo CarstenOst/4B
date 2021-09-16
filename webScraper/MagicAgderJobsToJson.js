@@ -147,7 +147,7 @@ async function ScrapeArticle(url, TidUtsendt) {
             console.log("No competition here :)");
             Konkurrent = "None";
         }
-        const All_Elements = {Arbeidsgiver, Stillingstittel, Frist, Ansettelses_Form, Kontakt_Person, Telefonnummer, Konkurrent, TidUtsendt, url};
+        const All_Elements = {Arbeidsgiver, Stillingstittel, Frist, TidUtsendt, Ansettelses_Form, Kontakt_Person, Telefonnummer, url, Konkurrent};
 
         const fs = require('fs');
         const saveData = (data, file) =>{
