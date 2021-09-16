@@ -17,7 +17,7 @@ async function scrapeFinnLink(url) {
             //if (el2.getProperty === "undefined"){break;}
             var finnLinkAgder = await href.jsonValue();
 
-            console.log(i); //Denne kan trygt fjernes/endres
+            console.log(i-1 + " " + finnLinkAgder); //Denne kan trygt fjernes/endres
 
             const [ell] = await page.$x(FinnTid2); // Copy xPath i inspect element
             const tekst = await ell.getProperty("textContent");
@@ -27,7 +27,7 @@ async function scrapeFinnLink(url) {
             //----------------------------------------------------------------------------------------------------------------
             //fjern await under denne kommentaren, for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
 
-            await ScrapeArticle(finnLinkAgder, TidUtsendt);
+            ScrapeArticle(finnLinkAgder, TidUtsendt);
 
             //fjern await over  denne kommentaren. for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
             //----------------------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ async function scrapeFinnLink(url) {
                 await ScrapeArticle(finnLinkAgder, TidUtsendt);
             }catch (err){
 
-                console.log(". There are no more articles for you. Yay, hurra Lars 😀");
+                console.log("There are no more articles for you. Yay, hurra Lars 😀");
                 {break;}
             }
         }
@@ -50,6 +50,8 @@ async function scrapeFinnLink(url) {
     browser.close();
 
 }
+
+
 async function ScrapeArticle(url, TidUtsendt) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -183,15 +185,6 @@ async function FindFinnPages() { //loop som finner alle jobbene i agder
         }
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
