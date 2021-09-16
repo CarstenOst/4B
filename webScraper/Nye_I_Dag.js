@@ -171,7 +171,7 @@ async function ScrapeArticle(url, TidUtsendt) {
     } catch (err){
         console.log("-------------------------------------------------------------------------------------------------");
         console.log("-------------------------------------------------------------------------------------------------");
-        console.log("Shiet, this link is not viable and did not get written. Please add it manually Lars: ");
+        console.log("Shiet, this link did not get written. Please add it manually Lars: ");
         console.log(url);
         console.log("-------------------------------------------------------------------------------------------------");
         console.log("-------------------------------------------------------------------------------------------------");
