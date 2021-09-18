@@ -175,7 +175,7 @@ async function ScrapeArticle(url, TidUtsendt) {
 async function FindFinnPages() { //loop som finner alle jobbene i agder
     for (let i = 1; i <= 12; i++) {
         try {
-            let FinnArticlePage = ("https://www.finn.no/job/fulltime/search.html?abTestKey=control&location=1.20001.22042&page=" + i + "&sort=RELEVANCE");
+            let FinnArticlePage = ("https://www.finn.no/job/fulltime/search.html?abTestKey=control&location=1.20001.22042&page=" + i + "&sort=RELEVANCE"); //legg inn link her
             await scrapeFinnLink(FinnArticlePage);
         } catch (err) {
             console.log(" This means the program is finished :) Yay, hurra Lars 😀");
@@ -185,8 +185,5 @@ async function FindFinnPages() { //loop som finner alle jobbene i agder
         }
     }
 }
-
-
-
 
 FindFinnPages();//starter programmet
