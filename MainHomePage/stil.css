@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    /*background-image: url("repeatbg.jpg");
+    background-repeat: repeat;*/
+    background: rgba(0,0,0,0.9);
+    font-family: "Roboto Light", sans-serif;
+}
+
+.parent {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 10%;
+}
+.child {
+    background: none;
+    color: azure;
+    padding: 15px;
+    position: sticky;
+    position: -webkit-sticky;
+    margin: 0 auto;
+    width: 10%;
+    border-radius: 55px;
+    cursor: pointer;
+}
+
+.child:hover{
+    color: black;
+    background-color: #f2f2f2;
+    transition: all 0.02s;
+    -webkit-transition: all 0.02s;
+}
+.child:after{
+    color: black;
+    background-color: #f2f2f2;
+    transition: all 2.02s;
+    -webkit-transition: all 2.02s;
+}
