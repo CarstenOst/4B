@@ -9,33 +9,50 @@ body {
     font-family: "Roboto Light", sans-serif;
 }
 
-.parent {
+main {
     width: 100%;
-    height: 100%;
+    position: absolute;
     text-align: center;
+    top: 40px;
+    bottom: 20px;
     padding-top: 10%;
 }
-.child {
+main div {
+
     background: none;
     color: azure;
     padding: 15px;
     position: sticky;
     position: -webkit-sticky;
-    margin: 0 auto;
-    width: 10%;
+    margin: 25px auto;
+    width: 8%;
+    min-width: 100px;
     border-radius: 55px;
     cursor: pointer;
+
 }
 
-.child:hover{
+main div:hover{
     color: black;
     background-color: #f2f2f2;
-    transition: all 0.02s;
-    -webkit-transition: all 0.02s;
+    transition: towhite 0.2s;
+    -webkit-transition: towhite 0.2s;
+    animation: smoothie 1.5s;
+    animation-iteration-count: infinite;
+
 }
-.child:after{
-    color: black;
-    background-color: #f2f2f2;
-    transition: all 2.02s;
-    -webkit-transition: all 2.02s;
+
+@keyframes smoothie {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(-1deg); }
+    20% { transform: rotate(1deg); }
+    30% { transform: rotate(0deg); }
+    40% { transform: rotate(1deg); }
+    50% { transform: rotate(-1deg); }
+    60% { transform: rotate(0deg); }
+    70% { transform: rotate(-1deg); }
+    80% { transform: rotate(1deg); }
+    90% { transform: rotate(0deg); }
+    100% { transform: rotate(-1deg); }
 }
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_shake */
