@@ -85,7 +85,7 @@ async function ScrapeArticle(url, TidUtsendt) {
                 const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div/dl/dd[2]/a"); // Copy xPath i inspect element
                 const txt2 = await el3.getProperty("textContent");
                 Telefonnummer = await txt2.jsonValue(); //Telefonnummer er allerede definert som var, trenger ikke definere igjen
-                console.log("Telefonnummer undefined, trying different xPath");
+                console.log("Telefonnummer undefined, trying different xPath: " + url);
 
             }
             catch (err){
@@ -93,7 +93,7 @@ async function ScrapeArticle(url, TidUtsendt) {
                     const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div[1]/dl/dd[3]/a"); // Copy xPath i inspect element
                     const txt2 = await el3.getProperty("textContent");
                     Telefonnummer = await txt2.jsonValue();
-                    console.log("Possible multiple phone numbers");
+                    console.log("Possible multiple phone numbers: " + url);
 
                 } catch (err){
                     try{
@@ -101,7 +101,7 @@ async function ScrapeArticle(url, TidUtsendt) {
                         const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[1]/div/dl/dd[3]/a"); // Copy xPath i inspect element
                         const txt2 = await el3.getProperty("textContent");
                         Telefonnummer = await txt2.jsonValue();
-                        console.log("Multiple contact information, only added first one");
+                        console.log("Multiple contact information, only added first one: " + url);
                     }catch (err) {
                         console.error("No phone number written, see link: " + url);
                         Telefonnummer = "None";
@@ -123,6 +123,7 @@ async function ScrapeArticle(url, TidUtsendt) {
             const txt4 = await el5.getProperty("textContent");
             var Stillingstittel = await txt4.jsonValue();
         } catch (err){
+                console.log("Her var det mulig ingen stillingstittel: " + url);
                 Stillingstittel = ("Å ingenting, sjekk manuelt")}
 
         //for å hente Frist dato
@@ -130,21 +131,28 @@ async function ScrapeArticle(url, TidUtsendt) {
             const [el6] = await page.$x("/html/body/main/div/div[3]/div[1]/div/section[2]/dl/dd[3]"); // Copy xPath i inspect element
             const txt5 = await el6.getProperty("textContent");
             var Frist = await txt5.jsonValue();
-        }catch (err){Frist = ("Å ingenting, sjekk manuelt")}
+        }catch (err){
+            console.log("Her var det mulig ingen Frist: " + url);
+            Frist = ("Å ingenting, sjekk manuelt")}
 
         //for å hente ansettelsform
         try {
             const [el7] = await page.$x("/html/body/main/div/div[3]/div[1]/div/section[2]/dl/dd[4]"); // Copy xPath i inspect element
             const txt6 = await el7.getProperty("textContent");
             var Ansettelses_Form = await txt6.jsonValue();
-        } catch (err){Ansettelses_Form = ("Å ingenting, sjekk manuelt")}
+        } catch (err){
+            console.log("-------------------------------------------------------------------------------------------------");
+            console.log("Her var det mulig ingen Ansettelsesform: " + url);
+            console.log("-------------------------------------------------------------------------------------------------");
+            Ansettelses_Form = ("Å ingenting, sjekk manuelt")
+        }
         //for å hente Konkurrent
         try {
             const [el8] = await page.$x("//*[@id=\"more-ads-from-this-org-link\"]"); // Copy xPath i inspect element
             const txt7 = await el8.getProperty("textContent");
             var Konkurrent = await txt7.jsonValue();
         } catch (err){
-            console.log("No competition here :)");
+            console.log("No competition here :): " + url);
             Konkurrent = "None";
         }
         const All_Elements = {Arbeidsgiver, Stillingstittel, Frist, TidUtsendt, Ansettelses_Form, Kontakt_Person, Telefonnummer, url, Konkurrent};
