@@ -179,7 +179,7 @@ async function ScrapeArticle(url, TidUtsendt) {
 }
 
 
-scrapeFinnLink("https://www.finn.no/job/fulltime/search.html?abTestKey=control&location=1.20001.22042&published=1&sort=RELEVANCE");
+scrapeFinnLink("https://www.finn.no/job/fulltime/search.html?abTestKey=control&location=1.20001.22042&published=1&sort=RELEVANCE"); //legg inn link til nye i dag
 
 
 //FindFinnPages();//starter programmet
