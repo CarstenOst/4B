@@ -3,23 +3,21 @@
     padding: 0;
 }
 body {
-    /*background-image: url("repeatbg.jpg");
-    background-repeat: repeat;*/
+    /*background-image: url("repeatbg.jpg");*/
+
     background: rgba(0,0,0,0.9);
     font-family: "Roboto Light", sans-serif;
 }
 
 main {
     width: 100%;
-    position: absolute;
+    position: relative;
     text-align: center;
     top: 40px;
     bottom: 20px;
     padding-top: 10%;
 }
 main div {
-
-    background: none;
     color: azure;
     padding: 15px;
     position: sticky;
