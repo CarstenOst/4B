@@ -1,5 +1,6 @@
 //Speci_WebScraper - Carsten Østergaard - Styggaste koden i he sett - Bruker 80% av 5800X uten await:)
 const puppeteer = require("puppeteer");
+process.setMaxListeners(20);
 
 async function scrapeFinnLink(url) {
     const browser = await puppeteer.launch();
@@ -27,7 +28,7 @@ async function scrapeFinnLink(url) {
             //----------------------------------------------------------------------------------------------------------------
             //fjern await under denne kommentaren, for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
 
-            await ScrapeArticle(finnLinkAgder, TidUtsendt);
+            ScrapeArticle(finnLinkAgder, TidUtsendt);
 
             //fjern await over  denne kommentaren. for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
             //----------------------------------------------------------------------------------------------------------------
