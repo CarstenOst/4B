@@ -27,7 +27,7 @@ async function scrapeFinnLink(url) {
             //----------------------------------------------------------------------------------------------------------------
             //fjern await under denne kommentaren, for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
 
-            ScrapeArticle(finnLinkAgder, TidUtsendt);
+            await ScrapeArticle(finnLinkAgder, TidUtsendt);
 
             //fjern await over  denne kommentaren. for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
             //----------------------------------------------------------------------------------------------------------------
