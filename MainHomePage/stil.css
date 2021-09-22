@@ -5,8 +5,9 @@
 body {
     /*background-image: url("repeatbg.jpg");*/
 
-    background: rgba(0,0,0,0.9);
+    background: #191919;
     font-family: "Roboto Light", sans-serif;
+
 }
 
 main {
@@ -30,21 +31,27 @@ main div {
 }
 
 main div:hover{
-    color: black;
+    color: #191919;
     background-color: #f2f2f2;
     transition: towhite 0.2s;
     -webkit-transition: towhite 0.2s;
-    animation: smoothie 0.3s;
-    animation-iteration-count: infinite;
-
+    /*animation: smoothie_blender 0.3s;
+    animation-iteration-count: infinite;*/
+    animation: BlackN_White_Fade 6s infinite;
 }
 
-@keyframes smoothie {
-    0% { transform: rotate(0deg); }
-    15% { transform: rotate(1deg); }
-    50% { transform: rotate(0deg); }
-    85% { transform: rotate(-1deg); }
-    100% { transform: rotate(0deg); }
-
+@keyframes smoothie_blender {
+    0% {transform: rotate(0deg);}
+    15% {transform: rotate(1deg);}
+    50% {transform: rotate(0deg);}
+    85% {transform: rotate(-1deg);}
+    100% {transform: rotate(0deg);}
 }
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_shake */
+
+
+@-webkit-keyframes BlackN_White_Fade{
+    0% {background-color: white; color: #191919}
+    50% {background-color: #191919; color: white;}
+    100% {background-color: white; color: #191919;}
+}
