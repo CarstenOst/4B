@@ -71,13 +71,12 @@ function generateRandomTre() {
     console.log("Len =",len, " angle =", angle, "BranchWidth =", branchWidth, "color1 =", color1, "color2 =", color2)
 }
 
-function bgToggle(){
+function bgToggle(){ //Will change the background to white or to hex #191919 depending on it's current state
     if (canvas.style.background === "white"){
-        canvas.style.background = "black";
+        canvas.style.background = "#191919";
 
     } else {
         canvas.style.background = "white";
-        ctx.shadowColor = "black";
     }
 }
 
