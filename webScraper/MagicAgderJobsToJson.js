@@ -1,6 +1,18 @@
 //Speci_WebScraper - Carsten Østergaard - Styggaste koden i he sett - Bruker 80% av 5800X uten await:)
 const puppeteer = require("puppeteer");
-process.setMaxListeners(20);
+process.setMaxListeners(20); //Omg its so simple :D
+var counter = 1;
+// oppretter eller overskriver test.json fil
+var fs = require("fs");
+saveData = (file) =>{
+    const finished = (error) =>{
+        if(error){
+            console.error(error);
+        }
+    }
+    fs.writeFile(file,"[]",finished);
+}
+saveData( "test.json");
 
 async function scrapeFinnLink(url) {
     const browser = await puppeteer.launch();
@@ -13,13 +25,13 @@ async function scrapeFinnLink(url) {
         let FinnTid2 = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/div[2]/div"); //uten enkel søknad
 
         try {
-            const [el2] = await page.$x(finnArticleFromXpath); // Copy xPath i inspect element
+            const [el2] = await page.$x(finnArticleFromXpath); // Copy xP*ath i inspect element
             const href = await el2.getProperty("href");
             //if (el2.getProperty === "undefined"){break;}
             var finnLinkAgder = await href.jsonValue();
 
-            console.log(i-1); //Denne kan trygt fjernes/endres
-
+            console.log(counter); //Denne kan trygt fjernes/endres
+            counter++
             const [ell] = await page.$x(FinnTid2); // Copy xPath i inspect element
             const tekst = await ell.getProperty("textContent");
             var TidUtsendt = await tekst.jsonValue();
@@ -28,7 +40,7 @@ async function scrapeFinnLink(url) {
             //----------------------------------------------------------------------------------------------------------------
             //fjern await under denne kommentaren, for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
 
-            ScrapeArticle(finnLinkAgder, TidUtsendt);
+            await ScrapeArticle(finnLinkAgder, TidUtsendt);
 
             //fjern await over  denne kommentaren. for raskere resultat (advarsel du vil trenge litt minne og prosessorkraft)
             //----------------------------------------------------------------------------------------------------------------
@@ -44,7 +56,8 @@ async function scrapeFinnLink(url) {
             }catch (err){
 
                 console.log("There are no more articles for you. Yay, hurra Lars 😀");
-                {break;}
+                {break}
+
             }
         }
     }
@@ -86,7 +99,7 @@ async function ScrapeArticle(url, TidUtsendt) {
                 const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div/dl/dd[2]/a"); // Copy xPath i inspect element
                 const txt2 = await el3.getProperty("textContent");
                 Telefonnummer = await txt2.jsonValue(); //Telefonnummer er allerede definert som var, trenger ikke definere igjen
-                console.log("Telefonnummer undefined, trying different xPath: " + url);
+                //console.log("Telefonnummer undefined, trying different xPath: " + url);
 
             }
             catch (err){
@@ -94,7 +107,7 @@ async function ScrapeArticle(url, TidUtsendt) {
                     const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[2]/div[1]/dl/dd[3]/a"); // Copy xPath i inspect element
                     const txt2 = await el3.getProperty("textContent");
                     Telefonnummer = await txt2.jsonValue();
-                    console.log("Possible multiple phone numbers: " + url);
+                    //console.log("Possible multiple phone numbers: " + url);
 
                 } catch (err){
                     try{
@@ -102,7 +115,7 @@ async function ScrapeArticle(url, TidUtsendt) {
                         const [el3] = await page.$x("/html/body/main/div/div[3]/div[2]/section[1]/div/dl/dd[3]/a"); // Copy xPath i inspect element
                         const txt2 = await el3.getProperty("textContent");
                         Telefonnummer = await txt2.jsonValue();
-                        console.log("Multiple contact information, only added first one: " + url);
+                        //console.log("Multiple contact information, only added first one: " + url);
                     }catch (err) {
                         console.error("No phone number written, see link: " + url);
                         Telefonnummer = "None";
@@ -158,8 +171,9 @@ async function ScrapeArticle(url, TidUtsendt) {
         }
         const All_Elements = {Arbeidsgiver, Stillingstittel, Frist, TidUtsendt, Ansettelses_Form, Kontakt_Person, Telefonnummer, url, Konkurrent};
 
-        const fs = require('fs');
-        const saveData = (data, file) =>{
+        // her må man legge inn array start og slutt. Her legges det bare til i filen
+        /*const fs = require("fs");
+        saveData = (data, file) =>{
             const finished = (error) =>{
                 if(error){
                     console.error(error);
@@ -168,7 +182,18 @@ async function ScrapeArticle(url, TidUtsendt) {
             const jsonData = JSON.stringify(data, null, 2);
             fs.appendFile(file,jsonData+",",finished);
         }
-        saveData(All_Elements, "AllAgderJobs.json");
+        saveData(All_Elements, "AllAgderJobs.json");*/
+
+        // skriver en valid json script, bruker mye ram
+        fs = require("fs");
+        let userjson = fs.readFileSync("test.json", "utf-8");
+        let test = JSON.parse(userjson);
+        test.push(All_Elements);
+        userjson = JSON.stringify(test, null, 2);
+        fs.writeFileSync("test.json", userjson, "utf-8");
+
+
+
         browser.close(); // Obvious
 
     } catch (err){
@@ -196,3 +221,6 @@ async function FindFinnPages() { //loop som finner alle jobbene i agder
 }
 
 FindFinnPages();//starter programmet
+
+//for testing under
+//scrapeFinnLink("https://www.finn.no/job/fulltime/search.html?abTestKey=control&location=1.20001.22042&page=10&sort=RELEVANCE");
