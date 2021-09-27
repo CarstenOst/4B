@@ -4,42 +4,90 @@
 }
 body {
     /*background-image: url("repeatbg.jpg");*/
-
     background: #191919;
     font-family: "Roboto Light", sans-serif;
-
 }
-
-main {
+header span, nav{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+#container {
     width: 100%;
     position: relative;
     text-align: center;
-    top: 40px;
-    bottom: 20px;
-    padding-top: 10%;
+    padding-top: 4%;
+    display: flex;
+    flex-direction: column;
+    background-color: red; /* Fjern denne får å se bg*/
+    min-width: auto;
 }
-main div {
-    color: azure;
-    padding: 15px;
+main div{
+    background-color: blue; /* Fjern denne får å se bg*/
+    width: 10%;
+    min-width: 120px;
+}
+main section div{
+    background-color: green;
+    display: inline-flex;
     position: sticky;
-    position: -webkit-sticky;
-    margin: 25px auto;
-    width: 8%;
+    top: 10px;
+    min-width: 150px;
+
+}
+main div h2, header span h1, nav div h2{
+    color: azure;
+    padding: 15px 10px;
+    margin: 5px auto;
     min-width: 100px;
     border-radius: 55px;
-    cursor: pointer;
-}
+    justify-content: center; /* fjerner du na så blir innholdet lite kult*/
 
-main div:hover{
-    color: #191919;
+}
+main div h2{
+    width: 7%;
+    margin: 20px auto;
+
+}
+header span h1{
+    min-width: 175px;
+
+}
+/*#ani:hover {
+    background-color: blue;
+    animation: kake 2s infinite;
+}
+@-webkit-keyframes kake {
+    0% {background-color: blue}
+    25% {background-color: purple}
+    50% {background-color: white}
+    75% {background-color: purple}
+    100% {background-color: blue}
+}*/
+
+
+main div h2:hover, header span h1:hover, nav div h2:hover {
+    /*color: #191919;
     background-color: #f2f2f2;
     transition: towhite 0.2s;
     -webkit-transition: towhite 0.2s;
-    /*animation: smoothie_blender 0.3s;
+    animation: smoothie_blender 0.3s;
     animation-iteration-count: infinite;*/
     animation: BlackN_White_Fade 6s infinite;
+    cursor: pointer;
+    display: flex;
+
+}
+@-webkit-keyframes BlackN_White_Fade{
+    0% {background-color: #191919; color: azure;}
+    50% {background-color: azure; color: #191919;}
+    100% {background-color: #191919; color: azure;}
 }
 
+
+
+/*
 @keyframes smoothie_blender {
     0% {transform: rotate(0deg);}
     15% {transform: rotate(1deg);}
@@ -47,11 +95,4 @@ main div:hover{
     85% {transform: rotate(-1deg);}
     100% {transform: rotate(0deg);}
 }
-/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_shake */
-
-
-@-webkit-keyframes BlackN_White_Fade{
-    0% {background-color: white; color: #191919}
-    50% {background-color: #191919; color: white;}
-    100% {background-color: white; color: #191919;}
-}
+ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_shake */
