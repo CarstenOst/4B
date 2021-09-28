@@ -1,7 +1,9 @@
 //Speci_WebScraper - Carsten Østergaard - Styggaste koden i he sett - Bruker 80% av 5800X uten await:)
 const puppeteer = require("puppeteer");
 process.setMaxListeners(20); //Omg its so simple :D
-var counter = 1;
+
+var counter = 1; //Variabel som brukes til å telle antall elementer skrevet i json array
+
 // oppretter eller overskriver test.json fil
 var fs = require("fs");
 saveData = (file) =>{
@@ -12,7 +14,7 @@ saveData = (file) =>{
     }
     fs.writeFile(file,"[]",finished);
 }
-saveData( "test.json");
+saveData( "FinnNo.json");
 
 async function scrapeFinnLink(url) {
     const browser = await puppeteer.launch();
@@ -64,7 +66,6 @@ async function scrapeFinnLink(url) {
     browser.close();
 
 }
-
 
 async function ScrapeArticle(url, TidUtsendt) {
     const browser = await puppeteer.launch();
@@ -186,11 +187,11 @@ async function ScrapeArticle(url, TidUtsendt) {
 
         // skriver en valid json script, bruker mye ram
         fs = require("fs");
-        let userjson = fs.readFileSync("test.json", "utf-8");
+        let userjson = fs.readFileSync("FinnNo.json", "utf-8");
         let test = JSON.parse(userjson);
         test.push(All_Elements);
         userjson = JSON.stringify(test, null, 2);
-        fs.writeFileSync("test.json", userjson, "utf-8");
+        fs.writeFileSync("FinnNo.json", userjson, "utf-8");
 
 
 
