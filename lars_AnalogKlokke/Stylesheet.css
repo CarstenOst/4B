@@ -8,31 +8,11 @@ section{
 }
 
 code {
-    background: #2db34a;
-    border-radius: 100px;
+    background: #a4541a;
+    border-radius: 20px;
     color: #fff;
-    display: block;
-    font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
-    padding: 5px 5px;
+    display: inline-block;
+    font: 16px/18px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+    padding: 1%;
     text-align: left;
-}
-
-code1 {
-    background: #5d535a;
-    border-radius: 100px;
-    color: #fff;
-    display: block;
-    font: 16px/16px "Source Code Pro";
-    padding: %;
-    text-align: left, margin: 0%;
-}
-
-code3 {
-    background: #5d535a;
-    border-radius: 100px;
-    color: #fff;
-    display: block;
-    font: 16px/16px "Source Code Pro";
-    padding: 15px 15px;
-    text-align: left, margin: 5%;
 }
