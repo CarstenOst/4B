@@ -3,36 +3,61 @@
 *{
     margin: 0;
     padding: 0;
+    position: relative;
     box-sizing: border-box;
 }
 
 html{
-    font-size: 10px ;
-    font-family: "Lato", Ariel, sans-serif;
+    font-size: 20px ;
+    font-family: Verdana, sans-serif;
+
 }
 
 body{
     width: 100%;
     height: 100vh;
     color: #fff;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A605, #23D5AB);
-    background-size: 400%;
+    background: linear-gradient(-45deg, #540496, #0c8015, #09294c, #994a02);
+    background-size: 400% 400%;
     position: relative;
     background-position: right;
 
-    animation: change 20s infinite;
+    animation: change 20s ease-in-out infinite;
+    box-sizing: content-box;
+}
+img{
+    float: left;
+    padding: 2px;
+
 }
 
+.border{
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-inline: 20px;
+    color: #fff;
+    display: inline-block;
+
+}
 @keyframes change {
-    0%{
+    0% {
         background-position: 0 50%;
     }
-    50%{
+    50% {
         background-position: 100% 50%;
     }
-    100%{
+    100% {
         background-position: 0 50%;
     }
+}
 
+.personalia {
+    column-count: 2;
+    margin-left: 70px;
+}
+
+ul{
+    list-style-type: none;
 
 }
