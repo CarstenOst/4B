@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="VetleVisit.css">
-</head>
+
+<html>
 <body>
+<script language="javascript">
+    //heading from one to six Ascending
+    for (heading = 1; heading <= 6; heading++)
+    {
+        document.write("<h" + heading + ">");
+        document.write("This is header" + heading);
+        document.write("</h" + heading + ">");
+    }
 
+    //heading from Six to One Descending
+    for (heading = 6; heading >= 1; heading--)
+    {
+        document.write("<h" + heading + ">");
+        document.write("This is header" + heading);
+        document.write("</h" + heading + ">");
+    }
 
-<form action="/action_page.php">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname"><br><br>
-    <input type="submit" value="Submit">
-</form>
+</script>
+</body>
+</html>
