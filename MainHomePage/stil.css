@@ -3,7 +3,7 @@
     padding: 0;
 }
 body {
-    /*background-image: url("repeatbg.jpg");*/
+
     background: #191919;
     font-family: "Roboto Light", sans-serif;
 }
@@ -68,7 +68,7 @@ header span h1{
 }*/
 
 
-main div h2:hover, header span h1:hover, nav div h2:hover {
+main div h2:hover, header div h1:hover, nav div h2:hover {
     /*color: #191919;
     background-color: #f2f2f2;
     transition: towhite 0.2s;
