@@ -7,24 +7,25 @@ body {
     background: #191919;
     font-family: "Roboto Light", sans-serif;
 }
-header span, nav{
+header div, nav{
     display: flex;
     justify-content: center;
     position: relative;
+    width: 100%;
     text-align: center;
 }
 #container {
     width: 100%;
     position: relative;
-    text-align: center;
     padding-top: 4%;
+    margin-left: 20px;
     display: flex;
     flex-direction: column;
-    background-color: red; /* Fjern denne får å se bg*/
+    /*background-color: red; /* Fjern denne får å se bg*/
     min-width: auto;
 }
 main div{
-    background-color: blue; /* Fjern denne får å se bg*/
+    /*background-color: blue; /* Fjern denne får å se bg*/
     width: 10%;
     min-width: 120px;
 }
@@ -36,7 +37,7 @@ main section div{
     min-width: 150px;
 
 }
-main div h2, header span h1, nav div h2{
+main div h2, header div h1, nav div h2{
     color: azure;
     padding: 15px 10px;
     margin: 5px auto;
