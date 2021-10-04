@@ -213,6 +213,7 @@ async function FindFinnPages() { //loop som finner alle jobbene i agder
             let FinnArticlePage = ("https://www.finn.no/job/fulltime/search.html?abTestKey=control&location=1.20001.22042&page=" + i + "&sort=RELEVANCE"); //legg inn link her
             await scrapeFinnLink(FinnArticlePage);
         } catch (err) {
+            console.error(err)
             console.log(" This means the program is finished :) Yay, hurra Lars 😀");
             console.log("----------------------------------");
             console.log("------------Success!--------------");
