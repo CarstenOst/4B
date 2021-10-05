@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visittkort</title>
+   <style type="text/css">
+
+    .kort {
+        border: 1px solid black;
+        text-align: center;
+        padding: 20px;
+        color: #03031a;
+        font-size: 1.5em;
+        font-family: Calibri, sans-serif;
+        width: fit-content;
+        background-image: url("Sky.jpg");
+        filter: brightness(115%);
+        border-radius: 5px;
+
+         }
+
+    div p {
+        background-color: #a8c2e7;
+        border-radius: 5px;
+    }
+    html, body {
+        height: 100%;
+    }
+
+    html {
+        display: table;
+        margin: auto;
+    }
+
+    body {
+        background: linear-gradient(90deg, #9aafdc, #e8eeee, #9aafdc);
+        display: table-cell;
+        vertical-align: middle;
+
+    }
+   </style>
+
+</head>
+<body>
+<h1 style="text-align: center">
+    Visittkort Amalie
+</h1>
+
+    <div class="kort">
+        <p><b>Universitetet i Agder</b></p>
+        <p>Amalie Ehnebom Lunden</p>
+        <p>Telefon: +47 940 50 416</p>
+        <p>Mail: amalie.ehnebom.lunden@gmail.com</p>
+
+    </div>
+
+
+<!--Dette er js som jeg ikke forstår noe av i det hele tatt-->
+
+
+<p id="klikktest" style="font-size: large"> <strong>klikk her</strong></p>
+<script>
+    {
+    document.getElementById("klikktest") .onclick = trykket;}
+
+    function trykket() {
+        alert("Vil du ha is?")
+    }
+</script>
+</body>
+</html>
