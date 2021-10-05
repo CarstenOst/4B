@@ -15,24 +15,26 @@ header div, nav{
     text-align: center;
 }
 #container {
+    background-color: #9aafdc;
     width: 100%;
     position: relative;
     padding-top: 4%;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
+    padding-left: 20px;
+
     /*background-color: red; /* Fjern denne får å se bg*/
     min-width: auto;
 }
 main div{
-    /*background-color: blue; /* Fjern denne får å se bg*/
+    display: flex;
+    flex-direction: column;
+    background-color: blue; /* Fjern denne får å se bg*/
     width: 10%;
     min-width: 120px;
 }
 main section div{
     background-color: green;
-    display: inline-flex;
-    position: sticky;
+    display: inline-grid;
+    position: center;
     top: 10px;
     min-width: 150px;
 
