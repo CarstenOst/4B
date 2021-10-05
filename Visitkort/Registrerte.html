@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Visittkort4B</title>
+
+  <style type="text/css">
+
+
+
+    .hel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      grid-auto-rows: minmax(100px, auto);
+      text-align: center;
+
+    }
+
+    .cont {
+
+      background-color: rgba(255,255,255,0.6);
+      color: #020003;
+      display: inline-grid;
+      font-family: "Garamond", serif;
+      font-size: large;
+      padding: 5%;
+      border-radius: 10px;
+      border: 1px solid black;
+
+    }
+    body {
+      background-image: url("bakgrunnskyer.jpg");
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+<h2 style="text-align: center; color: white" >Visittkort 4B</h2>
+
+<script>
+  const { input } = require('VisitKortVetle.html')
+  document.write(input);
+
+  x=5;
+  for (heading = 1; heading <= x; heading++)
+  {
+    document.write("<div class=\"hel\">");
+    document.write("<div className=\"cont\">");
+    document.write("<p><strong>Navn:</strong> </p>");
+    document.write(input);
+    document.write("  <p>Tlf:</p>");
+    document.write("<p>Mail:</p>");
+    document.write("<p>Personlighet:</p>");
+    document.write(" </div>");
+  }
+
+</script>
+</body>
+</html>
