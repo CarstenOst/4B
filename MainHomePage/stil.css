@@ -3,40 +3,43 @@
     padding: 0;
 }
 body {
-    /*background-image: url("repeatbg.jpg");*/
+
     background: #191919;
     font-family: "Roboto Light", sans-serif;
 }
-header span, nav{
+header div, nav{
     display: flex;
     justify-content: center;
     position: relative;
+    width: 100%;
     text-align: center;
 }
 #container {
+    background-color: #9aafdc;
     width: 100%;
     position: relative;
-    text-align: center;
     padding-top: 4%;
-    display: flex;
-    flex-direction: column;
-    background-color: red; /* Fjern denne får å se bg*/
+    padding-left: 20px;
+
+    /*background-color: red; /* Fjern denne får å se bg*/
     min-width: auto;
 }
 main div{
+    display: flex;
+    flex-direction: column;
     background-color: blue; /* Fjern denne får å se bg*/
     width: 10%;
     min-width: 120px;
 }
 main section div{
     background-color: green;
-    display: inline-flex;
-    position: sticky;
+    display: inline-grid;
+    position: center;
     top: 10px;
     min-width: 150px;
 
 }
-main div h2, header span h1, nav div h2{
+main div h2, header div h1, nav div h2{
     color: azure;
     padding: 15px 10px;
     margin: 5px auto;
@@ -67,7 +70,7 @@ header span h1{
 }*/
 
 
-main div h2:hover, header span h1:hover, nav div h2:hover {
+main div h2:hover, header div h1:hover, nav div h2:hover {
     /*color: #191919;
     background-color: #f2f2f2;
     transition: towhite 0.2s;

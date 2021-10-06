@@ -9,6 +9,9 @@
 *package.json
 *package-lock.json
 
+# MagicAgderJobs files
+*FinnNo.json
+
 # BlueJ files
 *.ctxt
 
