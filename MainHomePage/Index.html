@@ -29,28 +29,53 @@
     </div>
 </nav>
     <main id="container">
-        <div onclick="location='./Visittkort/Amalie/VisittkortAmalie.html'">
-            <h2>Amalie</h2>
-        </div>
-        <div  onclick="location='../Fractal/test.html'" id="Can you hear the silence?"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
-            <h2 id="Jeg vet, at man aldri kan vite helt sikkert">Carsten</h2>
-        </div>
-        <div onclick="location='./Visittkort/Ilham/IlhamVisit.html'">
-            <h2 >Ilham</h2>
-        </div>
-        <div onclick="location='./Visittkort/Lars/LarsVisit.html'">
-            <h2>Lars</h2>
-        </div>
-        <div onclick="location='./Visittkort/Preben/PrebenVisit.html'">
-            <h2>Preben</h2>
-        </div>
-        <div onclick="location='./Visittkort/Vetle/VetleVisit.html'">
-            <h2>Vetle</h2>
-        </div>
+        <aside>
+            <div onclick="showVisittKort('AmalieVisitt')">
+                <h2>Amalie</h2>
+            </div>
+            <div  onclick="location='../Fractal/test.html'" id="Can you hear the silence?"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
+                <h2 id="Jeg vet, at man aldri kan vite helt sikkert">Carsten</h2>
+            </div>
+            <div onclick="location='./Visittkort/Ilham/IlhamVisit.html'">
+                <h2 >Ilham</h2>
+            </div>
+            <div onclick="location='./Visittkort/Lars/LarsVisit.html'">
+                <h2>Lars</h2>
+            </div>
+            <div onclick="location='./Visittkort/Preben/PrebenVisit.html'">
+                <h2>Preben</h2>
+            </div>
+            <div onclick="location='./Visittkort/Vetle/VetleVisit.html'">
+                <h2>Vetle</h2>
+            </div>
+        </aside>
+        <script>
+            function showVisittKort(Person){
+                var kake = document.getElementById(Person)
+                if (kake.style.display === "none") {
+                    kake.style.display = "block";
+                }
+                    else {
+                        kake.style.display = "none";
+                    }
+                }
+
+        </script>
 
         <section>
             <div>
-                <p style="color: white; padding: 15px">Få meg til å bli til visittkort som dukker opp når et navn blir trykket på</p>
+                <div id="AmalieVisitt" class="kort">
+                    <p><b>Universitetet i Agder</b></p>
+                    <p>Amalie Ehnebom Lunden</p>
+                    <p>Telefon: +47 940 50 416</p>
+                    <p>Mail: amalie.ehnebom.lunden@gmail.com</p>
+                    <p id="klikktest" style="font-size: 25px"> <strong>klikk her</strong></p>
+                    <script>
+                        {document.getElementById("klikktest").onclick = trykket;}
+                        function trykket() {alert("Vil du ha is?")}
+                    </script>
+                </div>
+
             </div>
         </section>
     </main>
