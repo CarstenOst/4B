@@ -53,6 +53,7 @@
             <!-- -->
             function showVisittKort(Person){
                 var kake = document.getElementById(Person)
+
                 if (kake.style.display === "none") {
                     kake.style.display = "block";
                 }
@@ -64,12 +65,12 @@
 
         <section>
             <div>
-                <div id="AmalieVisitt" class="kort">
-                    <p><b>Universitetet i Agder</b></p>
-                    <p>Amalie Ehnebom Lunden</p>
-                    <p>Telefon: +47 940 50 416</p>
-                    <p>Mail: amalie.ehnebom.lunden@gmail.com</p>
-                    <p id="klikktest" style="font-size: 25px"> <strong>klikk her</strong></p>
+                <div id="AmalieVisitt" class="kort" style="display: none">
+                    <p class="AmalieVisittChld"><b>Universitetet i Agder</b></p>
+                    <p class="AmalieVisittChld">Amalie Ehnebom Lunden</p>
+                    <p class="AmalieVisittChld">Telefon: +47 940 50 416</p>
+                    <p class="AmalieVisittChld">Mail: amalie.ehnebom.lunden@gmail.com</p>
+                    <p class="AmalieVisittChld" id="klikktest" style="font-size: 25px"> <strong>klikk her</strong></p>
                     <script>
                         {document.getElementById("klikktest").onclick = trykket;}
                         function trykket() {alert("Vil du ha is?")}
@@ -79,7 +80,7 @@
 
 
                 <!-- Vetle -->
-                <div id="VetleVisitt" class="card-wrapper">
+                <div id="VetleVisitt" class="card-wrapper" style="display: none;">
                     <div class="card">
                         <div class="card-front">
                             <div class="left">
