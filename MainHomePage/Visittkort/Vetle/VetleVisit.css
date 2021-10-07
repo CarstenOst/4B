@@ -86,7 +86,6 @@ ul li.back span {
 }
 
 .right-content {
-    display: flex;
     align-items: center;
     margin: 20px 0;
     margin-left: 20px;
@@ -102,19 +101,22 @@ ul li.back span {
 }
 
 .linkedin {
+    font-size: 50px;
     color: #fff;
+    transition: 0.2s;
+    text-decoration: none;
 }
 
 .linkedin:hover {
     color: darkturquoise;
-    transition: 0.2s;
 }
 
 .facebook {
+    font-size: 50px;
     color: #fff;
+    transition: 0.2s;
 }
 
 .facebook:hover {
     color: darkturquoise;
-    transition: 0.2s;
 }
