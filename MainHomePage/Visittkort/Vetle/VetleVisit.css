@@ -92,7 +92,7 @@ ul li.back span {
 }
 
 .name {
-    flex-direction: column;
+    display: flex;
     justify-content: center;
     background-color: darkturquoise;
     padding: 5px 0 5px 0px;
