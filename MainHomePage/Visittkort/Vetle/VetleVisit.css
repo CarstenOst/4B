@@ -36,7 +36,7 @@ ul li span {
     width: 20px;
     height: 20px;
     border: 3px solid #fff;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 ul li.back span {
@@ -92,11 +92,29 @@ ul li.back span {
     margin-left: 20px;
 }
 
-.name{
+.name {
     flex-direction: column;
     justify-content: center;
     background-color: darkturquoise;
     padding: 5px 0 5px 0px;
     margin: 30px 0;
     box-shadow: 0px 0px 10px rgba(255,255,255, 0.5);
+}
+
+.linkedin {
+    color: #fff;
+}
+
+.linkedin:hover {
+    color: darkturquoise;
+    transition: 0.2s;
+}
+
+.facebook {
+    color: #fff;
+}
+
+.facebook:hover {
+    color: darkturquoise;
+    transition: 0.2s;
 }
