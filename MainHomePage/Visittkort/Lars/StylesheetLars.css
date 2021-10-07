@@ -1,5 +1,3 @@
-@import "https://fonts.googleapis.com/css?family=Lato:100";
-
 *{
     margin: 0;
     padding: 0;
@@ -10,36 +8,60 @@
 html{
     font-size: 20px ;
     font-family: Verdana, sans-serif;
+}
 
+/*egen linje helt øverst på siden som skiller seg fra resten som en marg*/
+header{
+    padding-top: 20px;
+    padding-bottom: 3px;
+    background: linear-gradient(-45deg, #540496, #0c8015, #994a02);
+    background-size: 400% 400%;
+    position: relative;
+    animation: change 30s ease-in-out infinite;
+    display: flex;
+}
+
+.nav{
+    padding: 2px;
+    flex-grow: 1;
+}
+
+.nav_list{
+    margin: 2px 2px 2px 20px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+.nav_list li:nth-of-type(1){
+    margin-left: auto;
+}
+
+.nav_list li:nth-of-type(7){
+    margin-left: auto;
+}
+
+/*anker får hvit farge selv om det er en link, og den forblir hvit også etter at noen har besøkt siden*/
+a, a:hover a:active a:visited{
+    color: #ffffff;
+    text-decoration: none;
 }
 
 body{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     color: #fff;
-    background: linear-gradient(-45deg, #540496, #0c8015, #09294c, #994a02);
-    background-size: 400% 400%;
     position: relative;
-    background-position: right;
-
-    animation: change 20s ease-in-out infinite;
-    box-sizing: content-box;
-}
-img{
-    float: left;
-    padding: 2px;
-
+    background: linear-gradient(-45deg, #540496, #0c8015, #994a02) right;
+    text-align: inherit;
+    animation: change 30s ease-in-out infinite;
 }
 
-.border{
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-inline: 20px;
-    color: #fff;
-    display: inline-block;
-
+body{
+    background-size: 400% 400%;
 }
+
 @keyframes change {
     0% {
         background-position: 0 50%;
@@ -52,12 +74,89 @@ img{
     }
 }
 
-.personalia {
-    column-count: 2;
-    margin-left: 70px;
+img{
+    float: left;
+    padding: 2px;
+    margin-top: 0;
+    margin-left: 19.7%;
 }
 
-ul{
-    list-style-type: none;
+.responsive:hover {
+    height: auto;
+    -webkit-text-replace: scaleX(-1);
+    transform: scaleX(-1);
+}
 
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+    width: 20%;
+}
+
+.border{
+    border-radius: 10px;
+    margin-top: 70px;
+    margin-inline: 2%;
+    color: #fff;
+    display: inline-block;
+}
+
+.personalia-tabell {
+    width: 100%;
+    display: table;
+    border-spacing: 5px;
+    padding-top: 20px;
+}
+
+.button{
+    font-size: 15px;
+    margin: 21.5%;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.spørsmål{
+    margin-left: 20%;
+}
+
+.nav_footer{
+    column-count: 3;
+    text-align: center;
+    list-style: none;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-size: 14px;
+}
+
+.fab{
+    padding: 20px;
+    font-size: 10px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+.fab:hover{
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
 }
