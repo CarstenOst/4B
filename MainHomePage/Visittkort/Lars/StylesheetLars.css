@@ -8,6 +8,7 @@
 html{
     font-size: 20px ;
     font-family: Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
 /*egen linje helt øverst på siden som skiller seg fra resten som en marg*/
@@ -18,7 +19,6 @@ header{
     background-size: 400% 400%;
     position: relative;
     animation: change 30s ease-in-out infinite;
-    display: flex;
 }
 
 .nav{
@@ -42,6 +42,7 @@ header{
     margin-left: auto;
 }
 
+
 /*anker får hvit farge selv om det er en link, og den forblir hvit også etter at noen har besøkt siden*/
 a, a:hover a:active a:visited{
     color: #ffffff;
@@ -54,12 +55,9 @@ body{
     color: #fff;
     position: relative;
     background: linear-gradient(-45deg, #540496, #0c8015, #994a02) right;
+    background-size: 400% 400%;
     text-align: inherit;
     animation: change 30s ease-in-out infinite;
-}
-
-body{
-    background-size: 400% 400%;
 }
 
 @keyframes change {
@@ -109,54 +107,114 @@ img{
     padding-top: 20px;
 }
 
-.button{
+.buttonsend{
     font-size: 15px;
     margin: 21.5%;
     padding: 2px;
     cursor: pointer;
 }
 
+footer{
+    padding: 12px;
+    flex-grow: 1;
+}
+
+.wrapper{
+    margin: 2px 2px 2px 5px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin-left: 32%;
+}
+.wrapper .buttonsome{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin: 20px;
+    background: #ggg;
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .buttonsome .icon {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 5px;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .buttonsome:nth-child(1):hover .icon {
+    background: #426782;
+}.wrapper .buttonsome:nth-child(2):hover .icon {
+    background: #2867B2;
+}.wrapper .buttonsome:nth-child(3):hover .icon {
+    background: #E1306C;
+}.wrapper .buttonsome:nth-child(4):hover .icon {
+    background: #333;
+}.wrapper .buttonsome:nth-child(5):hover .icon {
+    background: #ff0000;
+}
+
+.wrapper .buttonsome .icon i{
+    font-size: 30px;
+    line-height: 40px;
+
+}
+
+.wrapper .buttonsome:hover .icon i{
+    font-size: 40px;
+    line-height: 40px;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .buttonsome span{
+    font-size: 20px;
+    font-width: 0;
+    line-height: 40px;
+    margin-left: 0px;
+    transition: all 0.3s ease-out;
+}
+
+.wrapper .buttonsome:nth-child(1):hover .span {
+    color: #426782;
+}
+.wrapper .buttonsome:nth-child(2):hover .span {
+     color: #2867B2;
+}
+.wrapper .buttonsome:nth-child(3):hover .span {
+      color: #E1306C;
+}
+.wrapper .buttonsome:nth-child(4):hover .span {
+       color: #333;
+}
+.wrapper .buttonsome:nth-child(5):hover .span {
+        color: #ff0000;
+}
+
 .spørsmål{
     margin-left: 20%;
 }
 
-.nav_footer{
-    column-count: 3;
-    text-align: center;
-    list-style: none;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    font-size: 14px;
-}
+.gototop{
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: #ggg;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 50px;
 
-.fab{
-    padding: 20px;
-    font-size: 10px;
-    width: 50px;
-    text-align: center;
     text-decoration: none;
-    margin: 5px 2px;
-}
-.fab:hover{
-    opacity: 0.7;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    font-size: 50px;
 }
 
-.fa-facebook {
-    background: #3B5998;
-    color: white;
-}
-
-.fa-linkedin {
-    background: #007bb5;
-    color: white;
-}
-
-.fa-instagram {
-    background: #125688;
-    color: white;
-}
-
-.fa-twitter {
-    background: #55ACEE;
-    color: white;
-}

@@ -50,10 +50,10 @@
             </div>
         </aside>
         <script>
-            <!-- JS som viser visittkortene når navnene blir trykket på -->
+            <!-- -->
             function showVisittKort(Person){
-                let kake = document.getElementById(Person)
-                    // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon
+                var kake = document.getElementById(Person)
+
                 if (kake.style.display === "none") {
                     kake.style.display = "block";
                 }
@@ -65,13 +65,12 @@
 
         <section>
             <div>
-                <!-- Amalie -->
                 <div id="AmalieVisitt" class="kort" style="display: none">
-                    <p><b>Universitetet i Agder</b></p>
-                    <p>Amalie Ehnebom Lunden</p>
-                    <p>Telefon: +47 940 50 416</p>
-                    <p>Mail: amalie.ehnebom.lunden@gmail.com</p>
-                    <p id="klikktest" style="font-size: 25px"> <strong>klikk her</strong></p>
+                    <p class="AmalieVisittChld"><b>Universitetet i Agder</b></p>
+                    <p class="AmalieVisittChld">Amalie Ehnebom Lunden</p>
+                    <p class="AmalieVisittChld">Telefon: +47 940 50 416</p>
+                    <p class="AmalieVisittChld">Mail: amalie.ehnebom.lunden@gmail.com</p>
+                    <p class="AmalieVisittChld" id="klikktest" style="font-size: 25px"> <strong>klikk her</strong></p>
                     <script>
                         {document.getElementById("klikktest").onclick = trykket;}
                         function trykket() {alert("Vil du ha is?")}
@@ -98,10 +97,10 @@
                                 <div class="mail right-content">
                                     <p>Mail: vetlejn@uia.no</p>
                                 </div>
-                                <a class="logoVetle right-content" href="https://www.linkedin.com/in/vetle-johansen-nilsen-7979711a7/" target="_blank">
+                                <a class="linkedin right-content" href="https://www.linkedin.com/in/vetle-johansen-nilsen-7979711a7/" target="_blank">
                                     <ion-icon name="logo-linkedin"></ion-icon>
                                 </a>
-                                <a class="logoVetle right-content" href="https://www.facebook.com/vetle.nilsen.98/" target="_blank">
+                                <a class="facebook right-content" href="https://www.facebook.com/vetle.nilsen.98/" target="_blank">
                                     <ion-icon name="logo-facebook"></ion-icon>
                                 </a>
                             </div>

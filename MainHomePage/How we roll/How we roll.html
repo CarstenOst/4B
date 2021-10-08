@@ -1,32 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>How We Roll</title>
     <style>
         h1 {
-        font-size: 50px;
-        font-style: italic;
-        font-family: Verdana;
-        font-weight: bold;
-        text-align: center;
-       font-family: Comic Sans, Comic Sans MS, cursive;
-       font-size: 60px;
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            font-family: Comic Sans, Comic Sans MS, cursive;
+            font-size: 60px;
+            color: white;
         }
+
+        .center{
+            text-align: center;
+            margin-left: auto;
+            color: white;
+            font-size: 20px;
+        }
+
         body {
-        background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
+            background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
        }
-
-
-
-
-
-        }
-
-
     </style>
 </head>
     <body>
-   <h1>How we roll</h1>
+
+        <h1>How we roll</h1>
 
 
+        <h2 class="center">Preferanser for arbeid:</h2>
+        <br>
+        <form class="center" onsubmit="return false">
+            <label><b>Navn:</b></label><label>
+                <input type="text" style="margin-left: 1%; margin-right: 5%; background-color: gainsboro">
+            </label>
+            <br>
+            <br>
+
+            <div>
+                <label for="morgenkveld">Morgen</label>
+                <input type="range" id="morgenkveld" name="morgenkveld" min="1" max="10">
+                <label for="morgenkveld" style="margin-right: 2%">Kveld</label>
+            </div>
+
+            <div>
+                <label for="gruppesolo">Gruppe</label>
+                <input type="range" id="gruppesolo" name="gruppesolo" min="1" max="10">
+                <label for="gruppesolo" style="margin-right: 2.6%">Solo</label>
+            </div>
+
+            <div>
+                <label for="fysiskdigitalt">Fysisk samling</label>
+                <input type="range" id="fysiskdigitalt" name="fysiskdigitalt" min="1" max="10">
+                <label for="fysiskdigitalt">Digitalt hjemme</label>
+            </div>
+
+            <div>
+                <label for="kreativtkontroll">Kreativt</label>
+                <input type="range" id="kreativtkontroll" name="kreativtkontroll" min="1" max="10">
+                <label for="kreativtkontroll" style="margin-right: 0.6%">Kontroll</label>
+            </div>
+
+            <div>
+                <label for="forberedtpåsparket">Forberedt</label>
+                <input type="range" id="forberedtpåsparket" name="forberedtpåsparket" min="1" max="10">
+                <label for="forberedtpåsparket"  style="margin-right: 0.4%">På sparket</label>
+            </div>
+
+            <input type="submit" value="Lagre" style=" margin-top: 1%; background-color: gainsboro; font-size: 16px; cursor: pointer">
+        </form>
 </body>
 </html>

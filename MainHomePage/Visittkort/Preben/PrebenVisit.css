@@ -76,7 +76,7 @@ ul li.back span {
 
 .left img {
     width: 80%;
-    box-shadow: 0 10px 20px rgba(0,0,0, 0.8);
+    box-shadow: 0px 10px 20px rgba(0,0,0, 0.8);
     background: rgb(0, 186, 255);
 }
 
@@ -90,7 +90,7 @@ ul li.back span {
     align-items: center;
     margin: 20px 0;
     margin-left: 20px;
-    font-family: "Roboto Slab SemiBold", sans-serif;
+    font-family: "Roboto Slab SemiBold";
 }
 
 .name {
@@ -98,8 +98,7 @@ ul li.back span {
     justify-content: center;
     background-color: #00baff;
     color: white;
-    font-family: "Roboto Slab SemiBold", sans-serif;
-    padding: 5px 0 5px 0;
+    font-family: "Roboto Slab SemiBold";
+    padding: 5px 0 5px 0px;
     margin: 30px 0;
-    box-shadow: 0 0 10px rgba(255,255,255, 0.5);
-}
+    box-shadow: 0px 0px 10px rgba(255,255,255, 0.5);
