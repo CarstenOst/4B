@@ -54,11 +54,13 @@
         let lastPerson = 'VetleVisitt'; // Må være definert som ett av visittkort onclick
         function showVisittKort(Person){
             const kake = document.getElementById(Person)
+            const uiaLogo = document.getElementById("UIA-Logo")
             // Jeg liker kake, så da får variabel navnet bli kake //\\ Ikke bli sur Janis, jeg vet du også liker kake :)
 
             // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon
             if (kake.style.display === "none") {
                 kake.style.display = "block";
+                uiaLogo.style.display = "none";
                 try{
                     if (Person !== lastPerson) {
                         let forrigeKake = document.getElementById(lastPerson);
@@ -71,12 +73,16 @@
             }
             else {
                 kake.style.display = "none";
+                uiaLogo.style.display = "block";
             }
         }
     </script>
 
     <section>
         <div id="visitt_Cont">
+            <div id="UIA-Logo" style="display: block">
+                <img src="../Bilder/4B_logo_no_backround_lowq.png" alt="UIA-Logo" width="550px">
+            </div>
             <!-- Her legger vi inn alle visittkortene (NB: ha alt inni en conteiner)
                  Id i conteinter skal være "navnVisitt" -->
 
@@ -92,7 +98,6 @@
                     function trykket() {alert("Vil du ha is?")}
                 </script>
             </div>
-
             <!-- Carsten -->
             <div id="CarstenVisitt" style="display: none" onclick="location='../Fractal/test.html'">
                 <div class="carBackEnd">
@@ -102,13 +107,11 @@
                     </div>
                 </div>
                 <!-- Dette elementet vises over det elementet ovenfor, fordi den har position absolute, kunne gjort motsatt såklart :) -->
-                <div class="Yeet2">
+                <div class="frontVCard">
                     <div class="centerInline">
-                        <span id="CarstenName">Carsten Østergaard</span>
+                        <span>Carsten Østergaard</span>
                     </div>
                 </div>
-
-
             </div>
 
 
