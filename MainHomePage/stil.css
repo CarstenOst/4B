@@ -47,7 +47,8 @@ main section { /* Centers main section and elements beneath*/
 #visitt_Cont{
     top: 10px;
     min-width: 150px;
-    max-width: 600px;
+    max-width: 550px;
+    max-height: 300px;
 }
 main aside div h2, header div h1, nav div h2{
     color: var(--text-color);
@@ -101,7 +102,7 @@ header span h1{
     backface-visibility: hidden;
     color: var(--text-color);
 }
-.carBackEnd, .Yeet2{
+.carBackEnd, .frontVCard{
     cursor: pointer;
     width: 550px;
     height: 300px;
@@ -112,12 +113,13 @@ header span h1{
 .carBackEnd{
     position: fixed;
 }
-.Yeet2 {
+.frontVCard {
     transition: 1s ease-out 0.2s;
     backface-visibility: hidden;
     position: absolute;
+    font-size: 34px;
 }
-.Yeet2:hover{
+.frontVCard:hover{
     transform: rotateY(-180deg);
     display: block;
 }
@@ -127,9 +129,7 @@ header span h1{
     vertical-align: middle;
     line-height: normal;
 }
-#CarstenName{
-    font-size: 34px;
-}
+
 
 /*
 -----------------------------------------------------------------------------------
