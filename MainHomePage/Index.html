@@ -33,7 +33,7 @@
         <div onclick="showVisittKort('AmalieVisitt')">
             <h2>Amalie</h2>
         </div>
-        <div  onclick="location='../Fractal/test.html'" id="Can you hear the silence?"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
+        <div onclick="showVisittKort('CarstenVisitt')" id="Can you hear the silence?"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
             <h2 id="Jeg vet, at man aldri kan vite helt sikkert">Carsten</h2>
         </div>
         <div onclick="location='./Visittkort/Ilham/IlhamVisit.html'">
@@ -54,6 +54,7 @@
         let lastPerson = 'VetleVisitt'; // Må være definert som ett av visittkort onclick
         function showVisittKort(Person){
             const kake = document.getElementById(Person)
+            // Jeg liker kake, så da får variabel navnet bli kake //\\ Ikke bli sur Janis, jeg vet du også liker kake :)
 
             // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon
             if (kake.style.display === "none") {
@@ -75,7 +76,7 @@
     </script>
 
     <section>
-        <div>
+        <div id="visitt_Cont">
             <!-- Her legger vi inn alle visittkortene (NB: ha alt inni en conteiner)
                  Id i conteinter skal være "navnVisitt" -->
 
@@ -92,7 +93,23 @@
                 </script>
             </div>
 
+            <!-- Carsten -->
+            <div id="CarstenVisitt" style="display: none" onclick="location='../Fractal/test.html'">
+                <div class="carBackEnd">
+                    <div class="centerInline">
+                        <span>carsten@uia.no</span><br><br> <!-- For lat til å legge på padding i css -->
+                        <span>+47 472 74 009</span>
+                    </div>
+                </div>
+                <!-- Dette elementet vises over det elementet ovenfor, fordi den har position absolute, kunne gjort motsatt såklart :) -->
+                <div class="Yeet2">
+                    <div class="centerInline">
+                        <span id="CarstenName">Carsten Østergaard</span>
+                    </div>
+                </div>
 
+
+            </div>
 
 
 
