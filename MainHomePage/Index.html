@@ -51,11 +51,23 @@
     </aside>
     <script>
         <!-- JS som viser visittkortene når navnene blir trykket på -->
+        let lastPerson = 'VetleVisitt'; // Må være definert som ett av visittkort onclick
         function showVisittKort(Person){
-            let kake = document.getElementById(Person)
+            const kake = document.getElementById(Person)
+
             // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon
             if (kake.style.display === "none") {
                 kake.style.display = "block";
+                try{
+                    if (Person !== lastPerson) {
+                        let forrigeKake = document.getElementById(lastPerson);
+                        console.log(forrigeKake);
+                        forrigeKake.style.display = "none";
+                        lastPerson = Person;
+                    }
+                }catch(err){
+                    console.log(err);
+                }
             }
             else {
                 kake.style.display = "none";
