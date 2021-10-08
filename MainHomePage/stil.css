@@ -68,6 +68,7 @@ header span h1{
 }
 #AmalieVisitt{
     display: none;
+
 }
 .kort {
     border: 1px solid black;
@@ -80,14 +81,13 @@ header span h1{
     background-image: url("./Visittkort/Amalie/Sky.jpg");
     filter: brightness(115%);
     border-radius: 5px;
-
-
 }
 
 #AmalieVisitt p {
     background-color: #a8c2e7;
     border-radius: 5px;
     margin: 25px;
+    padding: 0 20px 0 20px;
 
 }
 
