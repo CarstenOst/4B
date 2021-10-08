@@ -1,13 +1,15 @@
+/* Variabler for å endre farge design raskt */
 :root {
     --main-color: #191919;
+    --text-color: azure;
 }
-
+/* Definerer margin og padding på alt */
 *{
     margin: 0;
     padding: 0;
 }
 
-/*noinspection CssUnresolvedCustomProperty*/
+/* Setter felles bakgrunn og font på alt i body dersom ikke sener definert */
 body {
     background: var(--main-color);
     font-family: "Roboto Light", sans-serif;
@@ -42,13 +44,13 @@ main section { /* Centers main section and elements beneath*/
     left: 50%;
     transform: translate(-50%, -50%);
 }
-main section div{
+#visitt_Cont{
     top: 10px;
     min-width: 150px;
     max-width: 600px;
 }
 main aside div h2, header div h1, nav div h2{
-    color: azure;
+    color: var(--text-color);
     padding: 15px 10px;
     margin: 5px auto;
     min-width: 100px;
@@ -61,15 +63,11 @@ main aside div h2{
 }
 header span h1{
     min-width: 175px;
-
+}
 
 
 /* Amalie */
-}
-#AmalieVisitt{
-    display: none;
 
-}
 .kort {
     border: 1px solid black;
     text-align: center;
@@ -91,12 +89,47 @@ header span h1{
 
 }
 
-
-
-
-
-
-
+/*
+-----------------------------------------------------------------------------------
+ Carsten
+-----------------------------------------------------------------------------------
+ */
+#CarstenVisitt {
+    background-color: brown;
+    width: 550px;
+    height: 300px;
+    backface-visibility: hidden;
+    color: var(--text-color);
+}
+.carBackEnd, .Yeet2{
+    cursor: pointer;
+    width: 550px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    background: linear-gradient(45deg, var(--main-color) 0%, rgba(64,42,65,1) 50%, var(--main-color) 100%);
+}
+.carBackEnd{
+    position: fixed;
+}
+.Yeet2 {
+    transition: 1s ease-out 0.2s;
+    backface-visibility: hidden;
+    position: absolute;
+}
+.Yeet2:hover{
+    transform: rotateY(-180deg);
+    display: block;
+}
+/* This will center stuff that are in spans, spans need to get inline-block, or block display in order to vertically align */
+.centerInline{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+#CarstenName{
+    font-size: 34px;
+}
 
 /*
 -----------------------------------------------------------------------------------
@@ -204,9 +237,9 @@ main div h2:hover, header div h1:hover, nav div h2:hover {
     display: flex;
 }
 @-webkit-keyframes BlackN_White_Fade{
-    0% {background-color: var(--main-color); color: azure;}
-    50% {background-color: azure; color: var(--main-color);}
-    100% {background-color: var(--main-color); color: azure;}
+    0% {background-color: var(--main-color); color: var(--text-color);}
+    50% {background-color: var(--text-color); color: var(--main-color);}
+    100% {background-color: var(--main-color); color: var(--text-color);}
 }
 
 
