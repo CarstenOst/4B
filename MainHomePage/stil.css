@@ -1,9 +1,15 @@
+:root {
+    --main-color: #191919;
+}
+
 *{
     margin: 0;
     padding: 0;
 }
+
+/*noinspection CssUnresolvedCustomProperty*/
 body {
-    background: #191919;
+    background: var(--main-color);
     font-family: "Roboto Light", sans-serif;
 }
 header div, nav{
@@ -100,7 +106,6 @@ header span h1{
 #VetleVisitt {
     display: none;
 }
-
 .card-wrapper {
     position: absolute;
     top: 50%;
@@ -138,13 +143,10 @@ header span h1{
     width: 60%;
     color: #fff;
 }
-
 .right-content {
     align-items: center;
-    margin: 20px 0;
-    margin-left: 20px;
+    margin: 20px 0 20px 20px;
 }
-
 .name {
     display: flex;
     justify-content: center;
@@ -153,7 +155,6 @@ header span h1{
     margin: 30px 0;
     box-shadow: 0 0 10px rgba(255,255,255, 0.5);
 }
-
 .logoVetle{
     font-size: 50px;
     color: #fff;
@@ -203,9 +204,9 @@ main div h2:hover, header div h1:hover, nav div h2:hover {
     display: flex;
 }
 @-webkit-keyframes BlackN_White_Fade{
-    0% {background-color: #191919; color: azure;}
-    50% {background-color: azure; color: #191919;}
-    100% {background-color: #191919; color: azure;}
+    0% {background-color: var(--main-color); color: azure;}
+    50% {background-color: azure; color: var(--main-color);}
+    100% {background-color: var(--main-color); color: azure;}
 }
 
 
