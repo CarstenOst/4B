@@ -15,7 +15,7 @@
 
         .center{
             text-align: center;
-            margin-left: auto;
+            margin: auto;
             color: white;
             font-size: 20px;
         }
@@ -32,9 +32,9 @@
 
         <h2 class="center">Preferanser for arbeid:</h2>
         <br>
-        <form class="center" onsubmit="return false">
-            <label><b>Navn:</b></label><label>
-                <input type="text" style="margin-left: 1%; margin-right: 5%; background-color: gainsboro">
+        <form class="center" onsubmit="return true">
+            <label for="navn"><b>Navn:</b></label><label>
+            <input id="navn" name="navn" type="text" style="margin-left: 1%; margin-right: 5%; background-color: gainsboro">
             </label>
             <br>
             <br>
@@ -64,12 +64,56 @@
             </div>
 
             <div>
-                <label for="forberedtpåsparket">Forberedt</label>
-                <input type="range" id="forberedtpåsparket" name="forberedtpåsparket" min="1" max="10">
-                <label for="forberedtpåsparket"  style="margin-right: 0.4%">På sparket</label>
+                <!-- fops - Forbredt eller på sparket -->
+                <label for="fops">Forberedt</label>
+                <input type="range" id="fops" name="fops" min="1" max="10">
+                <label for="fops"  style="margin-right: 0.4%">På sparket</label>
             </div>
 
             <input type="submit" value="Lagre" style=" margin-top: 1%; background-color: gainsboro; font-size: 16px; cursor: pointer">
         </form>
+
+        <!-- Denne var en liten luring-->
+        <div class="results center" style=" width: 330px; ">
+            <h2>Form Data</h2>
+            <pre style="font-size: 12px; text-align: left"></pre>
+        </div>
+
+        <script>
+            // From https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch (seen 2021-09-27)
+            // Example POST method implementation using fetch:
+            async function postData(url = '', data = {}) {
+                // Default options are marked with *
+                const response = await fetch(url, {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache,only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer,*no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                    body: JSON.stringify(data) // body data type must match"Content-Type"header
+                });
+                return response.json(); // parses JSON response into native JavaScriptobjects
+            }
+
+            function handleSubmit(event) {
+                event.preventDefault();
+                const data = new FormData(event.target);
+                const formJSON = Object.fromEntries(data.entries());
+                const results = document.querySelector('.results pre');
+                postData('https://bacit.info/', formJSON)
+                    .then(data => {
+                        results.innerText = JSON.stringify(data, null, 2);
+                    });
+                console.log(formJSON)
+                console.log('https://bacit.info/', formJSON)
+            }
+            const form = document.querySelector('form');
+            form.addEventListener('submit', handleSubmit);
+        </script>
 </body>
 </html>
