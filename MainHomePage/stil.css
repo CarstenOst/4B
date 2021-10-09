@@ -65,6 +65,23 @@ main aside div h2{
 header span h1{
     min-width: 175px;
 }
+#Janis_sjef{
+    color: var(--text-color);
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#bg_bilde {
+    filter: blur(7px);
+    transition-duration: 1s;
+}
+
+#bg_bilde:hover{
+    filter: blur(0px);
+}
+
+
 
 /* Hover animation */
 main div h2:hover, header div h1:hover, nav div h2:hover {
