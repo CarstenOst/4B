@@ -9,7 +9,7 @@
     padding: 0;
 }
 
-/* Setter felles bakgrunn og font på alt i body dersom ikke sener definert */
+/* Setter felles bakgrunn og font på alt i body dersom ikke senere definert */
 body {
     background: var(--main-color);
     font-family: "Roboto Light", sans-serif;
@@ -65,6 +65,25 @@ main aside div h2{
 header span h1{
     min-width: 175px;
 }
+
+/* Hover animation */
+main div h2:hover, header div h1:hover, nav div h2:hover {
+    /*color: #191919;
+    background-color: #f2f2f2;
+    transition: towhite 0.2s;
+    -webkit-transition: towhite 0.2s;
+    animation: smoothie_blender 0.3s;
+    animation-iteration-count: infinite;*/
+    animation: BlackN_White_Fade 6s infinite;
+    cursor: pointer;
+    display: flex;
+}
+@-webkit-keyframes BlackN_White_Fade{
+    0% {background-color: var(--main-color); color: var(--text-color);}
+    50% {background-color: var(--text-color); color: var(--main-color);}
+    100% {background-color: var(--main-color); color: var(--text-color);}
+}
+
 
 
 /* Amalie */
@@ -201,7 +220,7 @@ header span h1{
 
 
 
-
+/* Unused code */
 
 
 /*#ani:hover {
@@ -215,24 +234,6 @@ header span h1{
     75% {background-color: purple}
     100% {background-color: blue}
 }*/
-
-main div h2:hover, header div h1:hover, nav div h2:hover {
-    /*color: #191919;
-    background-color: #f2f2f2;
-    transition: towhite 0.2s;
-    -webkit-transition: towhite 0.2s;
-    animation: smoothie_blender 0.3s;
-    animation-iteration-count: infinite;*/
-    animation: BlackN_White_Fade 6s infinite;
-    cursor: pointer;
-    display: flex;
-}
-@-webkit-keyframes BlackN_White_Fade{
-    0% {background-color: var(--main-color); color: var(--text-color);}
-    50% {background-color: var(--text-color); color: var(--main-color);}
-    100% {background-color: var(--main-color); color: var(--text-color);}
-}
-
 
 
 /*
