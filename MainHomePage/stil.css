@@ -150,6 +150,70 @@ main div h2:hover, header div h1:hover, nav div h2:hover {
 }
 
 
+
+
+
+
+/*
+-----------------------------------------------------------------------------------
+ Preben
+-----------------------------------------------------------------------------------
+ */
+
+.card1 {
+    width: 550px;
+    height: 300px;
+    background-color: rgba(0, 186, 255, 0.08);
+}
+
+.card-front1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: white;
+    border-radius: 20px;
+}
+
+.left1 {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left1 img {
+    width: 80%;
+    box-shadow: 0 10px 20px rgba(0,0,0, 0.8);
+    background: rgb(0, 186, 255);
+}
+
+.right1 {
+    width: 60%;
+    color: #00baff;
+}
+
+.right-content1 {
+    align-items: center;
+    margin: 20px 0;
+    margin-left: 20px;
+    font-family: "Roboto Slab SemiBold", sans-serif;
+}
+
+.name1 {
+    display: flex;
+    justify-content: center;
+    background-color: #00baff;
+    color: white;
+    font-family: "Roboto Slab SemiBold", sans-serif;
+    padding: 5px 0 5px 0;
+    margin: 30px 0;
+    box-shadow: 0 0 10px rgba(255,255,255, 0.5);
+}
+
+
+
+
 /*
 -----------------------------------------------------------------------------------
  Vetle
