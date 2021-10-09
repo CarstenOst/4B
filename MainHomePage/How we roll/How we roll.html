@@ -4,30 +4,70 @@
     <meta charset="UTF-8">
     <title>How We Roll</title>
     <style>
+        :root {
+            --main-color: #191919;
+            --text-color: azure;
+        }
+        header div, nav{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
         h1 {
             font-style: italic;
             font-weight: bold;
             text-align: center;
             font-family: Comic Sans, Comic Sans MS, cursive;
             font-size: 60px;
-            color: white;
+            color: var(--text-color);
         }
-
+        header div h1, nav div h2{
+            color: var(--text-color);
+            padding: 15px 10px;
+            margin: 5px auto;
+            min-width: 100px;
+            border-radius: 55px;
+            justify-content: center; /* fjerner du na så blir innholdet lite kult*/
+        }
+        header div h1:hover, nav div h2:hover {
+            animation: BlackN_White_Fade 6s infinite;
+            cursor: pointer;
+            display: flex;
+        }
+        @-webkit-keyframes BlackN_White_Fade{
+            0% {}
+            50% {background-color: var(--text-color); color: var(--main-color);}
+            100% {}
+        }
         .center{
             text-align: center;
             margin: auto;
-            color: white;
+            color: var(--text-color);
             font-size: 20px;
         }
 
         body {
             background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
        }
+
     </style>
 </head>
     <body>
-
-        <h1>How we roll</h1>
+    <header id="You´re always wrong, but how much?"> <!-- remember to remove the inspo quotes b4 submittion -->
+        <div onclick="window.location.reload();">
+            <h1>How we roll</h1>
+        </div>
+    </header>
+    <nav>
+        <div onclick="location='../Index.html'">
+            <h2>Visittkort</h2>
+        </div>
+        <div onclick="location='./hwr-report/hwr-report.html'">
+            <h2>How We Roll Report</h2>
+        </div>
+    </nav>
 
 
         <h2 class="center">Preferanser for arbeid:</h2>
