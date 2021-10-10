@@ -22,7 +22,7 @@
             font-style: italic;
             font-weight: bold;
             text-align: center;
-            font-family: Comic Sans, Comic Sans MS, cursive;
+            font-family: Comic Sans, Comic Sans MS, cursive; /* Comic sans er vElDiG mYe lIkT i det digitale samfunnet :P */
             font-size: 60px;
             color: var(--text-color);
         }
@@ -34,7 +34,7 @@
             border-radius: 55px;
             justify-content: center; /* fjerner du na så blir innholdet lite kult*/
         }
-        header div h1:hover, nav div h2:hover {
+        header div h1:hover, nav div h2:hover, #linkButton:hover{
             animation: BlackN_White_Fade 6s infinite;
             cursor: pointer;
             display: flex;
@@ -52,6 +52,8 @@
         }
         body {
             background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
+            font-family: "Roboto Light", sans-serif;
+
        }
 
     </style>
@@ -67,7 +69,7 @@
             <h2>Visittkort</h2>
         </div>
         <div onclick="location='hwr-report.html'">
-            <h2>How We Roll Report</h2>
+            <h2>HWR Report</h2>
         </div>
     </nav>
         <!-- litt luft på den late måten, istedenfor i css som er forsåvidt bedre-->
@@ -83,42 +85,43 @@
 
             <div class="center"> <!-- mokv - morgen eller kveld-->
                 <label for="mokv">Morgen</label>
-                <input type="range" id="mokv" name="mokv" min="1" max="10">
+                <input type="range" id="mokv" name="mokv" min="10" max="80">
                 <label for="mokv" >Kveld &nbsp&nbsp&nbsp</label> <!-- Her bruker vi &nbsp for å få et "mellomrom" for å positionere formen bedre, da vi ikke fant ut hvordan dette kunne bli gjort på en god måte i css-->
             </div>
 
             <div class="center"> <!-- grus - gruppe eller solo -->
                 <label for="grus">Gruppe</label>
-                <input type="range" id="grus" name="grus" min="1" max="10">
+                <input type="range" id="grus" name="grus" min="10" max="80">
                 <label for="grus">Solo&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
             </div>
 
             <div class="center"> <!-- fydi - fysisk eller digitalt -->
-                <label for="fydi">&nbspFysisk samling</label>
-                <input type="range" id="fydi" name="fydi" min="1" max="10">
+                <label for="fydi">Fysisk samling</label>
+                <input type="range" id="fydi" name="fydi" min="10" max="80">
                 <label for="fydi">Digitalt hjemme</label>
             </div>
 
             <div class="center"> <!-- krek - kreativ eller kontroll -->
                 <label for="krek">Kreativt</label>
-                <input type="range" id="krek" name="krek" min="1" max="10">
-                <label for="krek" >Kontroll</label>
+                <input type="range" id="krek" name="krek" min="10" max="80">
+                <label for="krek" >Kontroll&nbsp</label>
             </div>
 
-            <div class="center">
-                <!-- fops - Forbredt eller på sparket -->
+            <div class="center"> <!-- fops - Forbredt eller på sparket -->
                 <label for="fops">Forberedt</label>
-                <input type="range" id="fops" name="fops" min="1" max="10">
+                <input type="range" id="fops" name="fops" min="10" max="80">
                 <label for="fops"  >På sparket</label>
             </div>
 
-            <input type="submit" value="Lagre" style=" margin-top: 1%; background-color: gainsboro; font-size: 16px; cursor: pointer">
+            <input type="submit" value="Lagre" style=" background-color: gainsboro; font-size: 16px; cursor: pointer">
         </form>
 
-        <!-- Denne var en liten luring-->
+        <!-- Denne var en liten luring, brukte sikkert 5 min på å finne ut av at den måtte med -Carsten -->
         <div class="results center" style=" width: 330px; ">
             <h2>Form Data</h2>
             <pre style="font-size: 12px; text-align: left"></pre>
+            <p id="link"></p>
+            <button id="linkButton" class="center" style="display: none; background-color: transparent; border: 1px; cursor: pointer;">Get Link</button>
         </div>
 
         <script>
@@ -148,15 +151,34 @@
                 const data = new FormData(event.target);
                 const formJSON = Object.fromEntries(data.entries());
                 const results = document.querySelector('.results pre');
+                const linkButtonHtml = document.getElementById("linkButton");
                 postData('https://bacit.info/', formJSON)
                     .then(data => {
                         results.innerText = JSON.stringify(data, null, 2);
                     });
                 console.log(formJSON);
-                console.log('https://bacit.info/', formJSON);
+                linkButtonHtml.style.display = "block"; //synliggjør en knapp som ikke er i bruk enda, da det var manglende info på nett se funk -> [1]
+
             }
             const form = document.querySelector('form');
             form.addEventListener('submit', handleSubmit);
+            /* [1]
+            //denne funksjonen genererer linken som kan brukes for å få dataen //desverre for lite tid til å fullføre :/
+            function getLink() {
+                const timeXpath = "/html/body/div/pre/text()[9]";
+                const trxidXpath = "/html/body/div/pre/text()[8]";
+                // https://stackoverflow.com/questions/10596417/is-there-a-way-to-get-element-by-xpath-using-javascript-in-selenium-webdriver
+                let timeXpathText = document.evaluate(timeXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                let trxidXpathText = document.evaluate(trxidXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                let time = JSON.stringify(timeXpathText);
+                time = time.slice();
+
+                console.log(time);
+                console.log(trxidXpathText);
+            }
+            const linkButtonHtml = document.getElementById("linkButton");
+            linkButtonHtml.addEventListener('click', getLink);
+            */
 
         </script>
 </body>
