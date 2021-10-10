@@ -50,7 +50,6 @@
             color: var(--text-color);
             font-size: 20px;
         }
-
         body {
             background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
        }
@@ -71,46 +70,46 @@
             <h2>How We Roll Report</h2>
         </div>
     </nav>
-
-
+        <!-- litt luft på den late måten, istedenfor i css som er forsåvidt bedre-->
+        <br><br>
         <h2 class="center">Preferanser for arbeid:</h2>
         <br>
         <form class="center" onsubmit="return true">
             <label for="navn"><b>Navn:</b></label><label>
-            <input id="navn" name="navn" type="text" style="margin-left: 1%; margin-right: 5%; background-color: gainsboro">
+            <input id="navn" name="navn" type="text">
             </label>
             <br>
             <br>
 
-            <div>
-                <label for="morgenkveld">Morgen</label>
-                <input type="range" id="morgenkveld" name="morgenkveld" min="1" max="10">
-                <label for="morgenkveld" style="margin-right: 2%">Kveld</label>
+            <div class="center"> <!-- mokv - morgen eller kveld-->
+                <label for="mokv">Morgen</label>
+                <input type="range" id="mokv" name="mokv" min="1" max="10">
+                <label for="mokv" >Kveld &nbsp&nbsp&nbsp</label> <!-- Her bruker vi &nbsp for å få et "mellomrom" for å positionere formen bedre, da vi ikke fant ut hvordan dette kunne bli gjort på en god måte i css-->
             </div>
 
-            <div>
-                <label for="gruppesolo">Gruppe</label>
-                <input type="range" id="gruppesolo" name="gruppesolo" min="1" max="10">
-                <label for="gruppesolo" style="margin-right: 2.6%">Solo</label>
+            <div class="center"> <!-- grus - gruppe eller solo -->
+                <label for="grus">Gruppe</label>
+                <input type="range" id="grus" name="grus" min="1" max="10">
+                <label for="grus">Solo&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
             </div>
 
-            <div>
-                <label for="fysiskdigitalt">Fysisk samling</label>
-                <input type="range" id="fysiskdigitalt" name="fysiskdigitalt" min="1" max="10">
-                <label for="fysiskdigitalt">Digitalt hjemme</label>
+            <div class="center"> <!-- fydi - fysisk eller digitalt -->
+                <label for="fydi">&nbspFysisk samling</label>
+                <input type="range" id="fydi" name="fydi" min="1" max="10">
+                <label for="fydi">Digitalt hjemme</label>
             </div>
 
-            <div>
-                <label for="kreativtkontroll">Kreativt</label>
-                <input type="range" id="kreativtkontroll" name="kreativtkontroll" min="1" max="10">
-                <label for="kreativtkontroll" style="margin-right: 0.6%">Kontroll</label>
+            <div class="center"> <!-- krek - kreativ eller kontroll -->
+                <label for="krek">Kreativt</label>
+                <input type="range" id="krek" name="krek" min="1" max="10">
+                <label for="krek" >Kontroll</label>
             </div>
 
-            <div>
+            <div class="center">
                 <!-- fops - Forbredt eller på sparket -->
                 <label for="fops">Forberedt</label>
                 <input type="range" id="fops" name="fops" min="1" max="10">
-                <label for="fops"  style="margin-right: 0.4%">På sparket</label>
+                <label for="fops"  >På sparket</label>
             </div>
 
             <input type="submit" value="Lagre" style=" margin-top: 1%; background-color: gainsboro; font-size: 16px; cursor: pointer">
@@ -125,6 +124,7 @@
         <script>
             // From https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch (seen 2021-09-27)
             // Example POST method implementation using fetch:
+            //
             async function postData(url = '', data = {}) {
                 // Default options are marked with *
                 const response = await fetch(url, {
@@ -152,11 +152,12 @@
                     .then(data => {
                         results.innerText = JSON.stringify(data, null, 2);
                     });
-                console.log(formJSON)
-                console.log('https://bacit.info/', formJSON)
+                console.log(formJSON);
+                console.log('https://bacit.info/', formJSON);
             }
             const form = document.querySelector('form');
             form.addEventListener('submit', handleSubmit);
+
         </script>
 </body>
 </html>
