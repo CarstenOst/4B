@@ -44,8 +44,24 @@
             50% {background-color: var(--text-color); color: var(--main-color);}
             100% {}
         }
+        :root {
+            --person1: red;
+            --person2: green;
+            --person3: blue;
+            --person4: purple;
+            --person5: pink;
+            --person6: yellow;
+        }
+        .minfont {
+            font-weight: bold;
+            font-style: normal;
+            font-size: 0.1em;
+            color: var(--text-color);
+        }
+        g{
+            justify-content: center;
+        }
     </style>
-
 </head>
 <body>
     <header id="You´re always wrong, but how much?"> <!-- remember to remove the inspo quotes b4 submittion -->
@@ -68,25 +84,7 @@
         <!-- For SVG spesifikasjon se her https://svgwg.org/svg2-draft/ (sist sett 2021-10-06) -->
         <!-- Eksempel basert på https://developer.mozilla.org/en-US/docs/Web/SVG/Element (sist sett 2021-10-06) -->
         <svg id="hwrsvg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <style>
-                :root {
-                    --person1: red;
-                    --person2: green;
-                    --person3: blue;
-                    --person4: purple;
-                    --person5: pink;
-                    --person6: yellow;
-                }
-                .minfont {
-                    font-weight: bold;
-                    font-style: normal;
-                    font-size: 0.1em;
-                    color: var(--text-color);
-                }
-                g{
-                    justify-content: center;
-                }
-            </style>
+
 
             <g> <!-- mokv -->
                 <text x="2" y="9.5" dy=".45em" class="minfont">Morgen</text>
@@ -99,8 +97,8 @@
                 <circle id="person06" cx="80" cy="10" r="1" fill="var(--person6)"/>
                 <text x="85" y="9.5" dy=".45em" class="minfont">Kveld</text>
             </g>
-            <!-- grus -->
-            <g> <!-- mokv -->
+            <!--  -->
+            <g> <!-- grus -->
                 <text x="2" y="15" dy=".45em" class="minfont">Morgen</text>
                 <line x1="10" y1="15" x2="80" y2="15" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="15" r="1" fill="var(--person1)"/>
@@ -111,7 +109,7 @@
                 <circle id="person06" cx="80" cy="15" r="1" fill="var(--person6)"/>
                 <text x="85" y="15" dy=".45em" class="minfont">Kveld</text>
             </g>
-            <g> <!-- mokv -->
+            <g> <!-- fydi -->
                 <text x="2" y="20" dy=".45em" class="minfont">Morgen</text>
                 <line x1="10" y1="20" x2="80" y2="20" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="20" r="1" fill="var(--person1)"/>
@@ -122,7 +120,7 @@
                 <circle id="person06" cx="80" cy="20" r="1" fill="var(--person6)"/>
                 <text x="85" y="20" dy=".45em" class="minfont">Kveld</text>
             </g>
-            <g> <!-- mokv -->
+            <g> <!-- krek -->
                 <text x="2" y="25" dy=".45em" class="minfont">Morgen</text>
                 <line x1="10" y1="25" x2="80" y2="25" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="25" r="1" fill="var(--person1)"/>
@@ -133,7 +131,7 @@
                 <circle id="person06" cx="80" cy="25" r="1" fill="var(--person6)"/>
                 <text x="85" y="25" dy=".45em" class="minfont">Kveld</text>
             </g>
-            <g> <!-- mokv -->
+            <g> <!-- fops -->
                 <text x="2" y="30" dy=".45em" class="minfont">Morgen</text>
                 <line x1="10" y1="30" x2="80" y2="30" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="30" r="1" fill="var(--person1)"/>
