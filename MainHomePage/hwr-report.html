@@ -16,7 +16,7 @@
             --person3: blue;
             --person4: purple;
             --person5: pink;
-            --person6: yellow;
+            --person6: orange;
         }
         body {
             background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
@@ -40,10 +40,10 @@
             border-radius: 55px;
             justify-content: center; /* fjerner du na så blir innholdet lite kult*/
         }
-        header div h1:hover, nav div h2:hover{
+        header div h1:hover, nav div h2:hover, .box_fitting:hover{
             animation: BlackN_White_Fade 6s infinite;
             cursor: pointer;
-            display: flex;
+
         }
         /*Animasjon*/
         @-webkit-keyframes BlackN_White_Fade{
@@ -52,7 +52,7 @@
             100% {}
 
         }
-        .minfont {
+        .vårFont {
             font-weight: bold;
             font-style: normal;
             font-size: 0.1em;
@@ -61,6 +61,20 @@
         g text{
             color: var(--text-color);
         }
+        .box_fitting{
+            color: var(--text-color);
+            width: 100px;
+            border-radius: 10px;
+            font-size: 30px;
+            /* verdi i padding går som dette -> up right down left, samme med margin forsåvidt */
+            padding: 0 10px 0 10px;
+            margin: auto;
+            float: left;
+        }
+        #personsContent{
+
+        }
+
     </style>
 </head>
 <body>
@@ -79,14 +93,22 @@
     </nav>
 
     <figure>
-        <figcaption style="text-align:center;">SVG ftw</figcaption>
-        <div></div>
+        <figcaption style="text-align:center;"></figcaption>
+        <div id="personsContent" style="display: inline-block; width: auto; text-align: center; background-color: red">
+            <div class="box_fitting" style="background-color: var(--person1)">Amalie</div>
+            <div class="box_fitting" style="background-color: var(--person3)">Carsten</div>
+            <div class="box_fitting" style="background-color: var(--person2)">Ilham</div>
+            <div class="box_fitting" style="background-color: var(--person5)">Lars</div>
+            <div class="box_fitting" style="background-color: var(--person6)">Preben</div>
+            <div class="box_fitting" style="background-color: var(--person4)">Vetle</div>
+
+        </div>
         <!-- For SVG spesifikasjon se her https://svgwg.org/svg2-draft/ (sist sett 2021-10-06) -->
         <!-- Eksempel basert på https://developer.mozilla.org/en-US/docs/Web/SVG/Element (sist sett 2021-10-06) -->
         <!-- Da kommer det en lang repetitiv kode som egentlig bare tegner inn sirklene og et par streker -->
         <svg id="hwrsvg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <g> <!-- mokv - morgen eller kveld-->
-                <text x="2" y="9.5" dy=".45em" class="minfont">Morgen</text>
+                <text x="2" y="9.5" dy=".45em" class="vårFont">Morgen</text>
                 <line x1="10" y1="10" x2="80" y2="10" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="10" r="1" fill="var(--person1)"/>
                 <circle id="person02" cx="10" cy="10" r="1" fill="var(--person2)"/>
@@ -94,11 +116,11 @@
                 <circle id="person04" cx="60" cy="10" r="1" fill="var(--person4)"/>
                 <circle id="person05" cx="70" cy="10" r="1" fill="var(--person5)"/>
                 <circle id="person06" cx="80" cy="10" r="1" fill="var(--person6)"/>
-                <text x="85" y="9.5" dy=".45em" class="minfont">Kveld</text>
+                <text x="85" y="9.5" dy=".45em" class="vårFont">Kveld</text>
             </g>
             <!--  -->
             <g> <<!-- grus - gruppe eller solo -->
-                <text x="2" y="15" dy=".45em" class="minfont">Gruppe</text>
+                <text x="2" y="15" dy=".45em" class="vårFont">Gruppe</text>
                 <line x1="10" y1="15" x2="80" y2="15" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="15" r="1" fill="var(--person1)"/>
                 <circle id="person02" cx="10" cy="15" r="1" fill="var(--person2)"/>
@@ -106,10 +128,10 @@
                 <circle id="person04" cx="60" cy="15" r="1" fill="var(--person4)"/>
                 <circle id="person05" cx="70" cy="15" r="1" fill="var(--person5)"/>
                 <circle id="person06" cx="80" cy="15" r="1" fill="var(--person6)"/>
-                <text x="85" y="15" dy=".45em" class="minfont">Solo</text>
+                <text x="85" y="15" dy=".45em" class="vårFont">Solo</text>
             </g>
             <g> <!-- fydi - fysisk eller digitalt -->
-                <text x="2" y="20" dy=".45em" class="minfont">Fysisk</text>
+                <text x="2" y="20" dy=".45em" class="vårFont">Fysisk</text>
                 <line x1="10" y1="20" x2="80" y2="20" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="20" r="1" fill="var(--person1)"/>
                 <circle id="person02" cx="10" cy="20" r="1" fill="var(--person2)"/>
@@ -117,10 +139,10 @@
                 <circle id="person04" cx="60" cy="20" r="1" fill="var(--person4)"/>
                 <circle id="person05" cx="70" cy="20" r="1" fill="var(--person5)"/>
                 <circle id="person06" cx="80" cy="20" r="1" fill="var(--person6)"/>
-                <text x="85" y="20" dy=".45em" class="minfont">Digitalt</text>
+                <text x="85" y="20" dy=".45em" class="vårFont">Digitalt</text>
             </g>
             <g> <!-- krek - kreativ eller kontroll -->
-                <text x="2" y="25" dy=".45em" class="minfont">Kreativ</text>
+                <text x="2" y="25" dy=".45em" class="vårFont">Kreativ</text>
                 <line x1="10" y1="25" x2="80" y2="25" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="25" r="1" fill="var(--person1)"/>
                 <circle id="person02" cx="10" cy="25" r="1" fill="var(--person2)"/>
@@ -128,10 +150,10 @@
                 <circle id="person04" cx="60" cy="25" r="1" fill="var(--person4)"/>
                 <circle id="person05" cx="70" cy="25" r="1" fill="var(--person5)"/>
                 <circle id="person06" cx="80" cy="25" r="1" fill="var(--person6)"/>
-                <text x="85" y="25" dy=".45em" class="minfont">Kontroll</text>
+                <text x="85" y="25" dy=".45em" class="vårFont">Kontroll</text>
             </g>
             <g> <!-- fops - Forbredt eller på sparket -->
-                <text x="2" y="30" dy=".45em" class="minfont">Forbredt</text>
+                <text x="2" y="30" dy=".45em" class="vårFont">Forbredt</text>
                 <line x1="10" y1="30" x2="80" y2="30" stroke="#000000" stroke-width="0.5" />
                 <circle id="person01" cx="50" cy="30" r="1" fill="var(--person1)"/>
                 <circle id="person02" cx="10" cy="30" r="1" fill="var(--person2)"/>
@@ -139,11 +161,11 @@
                 <circle id="person04" cx="60" cy="30" r="1" fill="var(--person4)"/>
                 <circle id="person05" cx="70" cy="30" r="1" fill="var(--person5)"/>
                 <circle id="person06" cx="80" cy="30" r="1" fill="var(--person6)"/>
-                <text x="85" y="30" dy=".45em" class="minfont">Sparket</text>
+                <text x="85" y="30" dy=".45em" class="vårFont">Sparket</text>
             </g>
             <!--   Brukte denne for å sette inn verdi på raskere måte enn å skrive en om gangen (shift+ctrl+alt+j)
                     <g>
-                            <text x="2" y="2391239999999" dy=".45em" class="minfont">Morgen</text>
+                            <text x="2" y="2391239999999" dy=".45em" class="vårFont">Morgen</text>
                             <line x1="10" y1="2391239999999" x2="80" y2="2391239999999" stroke="#000000" stroke-width="0.5" />
                             <circle id="person01" cx="50" cy="2391239999999" r="1" fill="var(--person1)"/>
                             <circle id="person02" cx="10" cy="2391239999999" r="1" fill="var(--person2)"/>
@@ -151,7 +173,7 @@
                             <circle id="person04" cx="60" cy="2391239999999" r="1" fill="var(--person4)"/>
                             <circle id="person05" cx="70" cy="2391239999999" r="1" fill="var(--person5)"/>
                             <circle id="person06" cx="80" cy="2391239999999" r="1" fill="var(--person6)"/>
-                            <text x="85" y="2391239999999" dy=".45em" class="minfont">Kveld</text>
+                            <text x="85" y="2391239999999" dy=".45em" class="vårFont">Kveld</text>
                         </g>
 
             -->
@@ -229,6 +251,23 @@
                 circles = glist[4].getElementsByTagName("circle");
                 circles.person04.cx.baseVal.value = data.fops;
             });
+        // Lars
+        fetch("https://bacit.info/hwr/20211010171927-a32b3f45f1af3e5c78338a58956a8443.json")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                circles = glist[0].getElementsByTagName("circle");
+                circles.person05.cx.baseVal.value = data.mokv;
+                circles = glist[1].getElementsByTagName("circle");
+                circles.person05.cx.baseVal.value = data.grus;
+                circles = glist[2].getElementsByTagName("circle");
+                circles.person05.cx.baseVal.value = data.fydi;
+                circles = glist[3].getElementsByTagName("circle");
+                circles.person05.cx.baseVal.value = data.krek;
+                circles = glist[4].getElementsByTagName("circle");
+                circles.person05.cx.baseVal.value = data.fops;
+            });
+
 
     </script>
 
