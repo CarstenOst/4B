@@ -71,16 +71,13 @@
             margin: auto;
             float: left;
         }
-        #personsContent{
-
-        }
 
     </style>
 </head>
 <body>
     <header id="You´re always wrong, but how much?"> <!-- remember to remove the inspo quotes b4 submittion -->
         <div onclick="window.location.reload();"> <!-- laster inn vindu på nytt når man trykker på diven -->
-            <h1>HWR Raport</h1>
+            <h1>HWR Report</h1>
         </div>
     </header>
     <nav>
@@ -94,7 +91,7 @@
 
     <figure>
         <figcaption style="text-align:center;"></figcaption>
-        <div id="personsContent" style="display: inline-block; width: auto; text-align: center; background-color: red">
+        <div id="personsContent" style="display: inline-block; width: auto; text-align: center">
             <div class="box_fitting" style="background-color: var(--person1)">Amalie</div>
             <div class="box_fitting" style="background-color: var(--person3)">Carsten</div>
             <div class="box_fitting" style="background-color: var(--person2)">Ilham</div>
@@ -266,6 +263,22 @@
                 circles.person05.cx.baseVal.value = data.krek;
                 circles = glist[4].getElementsByTagName("circle");
                 circles.person05.cx.baseVal.value = data.fops;
+            });
+        // Preben
+        fetch("https://bacit.info/hwr/20211010173229-7f0d4fa7c581c497602a5c5d4b0bbbd4.json")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                circles = glist[0].getElementsByTagName("circle");
+                circles.person06.cx.baseVal.value = data.mokv;
+                circles = glist[1].getElementsByTagName("circle");
+                circles.person06.cx.baseVal.value = data.grus;
+                circles = glist[2].getElementsByTagName("circle");
+                circles.person06.cx.baseVal.value = data.fydi;
+                circles = glist[3].getElementsByTagName("circle");
+                circles.person06.cx.baseVal.value = data.krek;
+                circles = glist[4].getElementsByTagName("circle");
+                circles.person06.cx.baseVal.value = data.fops;
             });
 
 
