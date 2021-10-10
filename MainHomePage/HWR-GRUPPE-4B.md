@@ -1,12 +1,19 @@
-HWR-GRUPPE<gruppe-id>.mdskal inneholde et sammendragav deres arbeid med “How WeRoll”-oppgaven.
-Dere skal så konsist som mulig beskrive hva dere gjorde for å besvare oppgaven.
-Foreksempel, hvordan organiserte dere dere, hvordan dere tok i bruk verktøy og hva som fungerte bra,minde bra og dårlig?
-Hvilke regler dere satt for bruke av hovedrepository og hvordan fungerte disse?
-Hvordan sørget dere at alle lærer grunnleggende programmering i HTML og CSS (arbeid i par, arbeidmed alle, individuelt arbeid osv.)?
-
-
 # Besvarelse av oppgave:
 
+####(1) alle har bidratt tilstrekkelig til arbeidet med oppgaven
+
+####(2) de fleste kilder dere har brukt er det blitt referert til
+
+####(3) Vi tillater dere å bruke vårt arbeid i undervisning i fremtiden
+
+####(4) Repo 
+```
+https://github.com/CarstenOst/4B 
+```
+####(4) Hjemmeside
+```
+https://github.com/CarstenOst/4B/blob/main/MainHomePage/Index.html 
+```
 
 Vi syntes personlig at organiseringen av arbeidet gikk relativt bra. Vi brukte Kanban i GitHub for å organisere arbeidsoppgaver, og for å passe på at alle visste hva som skulle gjøres. 
 Før vi startet å jobbe med oppgaven så gikk vi også gjennom oppgaven sammen. Kanban var en effektiv måte å dele opp oppgaven på og skape struktur i det oppgaveteksten sa. 
