@@ -6,29 +6,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>hwr-report</title>
+    <style>
 
+        :root {
+            --main-color: #191919;
+            --text-color: azure;
+        }
+        body {
+            background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
+            font-family: "Roboto Light", sans-serif;
+        }
+        h1 {
+            font-size: 60px;
+        }
+        header div, nav{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+        header div h1, nav div h2{
+            color: var(--text-color);
+            padding: 15px 10px;
+            margin: 5px auto;
+            min-width: 100px;
+            border-radius: 55px;
+            justify-content: center; /* fjerner du na så blir innholdet lite kult*/
+        }
+        header div h1:hover, nav div h2:hover{
+            animation: BlackN_White_Fade 6s infinite;
+            cursor: pointer;
+            display: flex;
+        }
+        @-webkit-keyframes BlackN_White_Fade{
+            0% {}
+            50% {background-color: var(--text-color); color: var(--main-color);}
+            100% {}
+        }
+    </style>
 
 </head>
 <body>
+    <header id="You´re always wrong, but how much?"> <!-- remember to remove the inspo quotes b4 submittion -->
+        <div onclick="window.location.reload();"> <!-- laster inn vindu på nytt når man trykker på diven -->
+            <h1>HWR Raport</h1>
+        </div>
+    </header>
+    <nav>
+        <div onclick="location='Index.html'">
+            <h2>Visittkort</h2>
+        </div>
+        <div onclick="location='How we roll.html'">
+            <h2>How We Roll</h2>
+        </div>
+    </nav>
 
+    <figure>
+        <figcaption style="text-align:center;">SVG ftw</figcaption>
+        <div></div>
+        <!-- For SVG spesifikasjon se her https://svgwg.org/svg2-draft/ (sist sett 2021-10-06) -->
+        <!-- Eksempel basert på https://developer.mozilla.org/en-US/docs/Web/SVG/Element (sist sett 2021-10-06) -->
+        <svg id="hwrsvg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <style>
+                :root {
+                    --person1: red;
+                    --person2: green;
+                    --person3: blue;
+                    --person4: purple;
+                    --person5: pink;
+                    --person6: yellow;
+                }
+                .minfont {
+                    font-weight: bold;
+                    font-style: normal;
+                    font-size: 0.1em;
+                    color: var(--text-color);
+                }
+                g{
+                    justify-content: center;
+                }
+            </style>
+
+            <g> <!-- mokv -->
+                <text x="2" y="9.5" dy=".45em" class="minfont">Morgen</text>
+                <line x1="10" y1="10" x2="80" y2="10" stroke="#000000" stroke-width="0.5" />
+                <circle id="person01" cx="50" cy="10" r="1" fill="var(--person1)"/>
+                <circle id="person02" cx="10" cy="10" r="1" fill="var(--person2)"/>
+                <circle id="person03" cx="50" cy="10" r="1" fill="var(--person3)"/>
+                <circle id="person04" cx="60" cy="10" r="1" fill="var(--person4)"/>
+                <circle id="person05" cx="70" cy="10" r="1" fill="var(--person5)"/>
+                <circle id="person06" cx="80" cy="10" r="1" fill="var(--person6)"/>
+                <text x="85" y="9.5" dy=".45em" class="minfont">Kveld</text>
+            </g>
+            <!-- grus -->
+            <g> <!-- mokv -->
+                <text x="2" y="15" dy=".45em" class="minfont">Morgen</text>
+                <line x1="10" y1="15" x2="80" y2="15" stroke="#000000" stroke-width="0.5" />
+                <circle id="person01" cx="50" cy="15" r="1" fill="var(--person1)"/>
+                <circle id="person02" cx="10" cy="15" r="1" fill="var(--person2)"/>
+                <circle id="person03" cx="50" cy="15" r="1" fill="var(--person3)"/>
+                <circle id="person04" cx="60" cy="15" r="1" fill="var(--person4)"/>
+                <circle id="person05" cx="70" cy="15" r="1" fill="var(--person5)"/>
+                <circle id="person06" cx="80" cy="15" r="1" fill="var(--person6)"/>
+                <text x="85" y="15" dy=".45em" class="minfont">Kveld</text>
+            </g>
+            <g> <!-- mokv -->
+                <text x="2" y="20" dy=".45em" class="minfont">Morgen</text>
+                <line x1="10" y1="20" x2="80" y2="20" stroke="#000000" stroke-width="0.5" />
+                <circle id="person01" cx="50" cy="20" r="1" fill="var(--person1)"/>
+                <circle id="person02" cx="10" cy="20" r="1" fill="var(--person2)"/>
+                <circle id="person03" cx="50" cy="20" r="1" fill="var(--person3)"/>
+                <circle id="person04" cx="60" cy="20" r="1" fill="var(--person4)"/>
+                <circle id="person05" cx="70" cy="20" r="1" fill="var(--person5)"/>
+                <circle id="person06" cx="80" cy="20" r="1" fill="var(--person6)"/>
+                <text x="85" y="20" dy=".45em" class="minfont">Kveld</text>
+            </g>
+            <g> <!-- mokv -->
+                <text x="2" y="25" dy=".45em" class="minfont">Morgen</text>
+                <line x1="10" y1="25" x2="80" y2="25" stroke="#000000" stroke-width="0.5" />
+                <circle id="person01" cx="50" cy="25" r="1" fill="var(--person1)"/>
+                <circle id="person02" cx="10" cy="25" r="1" fill="var(--person2)"/>
+                <circle id="person03" cx="50" cy="25" r="1" fill="var(--person3)"/>
+                <circle id="person04" cx="60" cy="25" r="1" fill="var(--person4)"/>
+                <circle id="person05" cx="70" cy="25" r="1" fill="var(--person5)"/>
+                <circle id="person06" cx="80" cy="25" r="1" fill="var(--person6)"/>
+                <text x="85" y="25" dy=".45em" class="minfont">Kveld</text>
+            </g>
+            <g> <!-- mokv -->
+                <text x="2" y="30" dy=".45em" class="minfont">Morgen</text>
+                <line x1="10" y1="30" x2="80" y2="30" stroke="#000000" stroke-width="0.5" />
+                <circle id="person01" cx="50" cy="30" r="1" fill="var(--person1)"/>
+                <circle id="person02" cx="10" cy="30" r="1" fill="var(--person2)"/>
+                <circle id="person03" cx="50" cy="30" r="1" fill="var(--person3)"/>
+                <circle id="person04" cx="60" cy="30" r="1" fill="var(--person4)"/>
+                <circle id="person05" cx="70" cy="30" r="1" fill="var(--person5)"/>
+                <circle id="person06" cx="80" cy="30" r="1" fill="var(--person6)"/>
+                <text x="85" y="30" dy=".45em" class="minfont">Kveld</text>
+            </g>
+            <!--   Brukte denne for å sette inn verdi på raskere måte enn å skrive en om gangen (shift+ctrl+alt+j)
+                    <g>
+                            <text x="2" y="2391239999999" dy=".45em" class="minfont">Morgen</text>
+                            <line x1="10" y1="2391239999999" x2="80" y2="2391239999999" stroke="#000000" stroke-width="0.5" />
+                            <circle id="person01" cx="50" cy="2391239999999" r="1" fill="var(--person1)"/>
+                            <circle id="person02" cx="10" cy="2391239999999" r="1" fill="var(--person2)"/>
+                            <circle id="person03" cx="50" cy="2391239999999" r="1" fill="var(--person3)"/>
+                            <circle id="person04" cx="60" cy="2391239999999" r="1" fill="var(--person4)"/>
+                            <circle id="person05" cx="70" cy="2391239999999" r="1" fill="var(--person5)"/>
+                            <circle id="person06" cx="80" cy="2391239999999" r="1" fill="var(--person6)"/>
+                            <text x="85" y="2391239999999" dy=".45em" class="minfont">Kveld</text>
+                        </g>
+
+            -->
+
+        </svg>
+    </figure>
     <script>
 
-        fetch('https://bacit.info/hwr/20210926134925-47352fbdecddd9a754001f4e4abbf40f.json')
-            .then(response => response.json())
-            .then(data => console.log(data));
 
-        fetch('https://bacit.info/hwr/20210926162029-a89356bb617d3bbf870649c08570427e.json')
+        let minsvg = document.getElementById("hwrsvg");
+        let glist = minsvg.getElementsByTagName("g");
+        let circles = glist[0].getElementsByTagName("circle")
+
+        // Mock JSON fra fil
+        fetch("https://bacit.info/hwr/20211010154024-88ab1b4faf76a12d94e1c0fd8151b03f.json")
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => {
+                console.log(data);
+                circles.person01.cx.baseVal.value = data.mokv;
+                circles.person02.cx.baseVal.value = data.grus;
+                circles.person03.cx.baseVal.value = data.fydi;
+                circles.person04.cx.baseVal.value = data.krek;
+                circles.person05.cx.baseVal.value = data.fops;
+            });
 
     </script>
 
-
-<button name="Lagre">
-
-</button>
-
-
 </body>
-
 </html>
