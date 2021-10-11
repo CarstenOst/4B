@@ -2,115 +2,458 @@
 <html lang="no">
 <head>
     <link rel="icon" type="image/png" sizes="16x16" href="../Bilder/favicon-16x16.png">
-    <link rel="stylesheet" type="text/css" href="stil.css">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="UTF-8">
     <title>Gruppe 4B</title>
+    <style>
+        /* Variabler for å endre farge design raskt */
+        :root {
+            --main-color: #191919;
+            --text-color: azure;
+        }
+        /* Definerer margin og padding på alt */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Setter felles bakgrunn og font på alt i body dersom ikke senere definert */
+        body {
+            background: var(--main-color);
+            font-family: "Roboto Light", sans-serif;
+        }
+        header div, nav{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+        #container {
+            width: 100%;
+            position: relative;
+            display: flex;
+            /*background-color: red; /* Fjern denne får å se bg*/
+            min-width: auto;
+        }
+        main aside {
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        main aside div{
+            /*background-color: blue; /* Fjern denne får å se bg*/
+            width: 10%;
+            min-width: 120px;
+        }
+        main section { /* Centers main section and elements beneath*/
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #visitt_Cont{
+            top: 10px;
+            min-width: 150px;
+            max-width: 550px;
+            max-height: 300px;
+        }
+        main aside div h2, header div h1, nav div h2{
+            color: var(--text-color);
+            padding: 15px 10px;
+            margin: 5px auto;
+            min-width: 100px;
+            border-radius: 55px;
+            justify-content: center; /* fjerner du na så blir innholdet lite kult*/
+        }
+        main aside div h2{
+            width: 7%;
+            margin: 20px auto;
+        }
+        header span h1{
+            min-width: 175px;
+        }
+        #Janis_sjef{
+            color: var(--text-color);
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #bg_bilde {
+            filter: blur(7px);
+            transition-duration: 1s;
+        }
+
+        #bg_bilde:hover{
+            filter: blur(0px);
+        }
+
+
+
+        /* Hover animation */
+        main div h2:hover, header div h1:hover, nav div h2:hover {
+            /*color: #191919;
+            background-color: #f2f2f2;
+            transition: towhite 0.2s;
+            -webkit-transition: towhite 0.2s;
+            animation: smoothie_blender 0.3s;
+            animation-iteration-count: infinite;*/
+            animation: BlackN_White_Fade 6s infinite;
+            cursor: pointer;
+            display: flex;
+        }
+        @-webkit-keyframes BlackN_White_Fade{
+            0% {}
+            50% {background-color: var(--text-color); color: var(--main-color);}
+            100% {}
+        }
+
+
+
+        /* Amalie */
+
+        .kort {
+            border: 1px solid black;
+            text-align: center;
+            padding: 20px;
+            color: #03031a;
+            font-size: 1.5em;
+            font-family: Calibri, sans-serif;
+            width: fit-content;
+            background-image: url("./Visittkort/Amalie/Sky.jpg");
+            filter: brightness(115%);
+            border-radius: 5px;
+        }
+
+        #AmalieVisitt p {
+            background-color: #a8c2e7;
+            border-radius: 5px;
+            margin: 25px;
+            padding: 0 20px 0 20px;
+
+        }
+        .hoverAmalie:hover{
+            color: #7b00ff;
+        }
+
+
+        /*
+        -----------------------------------------------------------------------------------
+         Carsten
+        -----------------------------------------------------------------------------------
+         */
+        #CarstenVisitt {
+            background-color: brown;
+            width: 550px;
+            height: 300px;
+            backface-visibility: hidden;
+            color: var(--text-color);
+        }
+        .carBackEnd, .frontVCard{
+            cursor: pointer;
+            width: 550px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            background: linear-gradient(45deg, var(--main-color) 0%, rgba(64,42,65,1) 50%, var(--main-color) 100%);
+        }
+        .carBackEnd{
+            position: fixed;
+        }
+        .frontVCard {
+            transition: 1s ease-out 0.2s;
+            backface-visibility: hidden;
+            position: absolute;
+            font-size: 34px;
+        }
+        .frontVCard:hover{
+            transform: rotateY(-180deg);
+            display: block;
+        }
+        /* This will center stuff that are in spans, spans need to get inline-block, or block display in order to vertically align */
+        .centerInline{
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+        }
+
+
+        /*
+        -----------------------------------------------------------------------------------
+         Preben
+        -----------------------------------------------------------------------------------
+         */
+
+        .card1 {
+            width: 550px;
+            height: 300px;
+            background-color: rgba(0, 186, 255, 0.08);
+        }
+
+        .card-front1 {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background: white;
+            border-radius: 20px;
+        }
+
+        .left1 {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left1 img {
+            width: 80%;
+            box-shadow: 0 10px 20px rgba(0,0,0, 0.8);
+            background: rgb(0, 186, 255);
+        }
+
+        .right1 {
+            width: 60%;
+            color: #00baff;
+        }
+
+        .right-content1 {
+            align-items: center;
+            margin: 20px 0;
+            margin-left: 20px;
+            font-family: "Roboto Slab SemiBold", sans-serif;
+        }
+
+        .name1 {
+            display: flex;
+            justify-content: center;
+            background-color: #00baff;
+            color: white;
+            font-family: "Roboto Slab SemiBold", sans-serif;
+            padding: 5px 0 5px 0;
+            margin: 30px 0;
+            box-shadow: 0 0 10px rgba(255,255,255, 0.5);
+        }
+
+
+        /*
+        -----------------------------------------------------------------------------------
+         Vetle
+        -----------------------------------------------------------------------------------
+         */
+        #VetleVisitt {
+            display: none;
+        }
+        .card-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .card {
+            width: 550px;
+            height: 300px;
+            background-color: #fff;
+        }
+
+        .card-front {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background: linear-gradient(90deg, rgb(255, 255, 255)40%, rgb(38, 38, 38) 0);
+        }
+
+        .left {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left img {
+            width: 80%;
+            box-shadow: 0 10px 20px rgba(0,0,0, 0.8);
+        }
+
+        .right {
+            width: 60%;
+            color: #fff;
+        }
+        .right-content {
+            align-items: center;
+            margin: 20px 0 20px 20px;
+        }
+        .name {
+            display: flex;
+            justify-content: center;
+            background-color: darkturquoise;
+            padding: 5px 0 5px 0;
+            margin: 30px 0;
+            box-shadow: 0 0 10px rgba(255,255,255, 0.5);
+        }
+
+    </style>
 </head>
 <body id="Working hard for something we dont care about is called stress-- --Working hard for something we love is called passion">
 <header id="You´re always wrong, but how much?"> <!-- remember to remove the inspo quotes b4 submittion -->
-    <div>
+    <div onclick="window.location.reload();">
         <h1>Visittkort</h1>
     </div>
 </header>
 <nav>
-    <div onclick="location='./How we roll/How we roll.html'">
+    <div onclick="location='How we roll.html'">
         <h2>How We Roll</h2>
     </div>
-    <div onclick="location='./hwr-report/hwr-report.html'">
-        <h2>How We Roll Report</h2>
-    </div>
-    <div onclick="location=''">
-        <h2>Labamba</h2>
-    </div>
-    <div>
-        <h2>yeet4</h2>
+    <div onclick="location='hwr-report.html'">
+        <h2>HWR Report</h2>
     </div>
 </nav>
-    <main id="container">
-        <aside>
-            <div onclick="showVisittKort('AmalieVisitt')">
-                <h2>Amalie</h2>
-            </div>
-            <div  onclick="location='../Fractal/test.html'" id="Can you hear the silence?"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
-                <h2 id="Jeg vet, at man aldri kan vite helt sikkert">Carsten</h2>
-            </div>
-            <div onclick="location='./Visittkort/Ilham/IlhamVisit.html'">
-                <h2 >Ilham</h2>
-            </div>
-            <div onclick="location='./Visittkort/Lars/LarsVisit.html'">
-                <h2>Lars</h2>
-            </div>
-            <div onclick="location='./Visittkort/Preben/PrebenVisit.html'">
-                <h2>Preben</h2>
-            </div>
-            <div onclick="showVisittKort('VetleVisitt')">
-                <h2>Vetle</h2>
-            </div>
-        </aside>
-        <script>
-            <!-- -->
-            function showVisittKort(Person){
-                var kake = document.getElementById(Person)
+<!-- Her ligger content -->
+<main id="container">
+    <aside>
+        <div onclick="showVisittKort('AmalieVisitt')">
+            <h2>Amalie</h2>
+        </div>
+        <div onclick="showVisittKort('CarstenVisitt')" id="Can you hear the silence?"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
+            <h2 id="Jeg vet, at man aldri kan vite helt sikkert">Carsten</h2>
+        </div>
+        <div onclick="location='./Visittkort/Ilham/IlhamVisit.html'">
+            <h2>Ilham</h2>
+        </div>
+        <div onclick="location='./Visittkort/Lars/LarsVisittkort.html'">
+            <h2>Lars</h2>
+        </div>
+        <div onclick="showVisittKort('PrebenVisitt')">
+            <h2>Preben</h2>
+        </div>
+        <div onclick="showVisittKort('VetleVisitt')">
+            <h2>Vetle</h2>
+        </div>
+    </aside>
+    <script>
+        <!-- JS som viser visittkortene når navnene blir trykket på -->
+        let lastPerson = 'VetleVisitt'; // Må være definert som ett av visittkort onclick
+        function showVisittKort(Person){
+            const kake = document.getElementById(Person)
+            const bg_bilde = document.getElementById("bg_bilde")
+            // Jeg liker kake, så da får variabel navnet bli kake //\\ Ikke bli sur Janis, jeg vet du også liker kake :)
 
-                if (kake.style.display === "none") {
-                    kake.style.display = "block";
-                }
-                    else {
-                        kake.style.display = "none";
+            // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon
+            if (kake.style.display === "none") {
+                kake.style.display = "block";
+                bg_bilde.style.display = "none";
+                try{
+                    // Denne if statement vil sette det forrige navnet som ble trykket på til
+                    if (Person !== lastPerson) {
+                        let forrigeKake = document.getElementById(lastPerson);
+                        forrigeKake.style.display = "none";
+                        lastPerson = Person;
                     }
+                }catch(err){
+                    console.log(err);
                 }
-        </script>
+            }
+            else {
+                kake.style.display = "none";
+                bg_bilde.style.display = "block";
+            }
+        }
+    </script>
 
-        <section>
-            <div>
-                <div id="AmalieVisitt" class="kort" style="display: none">
-                    <p class="AmalieVisittChld"><b>Universitetet i Agder</b></p>
-                    <p class="AmalieVisittChld">Amalie Ehnebom Lunden</p>
-                    <p class="AmalieVisittChld">Telefon: +47 940 50 416</p>
-                    <p class="AmalieVisittChld">Mail: amalie.ehnebom.lunden@gmail.com</p>
-                    <p class="AmalieVisittChld" id="klikktest" style="font-size: 25px"> <strong>klikk her</strong></p>
-                    <script>
-                        {document.getElementById("klikktest").onclick = trykket;}
-                        function trykket() {alert("Vil du ha is?")}
-                    </script>
+    <section>
+        <div id="visitt_Cont">
+            <!-- Janis, jeg kan å croppe img, men dette var gøy, håper du har litt selvironi hehe :)
+                  Bilde filen er også 4,6 MB stor noe som er fyfy med web, dette vet vi godt (Filen burde nedskaleres) -->
+            <div id="bg_bilde" style="display: block;">
+                <!--suppress CheckImageSize -->
+                <img src="../Bilder/janisg_profil.jpeg" alt="UIA-Logo" width="550px" style="height: 300px">
+                <div id="Janis_sjef">Sjef</div>
+            </div>
+
+            <!-- Her legger vi inn alle visittkortene (NB: ha alt inni en conteiner)
+                 Id i conteinter skal være "navnVisitt" -->
+
+            <!-- Amalie -->
+            <div id="AmalieVisitt" class="kort" style="display: none">
+                <p><b>Universitetet i Agder</b></p>
+                <p>Amalie Ehnebom Lunden</p>
+                <p>Telefon: +47 940 50 416</p>
+                <p>amalie.ehnebom.lunden@gmail.com</p>
+                    <div class="hoverAmalie">
+                        <p id="klikktest" style="font-size: 25px; cursor: pointer;"> <strong>klikk her</strong></p>
+                    </div>
+                <script>
+                    {document.getElementById("klikktest").onclick = trykket;}
+                    function trykket() {alert("Vil du ha is?")}
+                </script>
+            </div>
+            <!-- Carsten -->
+            <div id="CarstenVisitt" style="display: none" onclick="location='../Fractal/test.html'">
+                <div class="carBackEnd">
+                    <div class="centerInline">
+                        <span>carsteno@uia.no</span><br><br> <!-- For lat til å legge på padding i css -->
+                        <span>+47 472 74 009</span>
+                    </div>
                 </div>
+                <!-- Dette elementet vises over det elementet ovenfor, fordi den har position absolute, kunne gjort motsatt såklart :) -->
+                <div class="frontVCard">
+                    <div class="centerInline">
+                        <span>Carsten Østergaard</span>
+                    </div>
+                </div>
+            </div>
 
 
-
-                <!-- Vetle -->
-                <div id="VetleVisitt" class="card-wrapper" style="display: none;">
-                    <div class="card">
-                        <div class="card-front">
-                            <div class="left">
-                                <img src="./Visittkort/Vetle/20132070(3).jpg" alt="VetleProfilBilde">
+            <!-- Preben -->
+            <div id="PrebenVisitt" class="card-wrapper" style="display: none">
+                <div class="card1">
+                    <div class="card-front1">
+                        <div class="left1">
+                            <img src="../Bilder/preben.png" alt="preben">
+                        </div>
+                        <div class="right1">
+                            <div class="name1 right-content1">
+                                <h4>Preben Røstad</h4>
                             </div>
-                            <div class="right">
-                                <div class="name right-content">
-                                    <h4>Vetle Johansen Nilsen</h4>
-                                </div>
-                                <div class="phone right-content">
-                                    <p>Tlf: +47 41693697</p>
-                                </div>
-                                <div class="mail right-content">
-                                    <p>Mail: vetlejn@uia.no</p>
-                                </div>
-                                <a class="linkedin right-content" href="https://www.linkedin.com/in/vetle-johansen-nilsen-7979711a7/" target="_blank">
-                                    <ion-icon name="logo-linkedin"></ion-icon>
-                                </a>
-                                <a class="facebook right-content" href="https://www.facebook.com/vetle.nilsen.98/" target="_blank">
-                                    <ion-icon name="logo-facebook"></ion-icon>
-                                </a>
+                            <div class="right-content1 info">
+                                <p>Tlf: +47 90039680</p>
+                                <p> Mail: preber12@uia.no</p>
+                                <p>Adresse: Marviksveien 84</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
             </div>
-        </section>
-    </main>
+
+
+            <!-- Vetle -->
+            <div id="VetleVisitt" class="card-wrapper" style="display: none;">
+                <div class="card">
+                    <div class="card-front">
+                        <div class="left">
+                            <img src="./Visittkort/Vetle/20132070(3).jpg" alt="VetleProfilBilde">
+                        </div>
+                        <div class="right">
+                            <div class="name right-content">
+                                <h4>Vetle Johansen Nilsen</h4>
+                            </div>
+                            <div class="phone right-content">
+                                <p>Tlf: +47 41693697</p>
+                            </div>
+                            <div class="mail right-content">
+                                <p>Mail: vetlejn@uia.no</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
 </body>
 </html>

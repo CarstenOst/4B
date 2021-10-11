@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visittkort Lars Gunnar Stokke - BACIT, 4B"</title>
+
+
+    <!-- ------------------------------------------------------------------------------------------------- -->
+    <!-- Styre plassering av profilbilde på siden-->
+    <!-- ------------------------------------------------------------------------------------------------- -->
+    <style>
+        img{
+            float: left;
+            padding: 2px;
+            margin-top: -3%;
+            margin-left: 19.7%;
+            clip-path: circle();
+        }
+        .backgroundcolor{
+            background-color: #a8690e;
+            color: whitesmoke;
+        }
+
+    </style>
+</head>
+
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!--Lagt inn bakgrunn på body-->
+<!-- ------------------------------------------------------------------------------------------------- -->
+<body class="backgroundcolor" onclick="location='../../Index.html'" style="cursor:pointer">
+
+
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- Linker inn bilde som er lastet opp i mappe for visittkort og styrer størrelse på bilde ut fra siden.
+     Henter også inn .css (se over) for å gi plassering av bilde i nettside-->
+<!-- ------------------------------------------------------------------------------------------------- -->
+<img src="ProfilbildeLars.jpg" width="20%" height="20%" alt="img">
+<h1><u>Lars Gunnar Stokke</u></h1>
+<h2>Rådgiver Adecco Select</h2>
+<br>
+
+<!-- ------------------------------------------------------------------------------------------------- -->
+<!-- valgt å sett innhold i tabell for å for lik marg på "nevner" og "teller" som jeg fant som beste -->
+<!-- ------------------------------------------------------------------------------------------------- -->
+<table id="fontsize">
+        <tr><td><b>Adresse:</b></td><td>Gunhilds vei 91</td></tr>
+        <tr><td><b>Telefon:</b></td><td>+47 481 13 413</td></tr>
+        <tr><td><b>Mail:</b></td><td><a href="mailto: larsgs07@uia.no">larsgs07@uia.no</a></td></tr>
+        <tr><td><b>Personlighet:</b></td><td>ENTJ-A</td></tr>
+
+
+    <!-- ------------------------------------------------------------------------------------------------- -->
+    <!-- Bruker javascript til å sette rett størrelse på tabelltekst og setter javascript nederst
+         i teksten for å la det lastes til slutt-->
+    <!-- ------------------------------------------------------------------------------------------------- -->
+        <script>
+            {
+                document.getElementById('fontsize').style.fontSize='20px'
+            }
+        </script>
+    </table>
+    </body>
+    </html>

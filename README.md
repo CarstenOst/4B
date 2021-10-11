@@ -1,3 +1,3 @@
-En test med commits
-testv2
-hei hilsen vetle
+# Readme
+#### Open MainHomePage and open Index.html
+##### Or don't, your loss

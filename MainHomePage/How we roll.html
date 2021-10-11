@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <link rel="icon" type="image/png" sizes="16x16" href="../Bilder/favicon-16x16.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>How We Roll</title>
+    <style>
+        :root {
+            --main-color: #191919;
+            --text-color: azure;
+        }
+        header div, nav{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+            font-family: Comic Sans, Comic Sans MS, cursive; /* Comic sans er vElDiG mYe lIkT i det digitale samfunnet :P */
+            font-size: 60px;
+            color: var(--text-color);
+        }
+        header div h1, nav div h2{
+            color: var(--text-color);
+            padding: 15px 10px;
+            margin: 5px auto;
+            min-width: 100px;
+            border-radius: 55px;
+        }
+        header div h1:hover, nav div h2:hover, #linkButton:hover{
+            animation: BlackN_White_Fade 6s infinite;
+            cursor: pointer;
+            display: flex;
+        }
+        @-webkit-keyframes BlackN_White_Fade{
+            0% {}
+            50% {background-color: var(--text-color); color: var(--main-color);}
+            100% {}
+        }
+        .center{
+            text-align: center;
+            margin: auto;
+            color: var(--text-color);
+            font-size: 20px;
+        }
+        body {
+            background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
+            font-family: "Roboto Light", sans-serif;
+
+       }
+
+    </style>
+</head>
+    <body>
+    <header id="You´re always wrong, but how much?"> <!-- remember to remove the inspo quotes b4 submittion -->
+        <div onclick="window.location.reload();">
+            <h1>How we roll</h1>
+        </div>
+    </header>
+    <nav>
+        <div onclick="location='Index.html'">
+            <h2>Visittkort</h2>
+        </div>
+        <div onclick="location='hwr-report.html'">
+            <h2>HWR Report</h2>
+        </div>
+    </nav>
+        <!-- litt luft på den late måten, istedenfor i css som er forsåvidt bedre-->
+        <br><br>
+        <h2 class="center">Preferanser for arbeid:</h2>
+        <br>
+        <form class="center" onsubmit="return true">
+            <label for="navn"><b>Navn:</b></label><label>
+            <input id="navn" name="navn" type="text">
+            </label>
+            <br>
+            <br>
+<span></span>
+            <div class="center"> <!-- mokv - morgen eller kveld-->
+                <label for="mokv">Morgen</label>
+                <input type="range" id="mokv" name="mokv" min="10" max="80">
+                <label for="mokv" >Kveld &nbsp&nbsp&nbsp</label> <!-- Her bruker vi &nbsp for å få et "mellomrom" for å positionere formen bedre, da vi ikke fant ut hvordan dette kunne bli gjort på en god måte i css-->
+            </div>
+
+            <div class="center"> <!-- grus - gruppe eller solo -->
+                <label for="grus">Gruppe</label>
+                <input type="range" id="grus" name="grus" min="10" max="80">
+                <label for="grus">Solo&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+            </div>
+
+            <div class="center"> <!-- fydi - fysisk eller digitalt -->
+                <label for="fydi">Fysisk samling</label>
+                <input type="range" id="fydi" name="fydi" min="10" max="80">
+                <label for="fydi">Digitalt hjemme</label>
+            </div>
+
+            <div class="center"> <!-- krek - kreativ eller kontroll -->
+                <label for="krek">Kreativt</label>
+                <input type="range" id="krek" name="krek" min="10" max="80">
+                <label for="krek" >Kontroll&nbsp</label>
+            </div>
+
+            <div class="center"> <!-- fops - Forbredt eller på sparket -->
+                <label for="fops">Forberedt</label>
+                <input type="range" id="fops" name="fops" min="10" max="80">
+                <label for="fops"  >På sparket</label>
+            </div>
+            <!-- Lagre knapp -->
+            <input type="submit" value="Lagre" style=" background-color: gainsboro; font-size: 16px; cursor: pointer">
+        </form>
+
+        <!-- Denne var en liten luring, brukte sikkert 5 min på å finne ut av at den måtte med -Carsten -->
+        <div class="results center" style=" width: 330px; ">
+            <h2>Form Data</h2>
+            <pre style="font-size: 12px; text-align: left"></pre>
+            <p id="link"></p>
+            <button id="linkButton" class="center" style="display: none; background-color: transparent; border: 1px; cursor: pointer;">Get Link</button>
+        </div>
+
+        <script>
+            // From https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch (seen 2021-09-27)
+            // Example POST method implementation using fetch:
+            //
+            async function postData(url = '', data = {}) {
+                // Default options are marked with *
+                const response = await fetch(url, {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache,only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer,*no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                    body: JSON.stringify(data) // body data type must match"Content-Type"header
+                });
+                return response.json(); // parses JSON response into native JavaScriptobjects
+            }
+
+            function handleSubmit(event) {
+                event.preventDefault();
+                const data = new FormData(event.target);
+                const formJSON = Object.fromEntries(data.entries());
+                const results = document.querySelector('.results pre');
+                const linkButtonHtml = document.getElementById("linkButton");
+                postData('https://bacit.info/', formJSON)
+                    .then(data => {
+                        results.innerText = JSON.stringify(data, null, 2);
+                    });
+                console.log(formJSON);
+                linkButtonHtml.style.display = "block"; //synliggjør en knapp som ikke er i bruk enda, da det var manglende info på nett se funk -> [1]
+
+            }
+            const form = document.querySelector('form');
+            form.addEventListener('submit', handleSubmit);
+            /* [1]
+            //denne funksjonen genererer linken som kan brukes for å få dataen //desverre for lite tid til å fullføre :/
+            function getLink() {
+                const timeXpath = "/html/body/div/pre/text()[9]";
+                const trxidXpath = "/html/body/div/pre/text()[8]";
+                // https://stackoverflow.com/questions/10596417/is-there-a-way-to-get-element-by-xpath-using-javascript-in-selenium-webdriver
+                let timeXpathText = document.evaluate(timeXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                let trxidXpathText = document.evaluate(trxidXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+                let time = JSON.stringify(timeXpathText);
+                time = time.slice();
+
+                console.log(time);
+                console.log(trxidXpathText);
+            }
+            const linkButtonHtml = document.getElementById("linkButton");
+            linkButtonHtml.addEventListener('click', getLink);
+            */
+
+        </script>
+</body>
+</html>
