@@ -11,8 +11,8 @@
 https://github.com/CarstenOst/4B 
 ```
 ####(4) Hjemmeside
-```
-https://carstenost.github.io/4B/
+```diff
++ https://carstenost.github.io/4B/
 ```
 
 Vi syntes personlig at organiseringen av arbeidet gikk relativt bra. Vi brukte Kanban i GitHub for å organisere arbeidsoppgaver, og for å passe på at alle visste hva som skulle gjøres. 
