@@ -179,56 +179,25 @@
          Preben
         -----------------------------------------------------------------------------------
          */
-
-        .card1 {
-            width: 550px;
-            height: 300px;
-            background-color: rgba(0, 186, 255, 0.08);
-        }
-
-        .card-front1 {
-            width: 100%;
-            height: 100%;
-            display: flex;
+        .card_preben{
+            margin: auto;
+            height: 600px;
+            width: 300px;
             background: white;
-            border-radius: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            border-radius: 25px;
         }
-
-        .left1 {
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .card_preben:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
-
-        .left1 img {
-            width: 80%;
-            box-shadow: 0 10px 20px rgba(0,0,0, 0.8);
-            background: rgb(0, 186, 255);
-        }
-
-        .right1 {
-            width: 60%;
-            color: #00baff;
-        }
-
-        .right-content1 {
-            align-items: center;
-            margin: 20px 0;
-            margin-left: 20px;
+        .contianer{
+            background: #00baff;
             font-family: "Roboto Slab SemiBold", sans-serif;
-        }
-
-        .name1 {
-            display: flex;
-            justify-content: center;
-            background-color: #00baff;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 40px;
             color: white;
-            font-family: "Roboto Slab SemiBold", sans-serif;
-            padding: 5px 0 5px 0;
-            margin: 30px 0;
-            box-shadow: 0 0 10px rgba(255,255,255, 0.5);
         }
 
 
@@ -406,25 +375,16 @@
 
 
             <!-- Preben -->
-            <div id="PrebenVisitt" class="card-wrapper" style="display: none">
-                <div class="card1">
-                    <div class="card-front1">
-                        <div class="left1">
-                            <img src="Bilder/preben.png" alt="preben">
-                        </div>
-                        <div class="right1">
-                            <div class="name1 right-content1">
-                                <h4>Preben Røstad</h4>
-                            </div>
-                            <div class="right-content1 info">
-                                <p>Tlf: +47 90039680</p>
-                                <p> Mail: preber12@uia.no</p>
-                                <p>Adresse: Marviksveien 84</p>
-                            </div>
-                        </div>
-                    </div>
+            <div id="PrebenVisitt"  class="card_preben" style="display: none">
+                <img src="Bilder/preben.png" alt="preben">
+                <div class="contianer">
+                    <h4>Preben Røstad</h4>
+                    <p>Tlf: +47 90039680</p>
+                    <p>Mail: preber12@uia.no</p>
+                    <p>Adresse: Marviksveien 84</p>
                 </div>
             </div>
+
 
 
             <!-- Vetle -->
