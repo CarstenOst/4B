@@ -115,21 +115,25 @@
             color: #03031a;
             font-size: 1.5em;
             font-family: Calibri, sans-serif;
-            width: fit-content;
             background-image: url("MainHomePage/Visittkort/Amalie/Sky.jpg");
             filter: brightness(115%);
             border-radius: 5px;
+            width: 525px;
+            height: 275px;
         }
 
         #AmalieVisitt p {
-            background-color: #9db0cc;
+            background-color: #a7b3c4;
+            background-color: rgba(173, 216, 230,0.6);
             border-radius: 5px;
             margin: 25px;
-            padding: 0 20px 0 20px;
-
+            position: relative; top: -10px;
         }
+
         .hoverAmalie:hover{
             color: #7557c2;
+            cursor: pointer;
+            font-size: 25px;
         }
 
 
@@ -347,16 +351,18 @@
             <div id="AmalieVisitt" class="kort" style="display: none">
                 <p><b>Universitetet i Agder</b></p>
                 <p>Amalie Ehnebom Lunden</p>
-                <p>Telefon: +47 940 50 416</p>
-                <p>amalie.ehnebom.lunden@gmail.com</p>
+                <p>Tlf: +47 940 50 416</p>
+                <p>amalieel@uia.no</p>
                     <div class="hoverAmalie">
-                        <p id="klikktest" style="font-size: 25px; cursor: pointer;"> <strong>klikk her</strong></p>
+                        <p id="klikktest"><strong>klikk her</strong></p>
                     </div>
                 <script>
+                    // js alert som spør om du vil ha is:)
                     {document.getElementById("klikktest").onclick = trykket;}
                     function trykket() {alert("Vil du ha is?")}
                 </script>
             </div>
+
             <!-- Carsten -->
             <div id="CarstenVisitt" style="display: none" onclick="location='Fractal/test.html'">
                 <div class="carBackEnd">
