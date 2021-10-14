@@ -262,6 +262,46 @@
             margin: 30px 0;
             box-shadow: 0 0 10px rgba(255,255,255, 0.5);
         }
+        /*
+        -----------------------------------------------------------------------------------
+         Ilham
+        -----------------------------------------------------------------------------------
+         */
+          .ilham_img {
+            padding: 30px;
+            border: solid gray;
+            background-color: azure;
+            filter: grayscale(100%);
+            text-align: center;
+             width: 300px
+      }
+
+      .whole {
+      width: 550px;
+      height: 500px;
+      background:linear-gradient(100deg,Lavender, LightSteelBlue, LightGray);
+      text-align: center;
+
+     }
+
+      .il_h1 {
+        margin: 50px;
+        border:solid 5px;
+        border-radius: 10px;
+        background:linear-gradient(45deg, LightSteelBlue, Lavender, LightGray);
+        color: gray;
+      }
+      .Visitt {
+      text-align: center;
+     font-size: 20px;
+      }
+      .center {
+      text-align: center;
+      }
+      .center2 {
+     display: inline-block;
+     text-align: left;
+     }
 
     </style>
 </head>
@@ -288,7 +328,7 @@
         <div onclick="showVisittKort('CarstenVisitt')" id="Can you hear the silence?"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
             <h2 id="Jeg vet, at man aldri kan vite helt sikkert">Carsten</h2>
         </div>
-        <div onclick="location='MainHomePage/Visittkort/Ilham/IlhamVisit.html'">
+        <div onclick="showVisittKort('IlhamVisitt')">
             <h2>Ilham</h2>
         </div>
         <div onclick="location='MainHomePage/Visittkort/Lars/LarsVisittkort.html'">
@@ -414,7 +454,22 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Ilham -->
+            <div id="IlhamVisitt" class="whole" style="display: none">
+                <div  class="center" ><h1 class="il_h1">Ilham Ahmed Mohammed<br><em class="Visitt">Visitt-Kort</em></h1></div>
+                    <img class="ilham_img" src="ILHAM.PNG">
+                    <div class="center2">
+                        <ul>
+                            <li><h3>Litt om meg</h3></li>
+                        </ul>
+                        <ol>
+                    <li><p><strong>Bursdagsdato:</strong>15.feb.2002</p></li>
+                    <li><p><strong>Skole:</strong>Universitetet i Agder</p></li>
+                    <li><p><strong>Tlf:</strong>96224565</p></li>
+                    <li><p><strong>Mail:</strong>ilhamam@student.uia.no</p></li>
+                </ol>
+                </div>
+            </div>
         </div>
     </section>
 </main>
