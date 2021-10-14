@@ -1,3 +1,4 @@
+
 const canvas = document.querySelector("canvas");
 const generateButton = document.querySelector(".generer-tre-knapp");
 const toggleDarkMode = document.querySelector(".bg2")
@@ -17,7 +18,7 @@ document.addEventListener("mousemove",function(event){
    // console.log(xCoord , yCoord);
 
 });
-
+// kode tatt fra https://www.youtube.com/watch?v=0jjeOYMjmDU&ab_channel=TheCodingTrain (har såklart gjort om på noe)
 function tegnTre(startX, startY, len, angle, branchWidth, color1, color2) {
 
     ctx.beginPath();
@@ -37,7 +38,7 @@ function tegnTre(startX, startY, len, angle, branchWidth, color1, color2) {
         ctx.bezierCurveTo(10, -len/2, -10, -len/2, 0, -len);
     }
     ctx.stroke();
-
+    //her endret jeg litt
     if (len < 9) {
         //leaf
         ctx.beginPath();
@@ -80,6 +81,6 @@ function bgToggle(){ //Will change the background to white or to hex #191919 dep
     }
 }
 
-
+// calls the functions
 generateButton.addEventListener("click", generateRandomTre);
 toggleDarkMode.addEventListener("click", bgToggle);
