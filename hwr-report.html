@@ -8,7 +8,7 @@
     <title>hwr-report</title>
     <style>
 
-        :root {
+        :root { /* Lager noen variabler med farge, slik at man lett kan endre */
             --main-color: #191919;
             --text-color: azure;
             --person1: #40e0d0; /*Amalie */
@@ -92,7 +92,7 @@
     <figure>
         <figcaption style="text-align:center;"></figcaption>
         <div id="personsContent" style="display: inline-block; width: auto; text-align: center">
-            <div class="box_fitting" style="background-color: var(--person1)">Amalie</div>
+            <div class="box_fitting" style="background-color: var(--person1)" onclick="showGraphics(`person0`)">Amalie</div>
             <div class="box_fitting" style="background-color: var(--person3)">Carsten</div>
             <div class="box_fitting" style="background-color: var(--person2)">Ilham</div>
             <div class="box_fitting" style="background-color: var(--person5)">Lars</div>
@@ -180,17 +180,75 @@
     <script>
 
         // deler av kode tatt fra https://github.com/digitnow/how-we-roll/blob/test-fetch/examples/svg02.html
-        // noen deler var ubrukelige, kunne laget en for-loop og hatt alle elementene i elementene i array for å oppnå
+        // noen deler var ubrukelige, lager en for-loop for å oppnå
         // samme resultat med mindre kode
         let minsvg = document.getElementById("hwrsvg");
         let glist = minsvg.getElementsByTagName("g");
         let circles = glist[0].getElementsByTagName("circle");
 
-        for(let i = 0; i <= 5; i++){
-            console.log(i);
+/*
+        function showGraphics(Person){
+            // Jeg liker kake, så da får variabel navnet bli kake //\\ Ikke bli sur Janis, jeg vet du også liker kake :)
+            // Dette også for å demonstrere at variabel navn kan være nesten hva som helst, Her kunne det kanskje
+            // passet å endre "kake" til person eller lignende, for å gjøre det lettere å lese
+            const kake = document.getElementById(Person)
+            let lastPerson = "";
+
+
+            // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon og ikke noe globalt
+            //koden sjekker om display er none, og om det er, blir display endret til block, og bakgrunnsbildet til none
+            if (kake.style.display === "none") {
+                kake.style.display = "block";
+                circles.person0.r.baseVal.value = 2;
+                try{
+                    // Denne if statement vil sette det forrige navnet som ble trykket på til display none
+                    if (Person !== lastPerson) {
+                        let forrigeKake = document.getElementById(lastPerson);
+                        forrigeKake.style.display = "none";
+                        lastPerson = Person;
+                    }
+                }catch(err){
+                    console.log(err);
+                }
+            }
+            else {
+                kake.style.display = "none";
+                circles.person0.r.baseVal.value = 2;
+            }
+        }*/
+
+        let funkerInte = ["mokv", "grus", "fydi", "krek", "fops"];
+        // funksjon som gjør hardkoden mer DRY (don't repeat yourself)
+        // når man kaller funksjonen så trenger man url som skal fetches og personen det skal skrives på
+        function drawData(url, person){
+            fetch(url)
+                .then(response => response.json())
+                .then(data =>{
+                    console.log(data); //fjern console.log(data) da den ikke er brukbar lenger
+                    // bruker en enkel for loop for å korte ned koden betydelig, trenger kun 5 element fra "data". loopen stopper på int 4
+                    // det er i++ som får int i til å bli større for hver loop
+                    // i settes så inn i glist[i] for å finne rette element i html
+                    // derretter trenger vi rett element fra data
+                    for(let i = 0; i <= 4; i++){
+
+
+                        console.log(i+funkerInte[i]); //fjern denne, da den kun brukes i develop
+                        circles = glist[i].getElementsByTagName("circle");
+                        circles[person].cx.baseVal.value = data[funkerInte[i]];
+
+                    }
+                });
         }
+        //Amalie
+       drawData("https://bacit.info/hwr/20211010160928-8b3a2d356df509df30c1c0ec64fa2c81.json", "person0")
+
+
+
+
         // Mock JSON fra fil
         //Amalie
+        /*
+
         fetch("https://bacit.info/hwr/20211010160928-8b3a2d356df509df30c1c0ec64fa2c81.json")
             .then(response => response.json())
             .then(data => {
@@ -286,7 +344,7 @@
                 circles.person5.cx.baseVal.value = data.fops;
             });
 
-
+*/
     </script>
 
 </body>
