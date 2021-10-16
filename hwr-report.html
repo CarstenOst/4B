@@ -32,7 +32,16 @@
             width: 100%;
             text-align: center;
         }
-        header div h1, nav div h2{
+        aside div{
+            width: 200px;
+        }
+        figcaption, aside div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        header div h1, nav div h2, aside div{
             color: var(--text-color);
             padding: 15px 10px;
             margin: 5px auto;
@@ -40,7 +49,7 @@
             border-radius: 55px;
             justify-content: center; /* fjerner du na så blir innholdet lite kult*/
         }
-        header div h1:hover, nav div h2:hover, .box_fitting:hover{
+        header div h1:hover, nav div h2:hover, .box_fitting:hover, aside div:hover{
             animation: BlackN_White_Fade 6s infinite;
             cursor: pointer;
 
@@ -88,18 +97,25 @@
             <h2>How We Roll</h2>
         </div>
     </nav>
+    <aside style="text-align: center" onclick="drawMultipleData()">
+        <div>
+            ----------
+            Fetch data
+            ----------
+        </div>
+    </aside>
 
     <figure>
-        <figcaption style="text-align:center;"></figcaption>
-        <div id="personsContent" style="display: inline-block; width: auto; text-align: center">
-            <div class="box_fitting" style="background-color: var(--person1)" onclick="showGraphics(`person0`)">Amalie</div> <!-- fjern eller legg til funksjon -->
-            <div class="box_fitting" style="background-color: var(--person3)">Carsten</div>
-            <div class="box_fitting" style="background-color: var(--person2)">Ilham</div>
-            <div class="box_fitting" style="background-color: var(--person5)">Lars</div>
-            <div class="box_fitting" style="background-color: var(--person6)">Preben</div>
-            <div class="box_fitting" style="background-color: var(--person4)">Vetle</div>
-
-        </div>
+        <figcaption>
+            <div id="personsContent">
+                <div class="box_fitting" style="background-color: var(--person1)" onclick="showGraphics(`person0`)">Amalie</div> <!-- fjern eller legg til funksjon -->
+                <div class="box_fitting" style="background-color: var(--person3)">Carsten</div>
+                <div class="box_fitting" style="background-color: var(--person2)">Ilham</div>
+                <div class="box_fitting" style="background-color: var(--person5)">Lars</div>
+                <div class="box_fitting" style="background-color: var(--person6)">Preben</div>
+                <div class="box_fitting" style="background-color: var(--person4)">Vetle</div>
+            </div>
+        </figcaption>
         <!-- For SVG spesifikasjon se her https://svgwg.org/svg2-draft/ (sist sett 2021-10-06) -->
         <!-- Eksempel basert på https://developer.mozilla.org/en-US/docs/Web/SVG/Element (sist sett 2021-10-06) -->
         <!-- Da kommer det en lang repetitiv kode som egentlig bare tegner inn sirklene og et par streker -->
@@ -160,6 +176,8 @@
                 <circle id="person5" cx="80" cy="30" r="1" fill="var(--person6)"/>
                 <text x="85" y="30" dy=".45em" class="vakkerFont">Sparket</text>
             </g>
+
+
             <!--   Brukte denne for å sette inn verdi på raskere måte enn å skrive en om gangen (shift+ctrl+alt+j)
                     <g>
                             <text x="2" y="2391239999999" dy=".45em" class="vakkerFont">Morgen</text>
@@ -172,7 +190,6 @@
                             <circle id="person5" cx="80" cy="2391239999999" r="1" fill="var(--person6)"/>
                             <text x="85" y="2391239999999" dy=".45em" class="vakkerFont">Kveld</text>
                         </g>
-
             -->
 
         </svg>
@@ -180,51 +197,18 @@
     <script>
 
         // deler av kode tatt fra https://github.com/digitnow/how-we-roll/blob/test-fetch/examples/svg02.html
-        // noen deler var ubrukelige, lager en for-loop for å oppnå
-        // samme resultat med mindre kode
+        // noen deler var ubrukelige, lager en for-loop for å oppnå samme resultat med mindre kode
         let minsvg = document.getElementById("hwrsvg");
         let glist = minsvg.getElementsByTagName("g");
         let circles = glist[0].getElementsByTagName("circle");
+        let dataObject = ["mokv", "grus", "fydi", "krek", "fops"]; //array med json object navnene brukt
 
-/*
-        function showGraphics(Person){
-            // Jeg liker kake, så da får variabel navnet bli kake //\\ Ikke bli sur Janis, jeg vet du også liker kake :)
-            // Dette også for å demonstrere at variabel navn kan være nesten hva som helst, Her kunne det kanskje
-            // passet å endre "kake" til person eller lignende, for å gjøre det lettere å lese
-            const kake = document.getElementById(Person)
-            let lastPerson = "";
-
-
-            // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon og ikke noe globalt
-            //koden sjekker om display er none, og om det er, blir display endret til block, og bakgrunnsbildet til none
-            if (kake.style.display === "none") {
-                kake.style.display = "block";
-                circles.person0.r.baseVal.value = 2;
-                try{
-                    // Denne if statement vil sette det forrige navnet som ble trykket på til display none
-                    if (Person !== lastPerson) {
-                        let forrigeKake = document.getElementById(lastPerson);
-                        forrigeKake.style.display = "none";
-                        lastPerson = Person;
-                    }
-                }catch(err){
-                    console.log(err);
-                }
-            }
-            else {
-                kake.style.display = "none";
-                circles.person0.r.baseVal.value = 2;
-            }
-        }*/
-
-        let dataObject = ["mokv", "grus", "fydi", "krek", "fops"];
         // funksjon som gjør hardkoden mer DRY (don't repeat yourself)
         // når man kaller funksjonen så trenger man url som skal fetches og personen det skal skrives på
         function drawData(url, person){
             fetch(url)
                 .then(response => response.json())
                 .then(data =>{
-                    console.log(data); //fjern console.log(data) da den ikke er brukbar lenger
                     // bruker en enkel for loop for å korte ned koden betydelig, trenger kun 5 element fra "data". loopen stopper på int 4
                     // det er i++ som får int i til å bli større for hver loop
                     // i settes så inn i glist[i] for å finne rette element i html
@@ -237,7 +221,7 @@
         }
         //Amalie
         function drawMultipleData(){
-            /* Viser til hvilken link som passer til hvem
+            /* Viser til hvilken link som passer til hvem, trenger forsåvidt ikke være "let" men har tanker om å bruke det videre
             let amalieUrl = url[0]
             let ilhamUrl = url[1]
             let carstenUrl = url[2]
@@ -249,12 +233,14 @@
             let url = ["https://bacit.info/hwr/20211010160928-8b3a2d356df509df30c1c0ec64fa2c81.json", "https://bacit.info/hwr/20211010162759-2934ea0622d983c44f141298ab04ee8b.json", "https://bacit.info/hwr/20211010163149-3c535cc7b27cb9c8c78d25cae845928b.json", "https://bacit.info/hwr/20211010161213-e95502ccdc36fc355330951d5c6747ef.json", "https://bacit.info/hwr/20211010171927-a32b3f45f1af3e5c78338a58956a8443.json", "https://bacit.info/hwr/20211013104402-be78d7a7d3f8ec131cfdfdc43f39df46.json"]
             let person = ["person0","person1","person2","person3","person4","person5",]
             for(let i = 0; i <= 5; i++){
-                // sender 6 linker til drawData funksjonen, som da tegner inn i dokumentet
-                drawData(url[i], person[i])}
+                drawData(url[i], person[i])} // sender 6 linker til drawData funksjonen, som da tegner inn i dokumentet
         }
-        drawMultipleData()
 
 
+        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
 
         // Koden som er kommmentert vekk under er blitt erstattet med en mye kortere kode over :)
         // Mock JSON fra fil
