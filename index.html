@@ -263,51 +263,52 @@
          Ilham
         -----------------------------------------------------------------------------------
          */
-          .ilham_img {
+        .ilham_img {
             padding: 30px;
             border: solid gray;
             background-color: azure;
             filter: grayscale(100%);
             text-align: center;
-             width: 300px
-      }
-
-      .whole {
-      width: 550px;
-      height: 500px;
-      background:linear-gradient(100deg,Lavender, LightSteelBlue, LightGray);
-      text-align: center;
-
-     }
-
-      .il_h1 {
-        margin: 50px;
-        border:solid 5px;
-        border-radius: 10px;
-        background:linear-gradient(45deg, LightSteelBlue, Lavender, LightGray);
-        color: gray;
-      }
-      .Visitt {
-      text-align: center;
-     font-size: 20px;
-      }
-      .center {
-      text-align: center;
-      }
-      .center2 {
-     display: inline-block;
-     text-align: left;
-     }
-
+            width: 300px
+        }
+        .whole {
+            width: 550px;
+            height: 500px;
+            background:linear-gradient(100deg,Lavender, LightSteelBlue, LightGray);
+            text-align: center;
+        }
+        .il_h1 {
+            margin: 50px;
+            border:solid 5px;
+            border-radius: 10px;
+            background:linear-gradient(45deg, LightSteelBlue, Lavender, LightGray);
+            color: gray;
+        }
+        .Visitt {
+            text-align: center;
+            font-size: 20px;
+        }
+        .center {
+            text-align: center;
+        }
+        .center2 {
+            display: inline-block;
+            text-align: left;
+        }
     </style>
 </head>
+
+
 <body id="Working hard for something we dont care about is called stress-- --Working hard for something we love is called passion">
+
 <header id="You´re always wrong, but how much?"> <!-- remember to remove the inspo quotes b4 submittion -->
     <div onclick="window.location.reload();">
         <h1>Visittkort</h1>
     </div>
 </header>
-<nav>
+
+
+<nav> <!-- Navigation, obvious-->
     <div onclick="location='How we roll.html'">
         <h2>How We Roll</h2>
     </div>
@@ -315,6 +316,8 @@
         <h2>HWR Report</h2>
     </div>
 </nav>
+
+
 <!-- Her ligger content -->
 <main id="container">
     <aside>
@@ -349,7 +352,7 @@
 
 
             // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon og ikke noe globalt
-            //koden sjekker om display er none, og om det er blir display endret til block, og bakgrunnsbildet til none
+            //koden sjekker om display er none, og om det er, blir display endret til block, og bakgrunnsbildet til none
             if (kake.style.display === "none") {
                 kake.style.display = "block";
                 bg_bilde.style.display = "none";
@@ -371,17 +374,16 @@
         }
     </script>
 
-    <section>
+    <section><!-- Her legger vi inn alle visittkortene (NB: ha alt inni en conteiner)
+                 Id i conteiner skal være "navnVisitt" -->
         <div id="visitt_Cont">
 
             <div id="bg_bilde" style="display: block;">
-                <!--suppress CheckImageSize -->
+                <!--suppress CheckImageSize (denne koden sier "hold kjeft" til intelij om warning med bilde størrelse) :) -->
                 <img src="Bilder/4B_logo_no_backround_lowq.png" alt="UIA-Logo" width="550px" style="height: 300px">
-
             </div>
 
-            <!-- Her legger vi inn alle visittkortene (NB: ha alt inni en conteiner)
-                 Id i conteiner skal være "navnVisitt" -->
+
 
             <!-- Amalie -->
             <div id="AmalieVisitt" class="kort" style="display: none">
@@ -389,9 +391,9 @@
                 <p>Amalie Ehnebom Lunden</p>
                 <p>Tlf: +47 940 50 416</p>
                 <p>amalieel@uia.no</p>
-                    <div class="hoverAmalie">
-                        <p id="klikktest"><strong>klikk her</strong></p>
-                    </div>
+                <div class="hoverAmalie">
+                    <p id="klikktest"><strong>klikk her</strong></p>
+                </div>
                 <script>
                     // js alert som spør om du vil ha is:)
                     {document.getElementById("klikktest").onclick = trykket;}
@@ -428,7 +430,6 @@
             </div>
 
 
-
             <!-- Vetle -->
             <div id="VetleVisitt" class="card-wrapper" style="display: none;">
                 <div class="card">
@@ -453,17 +454,17 @@
             <!-- Ilham -->
             <div id="IlhamVisitt" class="whole" style="display: none">
                 <div  class="center" ><h1 class="il_h1">Ilham Ahmed Mohammed<br><em class="Visitt">Visitt-Kort</em></h1></div>
-                    <img class="ilham_img" src="ILHAM.PNG">
+                    <img class="ilham_img" src="./MainHomePage/Visittkort/Ilham/ILHAM.PNG" alt="Ilham">
                     <div class="center2">
                         <ul>
                             <li><h3>Litt om meg</h3></li>
                         </ul>
                         <ol>
-                    <li><p><strong>Bursdagsdato:</strong>15.feb.2002</p></li>
-                    <li><p><strong>Skole:</strong>Universitetet i Agder</p></li>
-                    <li><p><strong>Tlf:</strong>96224565</p></li>
-                    <li><p><strong>Mail:</strong>ilhamam@student.uia.no</p></li>
-                </ol>
+                            <li><p><strong>Bursdagsdato:</strong>15.feb.2002</p></li>
+                            <li><p><strong>Skole:</strong>Universitetet i Agder</p></li>
+                            <li><p><strong>Tlf:</strong>96224565</p></li>
+                            <li><p><strong>Mail:</strong>ilhamam@student.uia.no</p></li>
+                        </ol>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@
     <title>hwr-report</title>
     <style>
 
-        :root {
+        :root { /* Lager noen variabler med farge, slik at man lett kan endre */
             --main-color: #191919;
             --text-color: azure;
             --person1: #40e0d0; /*Amalie */
@@ -32,7 +32,16 @@
             width: 100%;
             text-align: center;
         }
-        header div h1, nav div h2{
+        aside div{
+            width: 200px;
+        }
+        figcaption, aside div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        header div h1, nav div h2, aside div{
             color: var(--text-color);
             padding: 15px 10px;
             margin: 5px auto;
@@ -40,7 +49,7 @@
             border-radius: 55px;
             justify-content: center; /* fjerner du na så blir innholdet lite kult*/
         }
-        header div h1:hover, nav div h2:hover, .box_fitting:hover{
+        header div h1:hover, nav div h2:hover, .box_fitting:hover, aside div:hover{
             animation: BlackN_White_Fade 6s infinite;
             cursor: pointer;
 
@@ -88,18 +97,25 @@
             <h2>How We Roll</h2>
         </div>
     </nav>
+    <aside style="text-align: center" onclick="drawMultipleData()">
+        <div>
+            ----------
+            Fetch data
+            ----------
+        </div>
+    </aside>
 
     <figure>
-        <figcaption style="text-align:center;"></figcaption>
-        <div id="personsContent" style="display: inline-block; width: auto; text-align: center">
-            <div class="box_fitting" style="background-color: var(--person1)">Amalie</div>
-            <div class="box_fitting" style="background-color: var(--person3)">Carsten</div>
-            <div class="box_fitting" style="background-color: var(--person2)">Ilham</div>
-            <div class="box_fitting" style="background-color: var(--person5)">Lars</div>
-            <div class="box_fitting" style="background-color: var(--person6)">Preben</div>
-            <div class="box_fitting" style="background-color: var(--person4)">Vetle</div>
-
-        </div>
+        <figcaption>
+            <div id="personsContent">
+                <div class="box_fitting" style="background-color: var(--person1)" onclick="showGraphics(`person0`)">Amalie</div> <!-- fjern eller legg til funksjon -->
+                <div class="box_fitting" style="background-color: var(--person3)">Carsten</div>
+                <div class="box_fitting" style="background-color: var(--person2)">Ilham</div>
+                <div class="box_fitting" style="background-color: var(--person5)">Lars</div>
+                <div class="box_fitting" style="background-color: var(--person6)">Preben</div>
+                <div class="box_fitting" style="background-color: var(--person4)">Vetle</div>
+            </div>
+        </figcaption>
         <!-- For SVG spesifikasjon se her https://svgwg.org/svg2-draft/ (sist sett 2021-10-06) -->
         <!-- Eksempel basert på https://developer.mozilla.org/en-US/docs/Web/SVG/Element (sist sett 2021-10-06) -->
         <!-- Da kommer det en lang repetitiv kode som egentlig bare tegner inn sirklene og et par streker -->
@@ -107,72 +123,73 @@
             <g> <!-- mokv - morgen eller kveld-->
                 <text x="2" y="9.5" dy=".45em" class="vakkerFont">Morgen</text>
                 <line x1="10" y1="10" x2="80" y2="10" stroke="#000000" stroke-width="0.5" />
-                <circle id="person01" cx="50" cy="10" r="1" fill="var(--person1)"/>
-                <circle id="person02" cx="10" cy="10" r="1" fill="var(--person2)"/>
-                <circle id="person03" cx="50" cy="10" r="1" fill="var(--person3)"/>
-                <circle id="person04" cx="60" cy="10" r="1" fill="var(--person4)"/>
-                <circle id="person05" cx="70" cy="10" r="1" fill="var(--person5)"/>
-                <circle id="person06" cx="80" cy="10" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="10" r="1" fill="var(--person1)"/>
+                <circle id="person1" cx="10" cy="10" r="1" fill="var(--person2)"/>
+                <circle id="person2" cx="15" cy="10" r="1" fill="var(--person3)"/>
+                <circle id="person3" cx="60" cy="10" r="1" fill="var(--person4)"/>
+                <circle id="person4" cx="70" cy="10" r="1" fill="var(--person5)"/>
+                <circle id="person5" cx="80" cy="10" r="1" fill="var(--person6)"/>
                 <text x="85" y="9.5" dy=".45em" class="vakkerFont">Kveld</text>
             </g>
             <!--  -->
             <g> <<!-- grus - gruppe eller solo -->
                 <text x="2" y="15" dy=".45em" class="vakkerFont">Gruppe</text>
                 <line x1="10" y1="15" x2="80" y2="15" stroke="#000000" stroke-width="0.5" />
-                <circle id="person01" cx="50" cy="15" r="1" fill="var(--person1)"/>
-                <circle id="person02" cx="10" cy="15" r="1" fill="var(--person2)"/>
-                <circle id="person03" cx="50" cy="15" r="1" fill="var(--person3)"/>
-                <circle id="person04" cx="60" cy="15" r="1" fill="var(--person4)"/>
-                <circle id="person05" cx="70" cy="15" r="1" fill="var(--person5)"/>
-                <circle id="person06" cx="80" cy="15" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="15" r="1" fill="var(--person1)"/>
+                <circle id="person1" cx="10" cy="15" r="1" fill="var(--person2)"/>
+                <circle id="person2" cx="15" cy="15" r="1" fill="var(--person3)"/>
+                <circle id="person3" cx="60" cy="15" r="1" fill="var(--person4)"/>
+                <circle id="person4" cx="70" cy="15" r="1" fill="var(--person5)"/>
+                <circle id="person5" cx="80" cy="15" r="1" fill="var(--person6)"/>
                 <text x="85" y="15" dy=".45em" class="vakkerFont">Solo</text>
             </g>
             <g> <!-- fydi - fysisk eller digitalt -->
                 <text x="2" y="20" dy=".45em" class="vakkerFont">Fysisk</text>
                 <line x1="10" y1="20" x2="80" y2="20" stroke="#000000" stroke-width="0.5" />
-                <circle id="person01" cx="50" cy="20" r="1" fill="var(--person1)"/>
-                <circle id="person02" cx="10" cy="20" r="1" fill="var(--person2)"/>
-                <circle id="person03" cx="50" cy="20" r="1" fill="var(--person3)"/>
-                <circle id="person04" cx="60" cy="20" r="1" fill="var(--person4)"/>
-                <circle id="person05" cx="70" cy="20" r="1" fill="var(--person5)"/>
-                <circle id="person06" cx="80" cy="20" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="20" r="1" fill="var(--person1)"/>
+                <circle id="person1" cx="10" cy="20" r="1" fill="var(--person2)"/>
+                <circle id="person2" cx="15" cy="20" r="1" fill="var(--person3)"/>
+                <circle id="person3" cx="60" cy="20" r="1" fill="var(--person4)"/>
+                <circle id="person4" cx="70" cy="20" r="1" fill="var(--person5)"/>
+                <circle id="person5" cx="80" cy="20" r="1" fill="var(--person6)"/>
                 <text x="85" y="20" dy=".45em" class="vakkerFont">Digitalt</text>
             </g>
             <g> <!-- krek - kreativ eller kontroll -->
                 <text x="2" y="25" dy=".45em" class="vakkerFont">Kreativ</text>
                 <line x1="10" y1="25" x2="80" y2="25" stroke="#000000" stroke-width="0.5" />
-                <circle id="person01" cx="50" cy="25" r="1" fill="var(--person1)"/>
-                <circle id="person02" cx="10" cy="25" r="1" fill="var(--person2)"/>
-                <circle id="person03" cx="50" cy="25" r="1" fill="var(--person3)"/>
-                <circle id="person04" cx="60" cy="25" r="1" fill="var(--person4)"/>
-                <circle id="person05" cx="70" cy="25" r="1" fill="var(--person5)"/>
-                <circle id="person06" cx="80" cy="25" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="25" r="1" fill="var(--person1)"/>
+                <circle id="person1" cx="10" cy="25" r="1" fill="var(--person2)"/>
+                <circle id="person2" cx="15" cy="25" r="1" fill="var(--person3)"/>
+                <circle id="person3" cx="60" cy="25" r="1" fill="var(--person4)"/>
+                <circle id="person4" cx="70" cy="25" r="1" fill="var(--person5)"/>
+                <circle id="person5" cx="80" cy="25" r="1" fill="var(--person6)"/>
                 <text x="85" y="25" dy=".45em" class="vakkerFont">Kontroll</text>
             </g>
             <g> <!-- fops - Forbredt eller på sparket -->
                 <text x="2" y="30" dy=".45em" class="vakkerFont">Forbredt</text>
                 <line x1="10" y1="30" x2="80" y2="30" stroke="#000000" stroke-width="0.5" />
-                <circle id="person01" cx="50" cy="30" r="1" fill="var(--person1)"/>
-                <circle id="person02" cx="10" cy="30" r="1" fill="var(--person2)"/>
-                <circle id="person03" cx="50" cy="30" r="1" fill="var(--person3)"/>
-                <circle id="person04" cx="60" cy="30" r="1" fill="var(--person4)"/>
-                <circle id="person05" cx="70" cy="30" r="1" fill="var(--person5)"/>
-                <circle id="person06" cx="80" cy="30" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="30" r="1" fill="var(--person1)"/>
+                <circle id="person1" cx="10" cy="30" r="1" fill="var(--person2)"/>
+                <circle id="person2" cx="15" cy="30" r="1" fill="var(--person3)"/>
+                <circle id="person3" cx="60" cy="30" r="1" fill="var(--person4)"/>
+                <circle id="person4" cx="70" cy="30" r="1" fill="var(--person5)"/>
+                <circle id="person5" cx="80" cy="30" r="1" fill="var(--person6)"/>
                 <text x="85" y="30" dy=".45em" class="vakkerFont">Sparket</text>
             </g>
+
+
             <!--   Brukte denne for å sette inn verdi på raskere måte enn å skrive en om gangen (shift+ctrl+alt+j)
                     <g>
                             <text x="2" y="2391239999999" dy=".45em" class="vakkerFont">Morgen</text>
                             <line x1="10" y1="2391239999999" x2="80" y2="2391239999999" stroke="#000000" stroke-width="0.5" />
-                            <circle id="person01" cx="50" cy="2391239999999" r="1" fill="var(--person1)"/>
-                            <circle id="person02" cx="10" cy="2391239999999" r="1" fill="var(--person2)"/>
-                            <circle id="person03" cx="50" cy="2391239999999" r="1" fill="var(--person3)"/>
-                            <circle id="person04" cx="60" cy="2391239999999" r="1" fill="var(--person4)"/>
-                            <circle id="person05" cx="70" cy="2391239999999" r="1" fill="var(--person5)"/>
-                            <circle id="person06" cx="80" cy="2391239999999" r="1" fill="var(--person6)"/>
+                            <circle id="person0" cx="15" cy="2391239999999" r="1" fill="var(--person1)"/>
+                            <circle id="person1" cx="10" cy="2391239999999" r="1" fill="var(--person2)"/>
+                            <circle id="person2" cx="15" cy="2391239999999" r="1" fill="var(--person3)"/>
+                            <circle id="person3" cx="60" cy="2391239999999" r="1" fill="var(--person4)"/>
+                            <circle id="person4" cx="70" cy="2391239999999" r="1" fill="var(--person5)"/>
+                            <circle id="person5" cx="80" cy="2391239999999" r="1" fill="var(--person6)"/>
                             <text x="85" y="2391239999999" dy=".45em" class="vakkerFont">Kveld</text>
                         </g>
-
             -->
 
         </svg>
@@ -180,43 +197,85 @@
     <script>
 
         // deler av kode tatt fra https://github.com/digitnow/how-we-roll/blob/test-fetch/examples/svg02.html
-        // noen deler var ubrukelige, kunne laget en for-loop og hatt alle elementene i elementene i array for å oppnå
-        // samme resultat med mindre kode
+        // noen deler var ubrukelige, lager en for-loop for å oppnå samme resultat med mindre kode
         let minsvg = document.getElementById("hwrsvg");
         let glist = minsvg.getElementsByTagName("g");
         let circles = glist[0].getElementsByTagName("circle");
+        let dataObject = ["mokv", "grus", "fydi", "krek", "fops"]; //array med json object navnene brukt
 
+        // funksjon som gjør hardkoden mer DRY (don't repeat yourself)
+        // når man kaller funksjonen så trenger man url som skal fetches og personen det skal skrives på
+        function drawData(url, person){
+            fetch(url)
+                .then(response => response.json())
+                .then(data =>{
+                    // bruker en enkel for loop for å korte ned koden betydelig, trenger kun 5 element fra "data". loopen stopper på int 4
+                    // det er i++ som får int i til å bli større for hver loop
+                    // i settes så inn i glist[i] for å finne rette element i html
+                    // derretter trenger vi rett element fra data
+                    for(let i = 0; i <= 4; i++){
+                        circles = glist[i].getElementsByTagName("circle");
+                        circles[person].cx.baseVal.value = data[dataObject[i]];
+                    }
+                });
+        }
+        //Amalie
+        function drawMultipleData(){
+            /* Viser til hvilken link som passer til hvem, trenger forsåvidt ikke være "let" men har tanker om å bruke det videre
+            let amalieUrl = url[0]
+            let ilhamUrl = url[1]
+            let carstenUrl = url[2]
+            let vetleUrl = url[3]
+            let larsUrl = url[4]
+            let prebenUrl = url[5]
+            */
+            // enkel array som lagrer alle linkene,
+            let url = ["https://bacit.info/hwr/20211010160928-8b3a2d356df509df30c1c0ec64fa2c81.json", "https://bacit.info/hwr/20211010162759-2934ea0622d983c44f141298ab04ee8b.json", "https://bacit.info/hwr/20211010163149-3c535cc7b27cb9c8c78d25cae845928b.json", "https://bacit.info/hwr/20211010161213-e95502ccdc36fc355330951d5c6747ef.json", "https://bacit.info/hwr/20211010171927-a32b3f45f1af3e5c78338a58956a8443.json", "https://bacit.info/hwr/20211013104402-be78d7a7d3f8ec131cfdfdc43f39df46.json"]
+            let person = ["person0","person1","person2","person3","person4","person5",]
+            for(let i = 0; i <= 5; i++){
+                drawData(url[i], person[i])} // sender 6 linker til drawData funksjonen, som da tegner inn i dokumentet
+        }
+
+
+        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------
+
+        // Koden som er kommmentert vekk under er blitt erstattet med en mye kortere kode over :)
         // Mock JSON fra fil
         //Amalie
+        /*
+
         fetch("https://bacit.info/hwr/20211010160928-8b3a2d356df509df30c1c0ec64fa2c81.json")
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                circles.person01.cx.baseVal.value = data.mokv;
+                circles.person0.cx.baseVal.value = data.mokv;
                 circles = glist[1].getElementsByTagName("circle");
-                circles.person01.cx.baseVal.value = data.grus;
+                circles.person0.cx.baseVal.value = data.grus;
                 circles = glist[2].getElementsByTagName("circle");
-                circles.person01.cx.baseVal.value = data.fydi;
+                circles.person0.cx.baseVal.value = data.fydi;
                 circles = glist[3].getElementsByTagName("circle");
-                circles.person01.cx.baseVal.value = data.krek;
+                circles.person0.cx.baseVal.value = data.krek;
                 circles = glist[4].getElementsByTagName("circle");
-                circles.person01.cx.baseVal.value = data.fops;
+                circles.person0.cx.baseVal.value = data.fops;
             });
-        // Illham
+        // Ilham
         fetch("https://bacit.info/hwr/20211010162759-2934ea0622d983c44f141298ab04ee8b.json")
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 circles = glist[0].getElementsByTagName("circle");
-                circles.person02.cx.baseVal.value = data.mokv;
+                circles.person1.cx.baseVal.value = data.mokv;
                 circles = glist[1].getElementsByTagName("circle");
-                circles.person02.cx.baseVal.value = data.grus;
+                circles.person1.cx.baseVal.value = data.grus;
                 circles = glist[2].getElementsByTagName("circle");
-                circles.person02.cx.baseVal.value = data.fydi;
+                circles.person1.cx.baseVal.value = data.fydi;
                 circles = glist[3].getElementsByTagName("circle");
-                circles.person02.cx.baseVal.value = data.krek;
+                circles.person1.cx.baseVal.value = data.krek;
                 circles = glist[4].getElementsByTagName("circle");
-                circles.person02.cx.baseVal.value = data.fops;
+                circles.person1.cx.baseVal.value = data.fops;
             });
         // Carsten
         fetch("https://bacit.info/hwr/20211010163149-3c535cc7b27cb9c8c78d25cae845928b.json")
@@ -224,15 +283,15 @@
             .then(data => {
                 console.log(data);
                 circles = glist[0].getElementsByTagName("circle");
-                circles.person03.cx.baseVal.value = data.mokv;
+                circles.person2.cx.baseVal.value = data.mokv;
                 circles = glist[1].getElementsByTagName("circle");
-                circles.person03.cx.baseVal.value = data.grus;
+                circles.person2.cx.baseVal.value = data.grus;
                 circles = glist[2].getElementsByTagName("circle");
-                circles.person03.cx.baseVal.value = data.fydi;
+                circles.person2.cx.baseVal.value = data.fydi;
                 circles = glist[3].getElementsByTagName("circle");
-                circles.person03.cx.baseVal.value = data.krek;
+                circles.person2.cx.baseVal.value = data.krek;
                 circles = glist[4].getElementsByTagName("circle");
-                circles.person03.cx.baseVal.value = data.fops;
+                circles.person2.cx.baseVal.value = data.fops;
             });
         // Vetle
         fetch("https://bacit.info/hwr/20211010161213-e95502ccdc36fc355330951d5c6747ef.json")
@@ -240,15 +299,15 @@
             .then(data => {
                 console.log(data);
                 circles = glist[0].getElementsByTagName("circle");
-                circles.person04.cx.baseVal.value = data.mokv;
+                circles.person3.cx.baseVal.value = data.mokv;
                 circles = glist[1].getElementsByTagName("circle");
-                circles.person04.cx.baseVal.value = data.grus;
+                circles.person3.cx.baseVal.value = data.grus;
                 circles = glist[2].getElementsByTagName("circle");
-                circles.person04.cx.baseVal.value = data.fydi;
+                circles.person3.cx.baseVal.value = data.fydi;
                 circles = glist[3].getElementsByTagName("circle");
-                circles.person04.cx.baseVal.value = data.krek;
+                circles.person3.cx.baseVal.value = data.krek;
                 circles = glist[4].getElementsByTagName("circle");
-                circles.person04.cx.baseVal.value = data.fops;
+                circles.person3.cx.baseVal.value = data.fops;
             });
         // Lars
         fetch("https://bacit.info/hwr/20211010171927-a32b3f45f1af3e5c78338a58956a8443.json")
@@ -256,15 +315,15 @@
             .then(data => {
                 console.log(data);
                 circles = glist[0].getElementsByTagName("circle");
-                circles.person05.cx.baseVal.value = data.mokv;
+                circles.person4.cx.baseVal.value = data.mokv;
                 circles = glist[1].getElementsByTagName("circle");
-                circles.person05.cx.baseVal.value = data.grus;
+                circles.person4.cx.baseVal.value = data.grus;
                 circles = glist[2].getElementsByTagName("circle");
-                circles.person05.cx.baseVal.value = data.fydi;
+                circles.person4.cx.baseVal.value = data.fydi;
                 circles = glist[3].getElementsByTagName("circle");
-                circles.person05.cx.baseVal.value = data.krek;
+                circles.person4.cx.baseVal.value = data.krek;
                 circles = glist[4].getElementsByTagName("circle");
-                circles.person05.cx.baseVal.value = data.fops;
+                circles.person4.cx.baseVal.value = data.fops;
             });
         // Preben
         fetch("https://bacit.info/hwr/20211013104402-be78d7a7d3f8ec131cfdfdc43f39df46.json")
@@ -272,18 +331,18 @@
             .then(data => {
                 console.log(data);
                 circles = glist[0].getElementsByTagName("circle");
-                circles.person06.cx.baseVal.value = data.mokv;
+                circles.person5.cx.baseVal.value = data.mokv;
                 circles = glist[1].getElementsByTagName("circle");
-                circles.person06.cx.baseVal.value = data.grus;
+                circles.person5.cx.baseVal.value = data.grus;
                 circles = glist[2].getElementsByTagName("circle");
-                circles.person06.cx.baseVal.value = data.fydi;
+                circles.person5.cx.baseVal.value = data.fydi;
                 circles = glist[3].getElementsByTagName("circle");
-                circles.person06.cx.baseVal.value = data.krek;
+                circles.person5.cx.baseVal.value = data.krek;
                 circles = glist[4].getElementsByTagName("circle");
-                circles.person06.cx.baseVal.value = data.fops;
+                circles.person5.cx.baseVal.value = data.fops;
             });
 
-
+*/
     </script>
 
 </body>
