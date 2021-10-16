@@ -217,7 +217,7 @@
             }
         }*/
 
-        let funkerInte = ["mokv", "grus", "fydi", "krek", "fops"];
+        let dataObject = ["mokv", "grus", "fydi", "krek", "fops"];
         // funksjon som gjør hardkoden mer DRY (don't repeat yourself)
         // når man kaller funksjonen så trenger man url som skal fetches og personen det skal skrives på
         function drawData(url, person){
@@ -231,7 +231,7 @@
                     // derretter trenger vi rett element fra data
                     for(let i = 0; i <= 4; i++){
                         circles = glist[i].getElementsByTagName("circle");
-                        circles[person].cx.baseVal.value = data[funkerInte[i]];
+                        circles[person].cx.baseVal.value = data[dataObject[i]];
                     }
                 });
         }
