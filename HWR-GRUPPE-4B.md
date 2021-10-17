@@ -37,6 +37,6 @@ Vi fikk kun et lite problem når vi endret mappenavn, og folk gjorde commits ute
 
 Vi fikk tilbakemelding om at vi måtte bruke mer issues, branches og pull requests etter første innlevering. Dette tok vi til oss, og har brukt det aktivt etter det. 
 Når vi først begynte å gjøre dette så forsto vi bedre hvorfor dette er viktige verktøy. Det økte arbeidsflyten og gjorde det generelt sett mer oversiktlig. 
-Vi har også brukt tiden til å optimalisere koden brukt i hwr-report.html, som nå har to vakre for loop istedenfor å ha mange linjer med kode, som vi tidligere hadde.
+Vi har også brukt tiden til å optimalisere koden brukt i hwr-report.html, som nå har to fine for loop istedenfor å ha mange linjer med kode, som vi tidligere hadde.
 
 
