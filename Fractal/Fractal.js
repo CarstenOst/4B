@@ -1,4 +1,5 @@
-
+// kode tatt fra https://www.youtube.com/watch?v=0jjeOYMjmDU&ab_channel=TheCodingTrain (har såklart gjort om på noe)
+// videre redigert av Carsten Østergaard
 const canvas = document.querySelector("canvas");
 const generateButton = document.querySelector(".generer-tre-knapp");
 const toggleDarkMode = document.querySelector(".bg2")
@@ -8,7 +9,7 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 let curve;
 
-
+// denne tok jeg fra stackoverflow for lenge siden, så ikke originalt min
 document.addEventListener("mousemove",function(event){
 
     const xCoord = event.clientX;
@@ -71,7 +72,7 @@ function generateRandomTre() {
     tegnTre(centerPointX, canvas.height - 100, len, angle, branchWidth, color1, color2);
     console.log("Len =",len, " angle =", angle, "BranchWidth =", branchWidth, "color1 =", color1, "color2 =", color2)
 }
-
+// denne laget jeg selv såklart, ikke noe hokus pokus her
 function bgToggle(){ //Will change the background to white or to hex #191919 depending on it's current state
     if (canvas.style.background === "white"){
         canvas.style.background = "#191919";
