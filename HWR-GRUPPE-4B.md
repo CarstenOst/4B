@@ -11,7 +11,7 @@
 
 #### (1) alle har bidratt tilstrekkelig til arbeidet med oppgaven
 
-#### (2) de fleste kilder dere har brukt er det blitt referert til
+#### (2) alle kilder vi har brukt, er det referert til
 
 #### (3) Vi tillater dere å bruke vårt arbeid i undervisning i fremtiden
 
