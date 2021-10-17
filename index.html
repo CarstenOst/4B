@@ -176,6 +176,24 @@
             line-height: normal;
         }
 
+        /*
+        -----------------------------------------------------------------------------------
+        Lars
+        -----------------------------------------------------------------------------------
+         */
+        .Larsimg{
+            float: left;
+            clip-path: circle();
+
+        }
+
+        .Larsboks{
+            width: 550px;
+            height: 500px;
+            background-color: #a8690e;
+            color: whitesmoke;
+
+        }
 
         /*
         -----------------------------------------------------------------------------------
@@ -329,7 +347,7 @@
         <div onclick="showVisittKort('IlhamVisitt')">
             <h2>Ilham</h2>
         </div>
-        <div onclick="location='MainHomePage/Visittkort/Lars/LarsVisittkort.html'">
+        <div onclick="showVisittKort('LarsVisitt')">
             <h2>Lars</h2>
         </div>
         <div onclick="showVisittKort('PrebenVisitt')">
@@ -407,6 +425,30 @@
                         <span>Carsten Østergaard</span>
                     </div>
                 </div>
+            </div>
+
+            <!-- Lars -->
+            <div id="LarsVisitt" class="Larsboks" onclick="location='../../../index.html'" style="cursor: pointer">
+
+                <!-- ------------------------------------------------------------------------------------------------- -->
+                <!-- Linker inn bilde som er lastet opp i mappe for visittkort og styrer størrelse på bilde ut fra siden.
+                Henter også inn .css (se over) for å gi plassering av bilde i nettside-->
+                <!-- ------------------------------------------------------------------------------------------------- -->
+                <!--suppress CheckImageSize -->
+                <img src="MainHomePage/Visittkort/Lars/ProfilbildeLars.jpg" width="50%" height="50%" alt="img" class="Larsimg">
+                <h2>Lars Gunnar Stokke</h2>
+                <h3>Rådgiver Adecco Select</h3>
+                <br>
+                <br>
+                <!-- ------------------------------------------------------------------------------------------------------- -->
+                <!-- valgt å sett innhold i tabell for å for lik marg på "nevner" og "teller" som jeg fant som beste -->
+                <!-- ------------------------------------------------------------------------------------------------- -->
+                <table id="fontsize">
+                    <tr><td><b>Adresse:</b></td><td>Gunhilds vei 91</td></tr>
+                    <tr><td><b>Telefon:</b></td><td>+47 481 13 413</td></tr>
+                    <tr><td><b>Mail:</b></td><td><a href="mailto: larsgs07@uia.no">larsgs07@uia.no</a></td></tr>
+                    <tr><td><b>Personlighet:</b></td><td>ENTJ-A</td></tr>
+                </table>
             </div>
 
 
