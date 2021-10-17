@@ -2,12 +2,12 @@
 # Besvarelse av oppgave:
 
 ## **Gruppe 4B**
-* [Amalie Ehnebom Lunden] (https://github.com/Amalie983)
-* [Carsten Østergaard] (https://github.com/CarstenOst)
-* [Ilham Ahmed Mohammed] (https://github.com/022Ilham)
-* [Lars Gunnar Stokke] (https://github.com/StokkenLudvig)
-* [Preben Røstad] (https://github.com/FrisoreN)
-* [Vetle Johansen Nilsen] (https://github.com/vetlenilsenn)
+* [Amalie Ehnebom Lunden](https://github.com/Amalie983)
+* [Carsten Østergaard](https://github.com/CarstenOst)
+* [Ilham Ahmed Mohammed](https://github.com/022Ilham)
+* [Lars Gunnar Stokke](https://github.com/StokkenLudvig)
+* [Preben Røstad](https://github.com/FrisoreN)
+* [Vetle Johansen Nilsen](https://github.com/vetlenilsenn)
 
 #### (1) alle har bidratt tilstrekkelig til arbeidet med oppgaven
 
