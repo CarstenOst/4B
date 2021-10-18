@@ -196,11 +196,13 @@
         function drawData(url, person){
             fetch(url)
                 .then(response => response.json())
-                .then(data =>{
+                .then(data => {
                     // bruker en enkel for loop for å korte ned koden betydelig, trenger kun 5 element fra "data". loopen stopper på int 4
                     // det er i++ som får int i til å bli større for hver loop
                     // i settes så inn i glist[i] for å finne rette element i html
                     // derretter trenger vi rett element fra data
+                    // i dette tilfellet har det ikke noe å si i hvilken rekkefølge linkene kommer i
+                    // da jeg både definerer person og url, som vil bli tegnet på rett sted
                     for(let i = 0; i <= 4; i++){
                         circles = glist[i].getElementsByTagName("circle");
                         circles[person].cx.baseVal.value = data[dataObject[i]];
