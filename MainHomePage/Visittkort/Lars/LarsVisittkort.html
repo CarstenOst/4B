@@ -10,46 +10,50 @@
     <!-- Styre plassering av profilbilde på siden-->
     <!-- ------------------------------------------------------------------------------------------------- -->
     <style>
-        img{
+        .Larsimg{
             float: left;
-            padding: 2px;
-            margin-top: -3%;
-            margin-left: 19.7%;
+            margin-top: 1%;
             clip-path: circle();
         }
-        .backgroundcolor{
+
+        .Larsboks{
+            width: 550px;
+            height: 300px;
+            margin: 0 auto;
             background-color: #a8690e;
             color: whitesmoke;
-        }
 
+        }
     </style>
 </head>
 
 <!-- ------------------------------------------------------------------------------------------------- -->
 <!--Lagt inn bakgrunn på body-->
 <!-- ------------------------------------------------------------------------------------------------- -->
-<body class="backgroundcolor" onclick="location='../../../index.html'" style="cursor:pointer">
+<body>
 
+<div class="Larsboks" onclick="location='../../../index.html'" style="display: none">
 
-<!-- ------------------------------------------------------------------------------------------------- -->
-<!-- Linker inn bilde som er lastet opp i mappe for visittkort og styrer størrelse på bilde ut fra siden.
+    <!-- ------------------------------------------------------------------------------------------------- -->
+    <!-- Linker inn bilde som er lastet opp i mappe for visittkort og styrer størrelse på bilde ut fra siden.
      Henter også inn .css (se over) for å gi plassering av bilde i nettside-->
-<!-- ------------------------------------------------------------------------------------------------- -->
-<!--suppress CheckImageSize -->
-<img src="ProfilbildeLars.jpg" width="20%" height="20%" alt="img">
-<h1><u>Lars Gunnar Stokke</u></h1>
-<h2>Rådgiver Adecco Select</h2>
-<br>
-
-<!-- ------------------------------------------------------------------------------------------------- -->
-<!-- valgt å sett innhold i tabell for å for lik marg på "nevner" og "teller" som jeg fant som beste -->
-<!-- ------------------------------------------------------------------------------------------------- -->
-<table id="fontsize">
+    <!-- ------------------------------------------------------------------------------------------------- -->
+    <!--suppress CheckImageSize -->
+    <img src="ProfilbildeLars.jpg" width="50%" height="50%" alt="img" class="Larsimg">
+    <h2>Lars Gunnar Stokke</h2>
+    <h3>Rådgiver Adecco Select</h3>
+    <br>
+    <br>
+    <!-- ------------------------------------------------------------------------------------------------------- -->
+    <!-- valgt å sett innhold i tabell for å for lik marg på "nevner" og "teller" som jeg fant som beste -->
+    <!-- ------------------------------------------------------------------------------------------------- -->
+    <table id="fontsize">
         <tr><td><b>Adresse:</b></td><td>Gunhilds vei 91</td></tr>
         <tr><td><b>Telefon:</b></td><td>+47 481 13 413</td></tr>
         <tr><td><b>Mail:</b></td><td><a href="mailto: larsgs07@uia.no">larsgs07@uia.no</a></td></tr>
         <tr><td><b>Personlighet:</b></td><td>ENTJ-A</td></tr>
-
+    </table>
+</div>
 
     <!-- ------------------------------------------------------------------------------------------------- -->
     <!-- Bruker javascript til å sette rett størrelse på tabelltekst og setter javascript nederst
@@ -60,6 +64,7 @@
                 document.getElementById('fontsize').style.fontSize='20px'
             }
         </script>
+
     </table>
     </body>
     </html>
