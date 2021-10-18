@@ -97,6 +97,7 @@
             <h2>How We Roll</h2>
         </div>
     </nav>
+    <!-- kaller funksjonen "drawMultipleData" som da vil tegne all data i svg figuren-->
     <aside style="text-align: center" onclick="drawMultipleData()">
         <div>
             ----------
@@ -195,11 +196,13 @@
         function drawData(url, person){
             fetch(url)
                 .then(response => response.json())
-                .then(data =>{
+                .then(data => {
                     // bruker en enkel for loop for å korte ned koden betydelig, trenger kun 5 element fra "data". loopen stopper på int 4
                     // det er i++ som får int i til å bli større for hver loop
                     // i settes så inn i glist[i] for å finne rette element i html
                     // derretter trenger vi rett element fra data
+                    // i dette tilfellet har det ikke noe å si i hvilken rekkefølge linkene kommer i
+                    // da jeg både definerer person og url, som vil bli tegnet på rett sted
                     for(let i = 0; i <= 4; i++){
                         circles = glist[i].getElementsByTagName("circle");
                         circles[person].cx.baseVal.value = data[dataObject[i]];
@@ -215,8 +218,7 @@
             let carstenUrl = url[2]
             let vetleUrl = url[3]
             let larsUrl = url[4]
-            let prebenUrl = url[5]
-            */
+            let prebenUrl = url[5]*/
             // let url er en enkel array som lagrer alle linkene. Arrayer er svert raske og gode å bruke dersom man skal lagre mye data i samme variabel
             // men her er det viktig å vite index posisisjonen til objektet man ønsker å hente ut, istedenfor å måtte ta bruk av lineærsøk som er plagsomt tregt ->
             // i store sammenhenger
@@ -226,113 +228,6 @@
                 drawData(url[i], person[i])} // sender 6 linker (og person variabler) til drawData funksjonen, som da tegner inn i dokumentet
         }
 
-
-        //-------------------------------------------------------------------------------------------------------------
-        //-------------------------------------------------------------------------------------------------------------
-        //-------------------------------------------------------------------------------------------------------------
-        //-------------------------------------------------------------------------------------------------------------
-
-        // Koden som er kommmentert vekk under er blitt erstattet med en mye kortere kode over :)
-        // Mock JSON fra fil
-        //Amalie
-        /*
-
-        fetch("https://bacit.info/hwr/20211010160928-8b3a2d356df509df30c1c0ec64fa2c81.json")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                circles.person0.cx.baseVal.value = data.mokv;
-                circles = glist[1].getElementsByTagName("circle");
-                circles.person0.cx.baseVal.value = data.grus;
-                circles = glist[2].getElementsByTagName("circle");
-                circles.person0.cx.baseVal.value = data.fydi;
-                circles = glist[3].getElementsByTagName("circle");
-                circles.person0.cx.baseVal.value = data.krek;
-                circles = glist[4].getElementsByTagName("circle");
-                circles.person0.cx.baseVal.value = data.fops;
-            });
-        // Ilham
-        fetch("https://bacit.info/hwr/20211010162759-2934ea0622d983c44f141298ab04ee8b.json")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                circles = glist[0].getElementsByTagName("circle");
-                circles.person1.cx.baseVal.value = data.mokv;
-                circles = glist[1].getElementsByTagName("circle");
-                circles.person1.cx.baseVal.value = data.grus;
-                circles = glist[2].getElementsByTagName("circle");
-                circles.person1.cx.baseVal.value = data.fydi;
-                circles = glist[3].getElementsByTagName("circle");
-                circles.person1.cx.baseVal.value = data.krek;
-                circles = glist[4].getElementsByTagName("circle");
-                circles.person1.cx.baseVal.value = data.fops;
-            });
-        // Carsten
-        fetch("https://bacit.info/hwr/20211010163149-3c535cc7b27cb9c8c78d25cae845928b.json")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                circles = glist[0].getElementsByTagName("circle");
-                circles.person2.cx.baseVal.value = data.mokv;
-                circles = glist[1].getElementsByTagName("circle");
-                circles.person2.cx.baseVal.value = data.grus;
-                circles = glist[2].getElementsByTagName("circle");
-                circles.person2.cx.baseVal.value = data.fydi;
-                circles = glist[3].getElementsByTagName("circle");
-                circles.person2.cx.baseVal.value = data.krek;
-                circles = glist[4].getElementsByTagName("circle");
-                circles.person2.cx.baseVal.value = data.fops;
-            });
-        // Vetle
-        fetch("https://bacit.info/hwr/20211010161213-e95502ccdc36fc355330951d5c6747ef.json")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                circles = glist[0].getElementsByTagName("circle");
-                circles.person3.cx.baseVal.value = data.mokv;
-                circles = glist[1].getElementsByTagName("circle");
-                circles.person3.cx.baseVal.value = data.grus;
-                circles = glist[2].getElementsByTagName("circle");
-                circles.person3.cx.baseVal.value = data.fydi;
-                circles = glist[3].getElementsByTagName("circle");
-                circles.person3.cx.baseVal.value = data.krek;
-                circles = glist[4].getElementsByTagName("circle");
-                circles.person3.cx.baseVal.value = data.fops;
-            });
-        // Lars
-        fetch("https://bacit.info/hwr/20211010171927-a32b3f45f1af3e5c78338a58956a8443.json")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                circles = glist[0].getElementsByTagName("circle");
-                circles.person4.cx.baseVal.value = data.mokv;
-                circles = glist[1].getElementsByTagName("circle");
-                circles.person4.cx.baseVal.value = data.grus;
-                circles = glist[2].getElementsByTagName("circle");
-                circles.person4.cx.baseVal.value = data.fydi;
-                circles = glist[3].getElementsByTagName("circle");
-                circles.person4.cx.baseVal.value = data.krek;
-                circles = glist[4].getElementsByTagName("circle");
-                circles.person4.cx.baseVal.value = data.fops;
-            });
-        // Preben
-        fetch("https://bacit.info/hwr/20211013104402-be78d7a7d3f8ec131cfdfdc43f39df46.json")
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                circles = glist[0].getElementsByTagName("circle");
-                circles.person5.cx.baseVal.value = data.mokv;
-                circles = glist[1].getElementsByTagName("circle");
-                circles.person5.cx.baseVal.value = data.grus;
-                circles = glist[2].getElementsByTagName("circle");
-                circles.person5.cx.baseVal.value = data.fydi;
-                circles = glist[3].getElementsByTagName("circle");
-                circles.person5.cx.baseVal.value = data.krek;
-                circles = glist[4].getElementsByTagName("circle");
-                circles.person5.cx.baseVal.value = data.fops;
-            });
-
-*/
     </script>
 
 </body>
