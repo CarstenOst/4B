@@ -1,0 +1,34 @@
+:root {
+    --main-color: #191919;
+    --text-color: azure;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: var(--main-color);
+}
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 968px;
+}
+.mainIndexButton{
+    cursor: pointer;
+    width:450px;
+    height:450px;
+    background-color: blue;
+    color: var(--text-color);
+    animation: mnyColors 3s infinite ease-in-out;
+    border: none;
+    border-radius: 500px;
+}
+@-webkit-keyframes mnyColors {
+    0% {background-color: blue}
+    25% {background-color: darkred; color: var(--text-color);}
+    50% {background-color: #ffd700; color: var(--main-color); font-size: 30px}
+    75% {background-color: purple; color: var(--text-color);}
+    100% {background-color: blue}
+}
