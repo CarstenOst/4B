@@ -21,14 +21,33 @@ body{
     height:450px;
     background-color: blue;
     color: var(--text-color);
-    animation: mnyColors 3s infinite ease-in-out;
+    animation: mnyColors 3s 2;
     border: none;
     border-radius: 500px;
+    overflow: hidden;
+
 }
 @-webkit-keyframes mnyColors {
     0% {background-color: blue}
     25% {background-color: darkred; color: var(--text-color);}
-    50% {background-color: #ffd700; color: var(--main-color); font-size: 30px}
+    50% {background-color: #ffd700; color: var(--main-color); font-size: 30px; transform: rotateY(360deg) }
     75% {background-color: purple; color: var(--text-color);}
     100% {background-color: blue}
 }
+@media screen and (max-width: 414px) {
+    .mainIndexButton {
+        width: 220px; /* The width is 200px, when the viewport is 400px or smaller */
+        height: 220px;
+        animation: mnyColors2 3s 2;
+    }
+    .parent{
+        height: 736px;
+    }
+    @-webkit-keyframes mnyColors2 {
+        0% {background-color: blue}
+        25% {background-color: darkred; color: var(--text-color);}
+        50% {background-color: #ffd700; color: var(--main-color); font-size: 20px}
+        75% {background-color: purple; color: var(--text-color);}
+        100% {background-color: blue}
+}}
+
