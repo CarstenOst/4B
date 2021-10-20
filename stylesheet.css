@@ -21,7 +21,7 @@ body{
     height:450px;
     background-color: blue;
     color: var(--text-color);
-    animation: mnyColors 3s 2;
+    animation: mnyColors 3s 1;
     border: none;
     border-radius: 500px;
     overflow: hidden;
@@ -30,7 +30,7 @@ body{
 @-webkit-keyframes mnyColors {
     0% {background-color: blue}
     25% {background-color: darkred; color: var(--text-color);}
-    50% {background-color: #ffd700; color: var(--main-color); font-size: 30px; transform: rotateY(360deg) }
+    50% {background-color: #ffd700; color: var(--main-color); font-size: 30px; transform: rotateY(180deg) }
     75% {background-color: purple; color: var(--text-color);}
     100% {background-color: blue}
 }
@@ -51,3 +51,41 @@ body{
         100% {background-color: blue}
 }}
 
+#phone-size{
+    width: 390px;
+    height: 844px;
+    border-radius: 20px;
+    border: 1px white;
+    color: var(--main-color);
+    background-color: var(--text-color);
+    overflow: auto;
+    padding: 0;
+}
+#phone-notch{
+    padding: 5px;
+    width: 100%;
+    height: 35px;
+    background-color: green;
+    overflow: hidden;
+}
+#phone-nav{
+    padding: 5px;
+    width: 100%;
+    height: 80px;
+    background-color: red;
+    overflow: hidden;
+    display: flex;
+}
+#phone-nav-search-btn, #phone-settings{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid black;
+    margin: auto 10px; /* center vertical */
+}
+#phone-search-bar{
+    width: 200px;
+    height: 50px;
+    background-color: blue;
+    margin: auto 0; /* center vertical */
+}
