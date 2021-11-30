@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wop</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    th{
+        color:#fff;
+    }
+</style>
+
+
+<table class="table table-striped">
+    <tr  class="bg-info">
+        <th>Arbeidsgiver</th>
+        <th>Stillingstittel</th>
+        <th>Frist</th>
+        <th>TidUtsendt</th>
+        <th>Ansettelses_Form</th>
+        <th>Kontakt_Person</th>
+        <th>Telefonnummer</th>
+        <th>url</th>
+        <th>Konkurrent</th>
+    </tr>
+
+    <tbody id="myTable">
+
+    </tbody>
+</table>
+<script>
+
+        let myArray = [
+            {
+                "Arbeidsgiver": "Unifon AS",
+                "Stillingstittel": "Ansvarlig for storkunde",
+                "Frist": "Vi intervjuer fortløpende",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Engasjement",
+                "Kontakt_Person": "June Mellemstrand Thingsaker",
+                "Telefonnummer": "  467 95 591",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240424834",
+                "Konkurrent": "\n            Flere stillinger fra LEVEL PERSONAL AS"
+            },
+            {
+                "Arbeidsgiver": "Unifon AS",
+                "Stillingstittel": "Storkundeansvarlig",
+                "Frist": "Snarest",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Engasjement",
+                "Kontakt_Person": "Torill Toften Keim",
+                "Telefonnummer": "  971 59 909",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240422286",
+                "Konkurrent": "\n            Flere stillinger fra ADEPT BEMANNING&REKRUTTERING AS"
+            },
+            {
+                "Arbeidsgiver": "Sørlandet sykehus HF",
+                "Stillingstittel": "Rådgiver",
+                "Frist": "15.12.2021",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Vikariat",
+                "Kontakt_Person": "Nina Føreland",
+                "Telefonnummer": "  988 47 974",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240415406",
+                "Konkurrent": "\n            Flere stillinger fra Sørlandet Sykehus HF"
+            },
+            {
+                "Arbeidsgiver": "DFEF Menigheten Betania Kristiansand",
+                "Stillingstittel": "Daglig leder/ Pastor",
+                "Frist": "10.01.2022",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Arvid Solheim",
+                "Telefonnummer": " 908 29 890",
+                "url": "https://www.finn.no/job/management/ad.html?finnkode=240376469",
+                "Konkurrent": "\n            Flere stillinger fra Dfef Betania Kristiansand"
+            },
+            {
+                "Arbeidsgiver": "Lindesnes kommune",
+                "Stillingstittel": "Sykepleier, 80 % vikariat",
+                "Frist": "13.12.2021",
+                "TidUtsendt": "Ny i dag | Mandal",
+                "Ansettelses_Form": "Vikariat",
+                "Kontakt_Person": "Synnøve Puntervold",
+                "Telefonnummer": "  488 96 012",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240385077",
+                "Konkurrent": "\n            Flere stillinger fra Lindesnes Kommune"
+            },
+            {
+                "Arbeidsgiver": "Vågsbygd frikirke",
+                "Stillingstittel": "Hovedpastor",
+                "Frist": "11.01.2022",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Jan Inge Ringsby",
+                "Telefonnummer": " 474 66 376",
+                "url": "https://www.finn.no/job/management/ad.html?finnkode=240371879",
+                "Konkurrent": "\n            Flere stillinger fra Den Evangelisk Lutherske Frikirke Vågsbygd Menighet"
+            },
+            {
+                "Arbeidsgiver": "Ivre Rekruttering og Bemanning AS, Ivre Utleie og Bemanning AS",
+                "Stillingstittel": "Research assistant",
+                "Frist": "Snarest",
+                "TidUtsendt": "Ny i dag | Arendal",
+                "Ansettelses_Form": "Vikariat",
+                "Kontakt_Person": "Heidi Tellefsen",
+                "Telefonnummer": "  917 71 525",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240378022",
+                "Konkurrent": "\n            Flere stillinger fra Ivre Rekruttering og Bemanning AS"
+            },
+            {
+                "Arbeidsgiver": "Norconsult AS avd Kristiansand",
+                "Stillingstittel": "Gruppeleder veg- og samferdsel",
+                "Frist": "10.01.2022",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Espen Grande",
+                "Telefonnummer": "  404 70 050",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240376500",
+                "Konkurrent": "\n            Flere stillinger fra LEVEL PERSONAL AS"
+            },
+            {
+                "Arbeidsgiver": "Scandic Hotels Norge",
+                "Stillingstittel": "Førsteresepsjonist, Scandic Grimstad, deltid",
+                "Frist": "31.12.2021",
+                "TidUtsendt": "Ny i dag | Grimstad",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Cecilie Hodnebrog",
+                "Telefonnummer": "  482 89 858",
+                "url": "https://www.finn.no/job/parttime/ad.html?finnkode=240374920",
+                "Konkurrent": "\n            Flere stillinger fra Scandic Hotels AS"
+            },
+            {
+                "Arbeidsgiver": "Remake Accounting AS",
+                "Stillingstittel": "Regnskapsansvarlig",
+                "Frist": "Snarest",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Dag Flemming Pedersen",
+                "Telefonnummer": " 464 04 911",
+                "url": "https://www.finn.no/job/parttime/ad.html?finnkode=240367055",
+                "Konkurrent": "\n            Flere stillinger fra Remake Accounting As"
+            },
+            {
+                "Arbeidsgiver": "IT Regnskap AS",
+                "Stillingstittel": "Autorisert regnskapsfører",
+                "Frist": "20.12.2021",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Simon Fjeldsaa",
+                "Telefonnummer": " 911 64 737",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240361106",
+                "Konkurrent": "\n            Flere stillinger fra Ho Regnskap AS"
+            },
+            {
+                "Arbeidsgiver": "OSM AVIATION ACADEMY",
+                "Stillingstittel": "Sales Representative",
+                "Frist": "Snarest",
+                "TidUtsendt": "Ny i dag | Arendal",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Stein H. Mjåtveit",
+                "Telefonnummer": " 458 86 099",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=239945447",
+                "Konkurrent": "\n            Flere stillinger fra OSM Aviation Academy AS"
+            },
+            {
+                "Arbeidsgiver": "MEKK Norge AS",
+                "Stillingstittel": "Daglig Leder - Franchisetaker",
+                "Frist": "Snarest",
+                "TidUtsendt": "Ny i dag | Evje",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Knut Ove Gravdal",
+                "Telefonnummer": " 404 04 629",
+                "url": "https://www.finn.no/job/management/ad.html?finnkode=240345283",
+                "Konkurrent": "\n            Flere stillinger fra MEKK NORGE AS"
+            },
+            {
+                "Arbeidsgiver": "jem & fix Norge AS",
+                "Stillingstittel": "Butikksjef",
+                "Frist": "20.12.2021",
+                "TidUtsendt": "Ny i dag | Mandal",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Thomas Nicolaisen",
+                "Telefonnummer": "None",
+                "url": "https://www.finn.no/job/management/ad.html?finnkode=240349117",
+                "Konkurrent": "\n            Flere stillinger fra JEM & FIX NORGE AS"
+            },
+            {
+                "Arbeidsgiver": "APX SYSTEMS AS",
+                "Stillingstittel": "Senior Systemutvikler",
+                "Frist": "Snarest",
+                "TidUtsendt": "Ny i dag | Oslo, Hamar, Oppdal, Kristiansand S, Sandefjord",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Jan Erik Evanger",
+                "Telefonnummer": " 901 25 050",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240349218",
+                "Konkurrent": "\n            Flere stillinger fra APX Systems AS"
+            },
+            {
+                "Arbeidsgiver": "jem & fix Norge AS",
+                "Stillingstittel": "Butikkmedarbeider med lukkeansvar",
+                "Frist": "20.12.2021",
+                "TidUtsendt": "Ny i dag | Mandal",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Thomas Nicolaisen",
+                "Telefonnummer": "None",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240347518",
+                "Konkurrent": "\n            Flere stillinger fra JEM & FIX NORGE AS"
+            },
+            {
+                "Arbeidsgiver": "Flekkefjord kommune",
+                "Stillingstittel": "Fastlegehjemmel",
+                "Frist": "05.12.2021",
+                "TidUtsendt": "Ny i dag | Flekkefjord",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Britt Monika Strømland",
+                "Telefonnummer": "  945 21 407",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240348180",
+                "Konkurrent": "\n            Flere stillinger fra Flekkefjord Kommune"
+            },
+            {
+                "Arbeidsgiver": "KJELL & COMPANY",
+                "Stillingstittel": "Kjell & Company Sandens søker tekologiintressert selger på 50-80% (18,75-30 t/u)",
+                "Frist": "12.12.2021",
+                "TidUtsendt": "Ny i dag | Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Patik Nilsson",
+                "Telefonnummer": "None",
+                "url": "https://www.finn.no/job/parttime/ad.html?finnkode=229682239",
+                "Konkurrent": "\n            Flere stillinger fra Kjell & Co Norway AS"
+            },
+            {
+                "Arbeidsgiver": "Max Norway AS",
+                "Stillingstittel": "MAX søker skiftledere i Arendal",
+                "Frist": "10.01.2022",
+                "TidUtsendt": "en dag siden | Arendal",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Kevin Rios",
+                "Telefonnummer": "None",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240303470",
+                "Konkurrent": "\n            Flere stillinger fra Max Norway As"
+            },
+            {
+                "Arbeidsgiver": "GE Healthcare",
+                "Stillingstittel": "Kjemiingeniør/Laborant",
+                "Frist": "Snarest",
+                "TidUtsendt": "en dag siden | Lindesnes",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Anne Tellefsen",
+                "Telefonnummer": "None",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240288286",
+                "Konkurrent": "\n            Flere stillinger fra GE Healthcare AS"
+            },
+            {
+                "Arbeidsgiver": "CSO Partner",
+                "Stillingstittel": "Salgskonsulent",
+                "Frist": "Snarest",
+                "TidUtsendt": "en dag siden | Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Siw Iren Nyborg",
+                "Telefonnummer": " 469 81 950",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=171368993",
+                "Konkurrent": "\n            Flere stillinger fra Cso Partner AS"
+            },
+            {
+                "Arbeidsgiver": "Bane NOR SF",
+                "Stillingstittel": "Trafikkaspirant",
+                "Frist": "13.12.2021",
+                "TidUtsendt": "en dag siden | Narvik, Kristiansand S, Eydehavn, Arendal, Grimstad",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Wells Norge Jefferson",
+                "Telefonnummer": "  932 49 477",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240282389",
+                "Konkurrent": "None"
+            },
+            {
+                "Arbeidsgiver": "Rambøll Norge AS",
+                "Stillingstittel": "Rådgiver i urban mobilitet",
+                "Frist": "10.01.2022",
+                "TidUtsendt": "en dag siden | Oslo, Arendal, Drammen, Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Sindre Levinsen",
+                "Telefonnummer": "  950 84 596",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240276921",
+                "Konkurrent": "None"
+            },
+            {
+                "Arbeidsgiver": "Sørlandet sykehus HF",
+                "Stillingstittel": "Overlege/psykiater",
+                "Frist": "11.01.2022",
+                "TidUtsendt": "en dag siden | Bjorbekk",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Niclas Halvorsen",
+                "Telefonnummer": "  452 01 202",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240276344",
+                "Konkurrent": "\n            Flere stillinger fra Sørlandet Sykehus HF"
+            },
+            {
+                "Arbeidsgiver": "Norsk institutt for bioøkonomi (NIBIO)",
+                "Stillingstittel": "Avdelingsingeniør / forskningstekniker - naturfrø",
+                "Frist": "23.12.2021",
+                "TidUtsendt": "en dag siden | Grimstad",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "undefined",
+                "Telefonnummer": "None",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240275821",
+                "Konkurrent": "\n            Flere stillinger fra NIBIO - NORSK INSTITUTT FOR BIOØKONOMI"
+            },
+            {
+                "Arbeidsgiver": "Bjarne Johansen Bildemontering AS",
+                "Stillingstittel": "Sjåfør til bilberging",
+                "Frist": "13.12.2021",
+                "TidUtsendt": "en dag siden | Kristiansand S",
+                "Ansettelses_Form": "Prosjekt",
+                "Kontakt_Person": "TEMP TEAM AS Avd Kristiansand",
+                "Telefonnummer": "  982 44 742",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240270761",
+                "Konkurrent": "\n            Flere stillinger fra Temp-Team AS"
+            },
+            {
+                "Arbeidsgiver": "Sykehuspartner HF",
+                "Stillingstittel": "Senior Sikkerhetsanalytiker",
+                "Frist": "31.12.2021",
+                "TidUtsendt": "en dag siden | Oslo, Grimstad",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Sturla Grelland",
+                "Telefonnummer": "  995 45 333",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240270327",
+                "Konkurrent": "None"
+            },
+            {
+                "Arbeidsgiver": "thansen",
+                "Stillingstittel": "Butikksjef thansen Kristiansand",
+                "Frist": "Snarest",
+                "TidUtsendt": "en dag siden | Kristiansand S",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "thansen",
+                "Telefonnummer": "None",
+                "url": "https://www.finn.no/job/management/ad.html?finnkode=240264459",
+                "Konkurrent": "None"
+            },
+            {
+                "Arbeidsgiver": "Sørlandet sykehus HF",
+                "Stillingstittel": "Spesialutdannet sykepleier/vernepleier m/spesialutdanning",
+                "Frist": "11.01.2022",
+                "TidUtsendt": "en dag siden | Bjorbekk",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Niclas Halvorsen",
+                "Telefonnummer": "  452 01 202",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240267712",
+                "Konkurrent": "\n            Flere stillinger fra Sørlandet Sykehus HF"
+            },
+            {
+                "Arbeidsgiver": "Euroskilt AS / TrafikkDirigering AS",
+                "Stillingstittel": "Trafikkdirigenter",
+                "Frist": "Snarest",
+                "TidUtsendt": "en dag siden | Kristiansand S",
+                "Ansettelses_Form": "Engasjement",
+                "Kontakt_Person": "Reno Simonsen",
+                "Telefonnummer": " 906 93 369",
+                "url": "https://www.finn.no/job/parttime/ad.html?finnkode=240247982",
+                "Konkurrent": "\n            Flere stillinger fra Euroskilt Avd Oslo"
+            },
+            {
+                "Arbeidsgiver": "Sigurd Seland Smie & Mek Verksted AS",
+                "Stillingstittel": "Selger",
+                "Frist": "15.12.2021",
+                "TidUtsendt": "en dag siden | Lyngdal",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Thor-Eivind Fosse",
+                "Telefonnummer": "  480 85 822",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240261754",
+                "Konkurrent": "\n            Flere stillinger fra People AS"
+            },
+            {
+                "Arbeidsgiver": "Rambøll Norge AS",
+                "Stillingstittel": "Seniorrådgiver i kollektivtrafikkplanlegging",
+                "Frist": "30.11.2021",
+                "TidUtsendt": "Siste frist",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Sindre Levinsen",
+                "Telefonnummer": "  950 84 596",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240260142",
+                "Konkurrent": "None"
+            },
+            {
+                "Arbeidsgiver": "FLEKKERØY ELEKTRO AS",
+                "Stillingstittel": "Elektriker",
+                "Frist": "18.12.2021",
+                "TidUtsendt": "en dag siden | Flekkerøy",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Anne Grete Omland",
+                "Telefonnummer": "  948 80 280",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240259697",
+                "Konkurrent": "\n            Flere stillinger fra MANPOWER"
+            },
+            {
+                "Arbeidsgiver": "DX (DIALOG EXE AS)",
+                "Stillingstittel": "Head of Marketing",
+                "Frist": "Snarest",
+                "TidUtsendt": "en dag siden | Stavanger, Bodø, Oslo, Lyngdal, Bergen",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Martin Berg",
+                "Telefonnummer": "LinkedIn",
+                "url": "https://www.finn.no/job/management/ad.html?finnkode=240253315",
+                "Konkurrent": "\n            Flere stillinger fra Dialog Exe AS"
+            },
+            {
+                "Arbeidsgiver": "Sørlandet sykehus HF",
+                "Stillingstittel": "Klinisk ernæringsfysiolog",
+                "Frist": "12.12.2021",
+                "TidUtsendt": "en dag siden | Kristiansand S",
+                "Ansettelses_Form": "Prosjekt",
+                "Kontakt_Person": "Wenche Haugen",
+                "Telefonnummer": "  38 07 41 58",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240256331",
+                "Konkurrent": "\n            Flere stillinger fra Sørlandet Sykehus HF"
+            },
+            {
+                "Arbeidsgiver": "DX (Dialog exe as)",
+                "Stillingstittel": "Product Manager",
+                "Frist": "Snarest",
+                "TidUtsendt": "en dag siden | Stavanger, Bodø, Lyngdal, Oslo, Bergen",
+                "Ansettelses_Form": "Fast",
+                "Kontakt_Person": "Martin Berg",
+                "Telefonnummer": "LinkedIn",
+                "url": "https://www.finn.no/job/fulltime/ad.html?finnkode=240247844",
+                "Konkurrent": "\n            Flere stillinger fra Dialog Exe AS"
+            },
+            {
+                "Arbeidsgiver": "Adecco",
+                "Stillingstittel": "Barnehageassistent og fagarbeider",
+                "Frist": "12.12.2021",
+                "TidUtsendt": "en dag siden | Rykene",
+                "Ansettelses_Form": "Vikariat",
+                "Kontakt_Person": "Marius Kjelsrud",
+                "Telefonnummer": "  38 12 46 66",
+                "url": "https://www.finn.no/job/parttime/ad.html?finnkode=240254396",
+                "Konkurrent": "\n            Flere stillinger fra Adecco Norge AS"
+            },
+        ]
+        buildTable(myArray);
+
+        function buildTable(data){
+        let table = document.getElementById('myTable');
+        console.log("kake")
+            for(let i = 0; i < data.length; i++){
+                let row = `<tr>
+							<td>${data[i].Arbeidsgiver}</td>
+							<td>${data[i].Stillingstittel}</td>
+							<td>${data[i].Frist}</td>
+							<td>${data[i].TidUtsendt}</td>
+							<td>${data[i].Ansettelses_Form}</td>
+							<td>${data[i].Kontakt_Person}</td>
+							<td>${data[i].Telefonnummer}</td>
+							<td>${data[i].url}</td>
+							<td>${data[i].Konkurrent}</td>
+					  </tr>`
+                table.innerHTML += row
+                console.log("kake2")
+
+            }
+    }
+</script>
+<!--  <script src="MagicAgderJobsToJson.js"></script> -->
+</body>
+</html>
