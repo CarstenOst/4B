@@ -1,15 +1,15 @@
-:root {
-    --main-color: #191919;
-    --text-color: azure;
+:root { /* Denne har vi brukt til å definere globale variabler, dette gjør vi for å raskt kunne endre design etter ønske */
+    --main-color: #191919; /* Dette er bakgrunnsfargen som brukes flere steder */
+    --text-color: azure; /* Font/text fargen */
 }
-*{
-    margin: 0;
-    padding: 0;
+*{ /* Dette er en såkalt "selector" (velger) som vil velge alle elementene i documentet */
+    margin: 0; /* Margin er hvor langt unna elementet, andre elementer som er "relativ" kan befinne seg. 0 vil si at et element kan ligge helt inntil*/
+    padding: 0; /* Padding: jo større padding jo lenger unna kanten  */
 }
-body{
-    background-color: var(--main-color);
+body{ /* Selector som velger body elementet */
+    background-color: var(--main-color); /* Setter bakgrunnsfargen i body til det --main-color er */
 }
-.parent {
+.parent { /* Dette er en klasse-selektor */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@ body{
 }
 @media screen and (max-width: 414px) {
     .mainIndexButton {
-        width: 220px; /* The width is 200px, when the viewport is 400px or smaller */
+        width: 220px; /* The width is 200px, when the viewport is 414px or smaller */
         height: 220px;
         animation: mnyColors2 3s 2;
     }
