@@ -40,11 +40,11 @@ selector{
 
 Eksempl med bruk av CSS:
 
-![imgWith](img.png)
+![imgWith](https://github.com/CarstenOst/4B/blob/main/Prosjekter/How%20We%20Roll/Bilder/img.png)
 
 Eksempl uten bruk av CSS:
 
-![./How%20We%20Roll/Bilder/img_1.png](img_1.png)
+![./How%20We%20Roll/Bilder/img_1.png](https://github.com/CarstenOst/4B/blob/main/Prosjekter/How%20We%20Roll/Bilder/img_1.png)
 
 
 
