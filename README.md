@@ -1,9 +1,55 @@
-# Hva vi lærte av How We Roll oppgaven
-### Hva vi har gjort, og hvorfor.
-#### HWR index
+
+> HWR deployment:
+>https://carstenost.github.io/4B/Prosjekter/How%20We%20Roll/index.html
+>
+>Fellesprosjektet deployment:
+>https://carstenost.github.io/Sarra_4B/events.html
+
+<hr><hr><hr>
+
+# sluttRapport()
+## CSS
 ```
-https://carstenost.github.io/4B/Prosjekter/How%20We%20Roll/index.html
-``` 
+- en forkortelse for "Cascading Style Sheet"
+- et standar kodespråk brukt for å designe nettsider
+```
+Nå skal vi ta for oss litt grunnleggende syntax, selector (velger) og noen av de mest brukte "properties" (egenskaper)
+
+```CSS
+/* Syntax: */
+selector{ /* Selector "velger" det elementet som får egenskapene som står inni "{}" */
+    egenskap: verdi;
+    egenskap2: verdi2;
+}
+/* eksempel selector (velger): */
+*{} /* gjelder for alle elementer  */
+div{} /* alle "div" tagger */
+div, h1{} /* alle div og h1 */
+div h1{} /* alle h1 tagger inni hvilken som helst div */
+.klasse{} /* velger alle elementer som bruker 'class="klasse"' */
+#idnavn{} /* velger element med lik id (dersom et html element har "id=idnanv" vil denne bli valgt nå */ 
+selector:hover{} /* utfører koden i "{}" når datamusen er posisjonert over elementet*/
+
+selector{
+    position: center; /* Bare å sette inn fleire */
+    display: flex;
+    
+}
+
+```
+
+Eksempl med bruk av CSS:
+
+![imgWith](img.png)
+
+Eksempl uten bruk av CSS:
+
+![./How%20We%20Roll/Bilder/img_1.png](img_1.png)
+
+
+
+## javaScript()
+
 <!-- Hvis du kan lese dette så har du åpnet dokumentet på "feil" måte (med mindre du vil se alle de fine kommentarene våre :)) -->
 
 
