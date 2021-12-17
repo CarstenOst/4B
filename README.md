@@ -7,11 +7,13 @@
 
 <hr><hr>
 
-# sluttRapport()
+# sluttRappor()
+***
 
-Her skal vi ta for oss det grunnleggende i HTML, CSS og JavaScript
+Her skal vi ta for oss litt grunnleggende i HTML, CSS og JavaScript
 
 ## HTML
+***
 ```text
 I semesteret har vi lært mye grunnleggende rundt HTML5-koding. Kort forklart er alle tagger (<tag>) en boks.
 Til og med taggen "<head>" som man bruker for å linke inn eks. .css-filer, vise til "charset" og definere 
@@ -80,11 +82,12 @@ Vi skiller kode med og uten kommentarer. Dette gjør vi for å få et bedre over
 
 
 ## CSS
+***
 ```
 - en forkortelse for "Cascading Style Sheet"
 - et standar kodespråk brukt for å designe nettsider (HTML)
 ```
-Nå skal vi ta for oss litt grunnleggende syntax, selector (velger) og noen av de mest brukte "properties" (egenskaper)
+Nå skal vi ta for oss litt grunnleggende syntax
 
 ```CSS
 /* Syntax: */
@@ -100,13 +103,6 @@ div h1{} /* alle h1 tagger inni hvilken som helst div */
 .klasse{} /* velger alle elementer som bruker 'class="klasse"' */
 #idnavn{} /* velger element med lik id (dersom et html element har "id=idnanv" vil denne bli valgt nå */ 
 selector:hover{} /* utfører koden i "{}" når datamusen er posisjonert over elementet*/
-
-selector{
-    position: center; /* Bare å sette inn fleire */
-    display: flex;
-    
-}
-
 ```
 
 Eksempl med bruk av CSS:
@@ -120,6 +116,19 @@ Eksempl uten bruk av CSS:
 
 
 ## javaScript()
+
+***
+```JavaScript
+// Å lagre data er grunnleggende i alle kodespråk. Uten lagring så er det kun hardkodet (fysisk) transistorer og arkitektur som kan vises, men da er det jo fysisk lagret.
+// ulike typer datasett:
+let dataSet = 19; // dataSet er nå en integer
+dataSet = "rapport"; // dataSet er nå en "string" (altså tekst)
+dataSet = false; // dataSet er nå boolean (kan kun være "true" eller "false", og blir brukt for å spare plass, hvor det er mulig)
+
+array = ["data", "lagring", "av", "flere", variabler, "string", "eller", function () {console.log("en funksjon")},]
+
+
+```
 
 <!-- Hvis du kan lese dette så har du åpnet dokumentet på "feil" måte (med mindre du vil se alle de fine kommentarene våre :)) -->
 
