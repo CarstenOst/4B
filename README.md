@@ -9,6 +9,7 @@
 
 # sluttRappor()
 ***
+~~God Påske~~
 
 Her skal vi ta for oss litt grunnleggende i HTML, CSS og JavaScript
 
