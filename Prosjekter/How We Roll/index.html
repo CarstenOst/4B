@@ -12,7 +12,7 @@
             --main-color: #191919;
             --text-color: azure;
         }
-        /* Definerer margin og padding på alt */
+        /* Definerer margin og padding på alle elementer (noen blir senere overstyrt) */
         *{
             margin: 0;
             padding: 0;
@@ -83,7 +83,6 @@
         #bg_bilde:hover{
             filter: blur(0px);
         }
-
 
 
         /* Hover animation */
@@ -316,10 +315,9 @@
     </style>
 </head>
 
-
-<body id="Working hard for something we dont care about is called stress-- --Working hard for something we love is called passion">
-
-<header id="You´re always wrong, but how much?"> <!-- remember to remove the inspo quotes b4 submittion -->
+<!-- You´re always wrong, but how much? -->
+<body>
+<header>
     <div onclick="window.location.reload();">
         <h1>Visittkort</h1>
     </div>
@@ -342,8 +340,8 @@
         <div onclick="showVisittKort('AmalieVisitt')">
             <h2>Amalie</h2>
         </div>
-        <div onclick="showVisittKort('CarstenVisitt')" id="Can you hear the silence?"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
-            <h2 id="Jeg vet, at man aldri kan vite helt sikkert">Carsten</h2>
+        <div onclick="showVisittKort('CarstenVisitt')"> <!-- Enkelt js som linker til test.html, kan også bruke <a href=""> </a>!-->
+            <h2>Carsten</h2>
         </div>
         <div onclick="showVisittKort('IlhamVisitt')">
             <h2>Ilham</h2>
@@ -360,25 +358,27 @@
     </aside>
     <script>
         <!-- JS som viser visittkortene når navnene blir trykket på -->
-        let lastPerson = 'VetleVisitt'; // Må være definert som ett av visittkort onclick
+        let lastPerson = 'VetleVisitt'; // Må være definert som ett av visittkort onclick (global variabel er fyfy, men går fint når det er kun ett script, burde uansett unngås)
         function showVisittKort(Person){
-            // Jeg liker kake, så da får variabel navnet bli kake //\\ Ikke bli sur Janis, jeg vet du også liker kake :)
-            // Dette også for å demonstrere at variabel navn kan være nesten hva som helst, Her kunne det kanskje
-            // passet å endre "kake" til person eller lignende, for å gjøre det lettere å lese
-            const kake = document.getElementById(Person)
-            const bg_bilde = document.getElementById("bg_bilde")
 
+            // Variabelen skal ikke endres etter at funksjonen blir "called", derfor setter vi "const" og ikke "let"
+            const visittKort = document.getElementById(Person);
+            const bg_bilde = document.getElementById("bg_bilde"); // denne trenger vi for å kunne skjule senere
 
-            // Let som variabel fordi let er tilstrekkelig når det er kun en funksjon og ikke noe globalt
-            //koden sjekker om display er none, og om det er, blir display endret til block, og bakgrunnsbildet til none
-            if (kake.style.display === "none") {
-                kake.style.display = "block";
+            //koden sjekker om display er "none", og om den er, blir display endret til "block", og bakgrunnsbildet til "none"
+            if (visittKort.style.display === "none") {
+                visittKort.style.display = "block";
                 bg_bilde.style.display = "none";
+
+
+                // Try-catch statement som prøver en kode. Den vil egentlig ikke feile, men om man legger inn flere
+                // Visittkort kan det være greit at den sier ifra om noe blir feil
                 try{
+
                     // Denne if statement vil sette det forrige navnet som ble trykket på til display none
                     if (Person !== lastPerson) {
-                        let forrigeKake = document.getElementById(lastPerson);
-                        forrigeKake.style.display = "none";
+                        let forrigeVisitt = document.getElementById(lastPerson);
+                        forrigeVisitt.style.display = "none";
                         lastPerson = Person;
                     }
                 }catch(err){
@@ -386,17 +386,20 @@
                 }
             }
             else {
-                kake.style.display = "none";
+                visittKort.style.display = "none";
                 bg_bilde.style.display = "block";
             }
         }
     </script>
 
-    <section><!-- Her legger vi inn alle visittkortene (NB: ha alt inni en conteiner)
+    <section><!-- Her legger vi inn alle visittkortene (NB: ha alt inni en conteiner (div))
                  Id i conteiner skal være "navnVisitt" -->
+
+
+        <!-- Bakgrunn -->
         <div id="visitt_Cont">
             <div id="bg_bilde" style="display: block;">
-                <!--suppress CheckImageSize (denne koden sier "hold kjeft" til intelij om warning med bilde størrelse) :) -->
+                <!--suppress CheckImageSize (denne kommentaren sier "hold kjeft" til intellij om advarsel med bilde størrelse) :) -->
                 <img src="Bilder/4B_logo_no_backround_lowq.png" alt="UIA-Logo" width="550px" style="height: 300px">
             </div>
 
@@ -412,21 +415,23 @@
                 </div>
             </div>
 
+
             <!-- Carsten -->
             <div id="CarstenVisitt" style="display: none" onclick="location='Div/Carsten/Fractal/test.html'">
                 <div class="carBackEnd">
                     <div class="centerInline">
-                        <span>carsteno@uia.no</span><br><br> <!-- For lat til å legge på padding/margin i css -->
-                        <span>+47 472 74 009</span>
+                        <span>carsteno@uia.no</span><br><br> <!-- For lat til å endre i css, så da bruker vi <br> -->
+                        <span>+47 420 69 420</span>
                     </div>
                 </div>
-                <!-- Dette elementet vises over det elementet ovenfor, fordi den har position absolute, kunne gjort motsatt såklart :) -->
+                <!-- Dette elementet vises over det elementet ovenfor, fordi den har position absolute i css -->
                 <div class="frontVCard">
                     <div class="centerInline">
                         <span>Carsten Østergaard</span>
                     </div>
                 </div>
             </div>
+
 
             <!-- Lars -->
             <div id="LarsVisitt" class="Larsboks" style="display: none">
@@ -444,11 +449,11 @@
                 <br>
                 <br>
                 <!-- ------------------------------------------------------------------------------------------------------- -->
-                <!-- valgt å sett innhold i tabell for å for lik marg på "nevner" og "teller" som jeg fant som beste -->
+                <!-- valgt å sett innhold i tabell for å få lik marg på "nevner" og "teller" som jeg fant som beste -->
                 <!-- ------------------------------------------------------------------------------------------------- -->
                 <table id="fontsize">
                     <tr><td><b>Adresse:</b></td><td>Gunhilds vei 91</td></tr>
-                    <tr><td><b>Telefon:</b></td><td>+47 481 13 413</td></tr>
+                    <tr><td><b>Telefon:</b></td><td>+47 480 24 468</td></tr>
                     <tr><td><b>Mail:</b></td><td><a href="mailto: larsgs07@uia.no">larsgs07@uia.no</a></td></tr>
                     <tr><td><b>Personlighet:</b></td><td>ENTJ-A</td></tr>
                 </table>
@@ -460,7 +465,7 @@
                 <img src="Bilder/preben.png" alt="preben">
                 <div class="contianer">
                     <h4>Preben Røstad</h4>
-                    <p>Tlf: +47 90039680</p>
+                    <p>Tlf: +47 91337840</p>
                     <p>Mail: preber12@uia.no</p>
                     <p>Adresse: Marviksveien 84</p>
                 </div>
@@ -479,7 +484,7 @@
                                 <h4>Vetle Johansen Nilsen</h4>
                             </div>
                             <div class="phone right-content">
-                                <p>Tlf: +47 41693697</p>
+                                <p>Tlf: +47 41798967</p>
                             </div>
                             <div class="mail right-content">
                                 <p>Mail: vetlejn@uia.no</p>
@@ -488,20 +493,22 @@
                     </div>
                 </div>
             </div>
+
+
             <!-- Ilham -->
             <div id="IlhamVisitt" class="whole" style="display: none">
                 <div  class="center" ><h1 class="il_h1">Ilham Ahmed Mohammed<br><em class="Visitt">Visitt-Kort</em></h1></div>
-                    <img class="ilham_img" src="Visittkort/Ilham/ILHAM.PNG" alt="Ilham">
-                    <div class="center2">
-                        <ul>
-                            <li><h3>Litt om meg</h3></li>
-                        </ul>
-                        <ol>
-                            <li><p><strong>Bursdagsdato:</strong>15.feb.2002</p></li>
-                            <li><p><strong>Skole:</strong>Universitetet i Agder</p></li>
-                            <li><p><strong>Tlf:</strong>96224565</p></li>
-                            <li><p><strong>Mail:</strong>ilhamam@student.uia.no</p></li>
-                        </ol>
+                <img class="ilham_img" src="Visittkort/Ilham/ILHAM.PNG" alt="Ilham">
+                <div class="center2">
+                    <ul>
+                        <li><h3>Litt om meg</h3></li>
+                    </ul>
+                    <ol>
+                        <li><p><strong>Bursdagsdato:</strong>15.feb.2002</p></li>
+                        <li><p><strong>Skole:</strong>Universitetet i Agder</p></li>
+                        <li><p><strong>Tlf:</strong>97234865</p></li>
+                        <li><p><strong>Mail:</strong>ilhamam@student.uia.no</p></li>
+                    </ol>
                 </div>
             </div>
         </div>

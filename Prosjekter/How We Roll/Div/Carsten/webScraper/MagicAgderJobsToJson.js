@@ -14,17 +14,18 @@ saveData = (file) =>{
     }
     fs.writeFile(file,"[]",finished);
 }
-saveData( "FinnNo.json");
+saveData("FinnNo.json");
 
 async function scrapeFinnLink(url) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
     await page.goto(url);
     //for å hente ut text:
     for(let i = 2; i <= 51; i++){
-        let finnArticleFromXpath = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/h2/a");
-        let FinnTid1 = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/div[3]/div"); //enkel søknad
-        let FinnTid2 = ("/html/body/div[2]/main/div[3]/div/section[1]/div[3]/article["+i+"]/div[3]/div[2]/div"); //uten enkel søknad
+
+        let finnArticleFromXpath = ("/html/body/div[2]/main/div[2]/div/section[1]/div[3]/article["+i+"]/div[3]/h2/a");
+        let FinnTid1 = ("/html/body/div[2]/main/div[2]/div/section[1]/div[3]/article["+i+"]/div[3]/div[3]/div"); //enkel søknad
+        let FinnTid2 = ("/html/body/div[2]/main/div[2]/div/section[1]/div[3]/article["+i+"]/div[3]/div[2]/div"); //uten enkel søknad
 
         try {
             const [el2] = await page.$x(finnArticleFromXpath); // Copy xP*ath i inspect element
@@ -54,9 +55,11 @@ async function scrapeFinnLink(url) {
                 const tekst2 = await ell2.getProperty("textContent");
                 TidUtsendt = await tekst2.jsonValue();
 
+
                 await ScrapeArticle(finnLinkAgder, TidUtsendt);
             }catch (err){
-
+                console.error(err)
+                console.log(tekst2)
                 console.log("There are no more articles for you. Yay, hurra Lars 😀");
                 {break}
 
@@ -171,6 +174,9 @@ async function ScrapeArticle(url, TidUtsendt) {
             Konkurrent = "None";
         }
         const All_Elements = {Arbeidsgiver, Stillingstittel, Frist, TidUtsendt, Ansettelses_Form, Kontakt_Person, Telefonnummer, url, Konkurrent};
+        console.log(All_Elements)
+
+
 
         // her må man legge inn array start og slutt. Her legges det bare til i filen
         /*const fs = require("fs");

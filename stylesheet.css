@@ -1,0 +1,91 @@
+:root { /* Denne har vi brukt til å definere globale variabler, dette gjør vi for å raskt kunne endre design etter ønske */
+    --main-color: #191919; /* Dette er bakgrunnsfargen som brukes flere steder */
+    --text-color: azure; /* Font/text fargen */
+}
+*{ /* Dette er en såkalt "selector" (velger) som vil velge alle elementene i documentet */
+    margin: 0; /* Margin er hvor langt unna elementet, andre elementer som er "relativ" kan befinne seg. 0 vil si at et element kan ligge helt inntil*/
+    padding: 0; /* Padding: jo større padding jo lenger unna kanten  */
+}
+body{ /* Selector som velger body elementet */
+    background-color: var(--main-color); /* Setter bakgrunnsfargen i body til det --main-color er */
+}
+.parent { /* Dette er en klasse-selektor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 968px;
+}
+.mainIndexButton{
+    cursor: pointer;
+    width:450px;
+    height:450px;
+    background-color: blue;
+    color: var(--text-color);
+    animation: mnyColors 3s 1;
+    border: none;
+    border-radius: 500px;
+    overflow: hidden;
+
+}
+@-webkit-keyframes mnyColors {
+    0% {background-color: blue}
+    25% {background-color: darkred; color: var(--text-color);}
+    50% {background-color: #ffd700; color: var(--main-color); font-size: 30px; transform: rotateY(180deg) }
+    75% {background-color: purple; color: var(--text-color);}
+    100% {background-color: blue}
+}
+@media screen and (max-width: 414px) {
+    .mainIndexButton {
+        width: 220px; /* The width is 200px, when the viewport is 414px or smaller */
+        height: 220px;
+        animation: mnyColors2 3s 2;
+    }
+    .parent{
+        height: 736px;
+    }
+    @-webkit-keyframes mnyColors2 {
+        0% {background-color: blue}
+        25% {background-color: darkred; color: var(--text-color);}
+        50% {background-color: #ffd700; color: var(--main-color); font-size: 20px}
+        75% {background-color: purple; color: var(--text-color);}
+        100% {background-color: blue}
+}}
+
+#phone-size{
+    width: 390px;
+    height: 844px;
+    border-radius: 20px;
+    border: 1px white;
+    color: var(--main-color);
+    background-color: var(--text-color);
+    overflow: auto;
+    padding: 0;
+}
+#phone-notch{
+    padding: 5px;
+    width: 100%;
+    height: 35px;
+    background-color: green;
+    overflow: hidden;
+}
+#phone-nav{
+    padding: 5px;
+    width: 100%;
+    height: 80px;
+    background-color: red;
+    overflow: hidden;
+    display: flex;
+}
+#phone-nav-search-btn, #phone-settings{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid black;
+    margin: auto 10px; /* center vertical */
+}
+#phone-search-bar{
+    width: 200px;
+    height: 50px;
+    background-color: blue;
+    margin: auto 0; /* center vertical */
+}

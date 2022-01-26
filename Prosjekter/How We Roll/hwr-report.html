@@ -11,12 +11,12 @@
         :root { /* Lager noen variabler med farge, slik at man lett kan endre */
             --main-color: #191919;
             --text-color: azure;
-            --person1: #40e0d0; /*Amalie */
-            --person2: green; /*Ilham */
-            --person3: blue; /*Carsten */
-            --person4: purple; /*Vetle */
-            --person5: pink; /*Lars */
-            --person6: orange; /*Preben */
+            --person0: #40e0d0; /*Amalie */
+            --person1: green; /*Ilham */
+            --person2: blue; /*Carsten */
+            --person3: purple; /*Vetle */
+            --person4: pink; /*Lars */
+            --person5: orange; /*Preben */
         }
         body {
             background: linear-gradient(100deg,Indigo,SlateBlue,MediumPurple);
@@ -109,12 +109,12 @@
     <figure>
         <figcaption>
             <div id="personsContent">
-                <div class="box_fitting" style="background-color: var(--person1)" onclick="showGraphics(`person0`)">Amalie</div> <!-- fjern eller legg til funksjon -->
-                <div class="box_fitting" style="background-color: var(--person3)">Carsten</div>
-                <div class="box_fitting" style="background-color: var(--person2)">Ilham</div>
-                <div class="box_fitting" style="background-color: var(--person5)">Lars</div>
-                <div class="box_fitting" style="background-color: var(--person6)">Preben</div>
-                <div class="box_fitting" style="background-color: var(--person4)">Vetle</div>
+                <div class="box_fitting" style="background-color: var(--person0)" onclick="showGraphics(`person0`)">Amalie</div> <!-- fjern eller legg til funksjon -->
+                <div class="box_fitting" style="background-color: var(--person2)">Carsten</div>
+                <div class="box_fitting" style="background-color: var(--person1)">Ilham</div>
+                <div class="box_fitting" style="background-color: var(--person4)">Lars</div>
+                <div class="box_fitting" style="background-color: var(--person5)">Preben</div>
+                <div class="box_fitting" style="background-color: var(--person3)">Vetle</div>
             </div>
         </figcaption>
         <!-- For SVG spesifikasjon se her https://svgwg.org/svg2-draft/ (sist sett 2021-10-06) -->
@@ -124,57 +124,57 @@
             <g> <!-- mokv - morgen eller kveld-->
                 <text x="2" y="9.5" dy=".45em" class="vakkerFont">Morgen</text>
                 <line x1="10" y1="10" x2="80" y2="10" stroke="#000000" stroke-width="0.5" />
-                <circle id="person0" cx="15" cy="10" r="1" fill="var(--person1)"/>
-                <circle id="person1" cx="10" cy="10" r="1" fill="var(--person2)"/>
-                <circle id="person2" cx="15" cy="10" r="1" fill="var(--person3)"/>
-                <circle id="person3" cx="60" cy="10" r="1" fill="var(--person4)"/>
-                <circle id="person4" cx="70" cy="10" r="1" fill="var(--person5)"/>
-                <circle id="person5" cx="80" cy="10" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="10" r="1" fill="var(--person0)"/>
+                <circle id="person1" cx="10" cy="10" r="1" fill="var(--person1)"/>
+                <circle id="person2" cx="15" cy="10" r="1" fill="var(--person2)"/>
+                <circle id="person3" cx="60" cy="10" r="1" fill="var(--person3)"/>
+                <circle id="person4" cx="70" cy="10" r="1" fill="var(--person4)"/>
+                <circle id="person5" cx="80" cy="10" r="1" fill="var(--person5)"/>
                 <text x="85" y="9.5" dy=".45em" class="vakkerFont">Kveld</text>
             </g>
             <!--  -->
             <g> <<!-- grus - gruppe eller solo -->
                 <text x="2" y="15" dy=".45em" class="vakkerFont">Gruppe</text>
                 <line x1="10" y1="15" x2="80" y2="15" stroke="#000000" stroke-width="0.5" />
-                <circle id="person0" cx="15" cy="15" r="1" fill="var(--person1)"/>
-                <circle id="person1" cx="10" cy="15" r="1" fill="var(--person2)"/>
-                <circle id="person2" cx="15" cy="15" r="1" fill="var(--person3)"/>
-                <circle id="person3" cx="60" cy="15" r="1" fill="var(--person4)"/>
-                <circle id="person4" cx="70" cy="15" r="1" fill="var(--person5)"/>
-                <circle id="person5" cx="80" cy="15" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="15" r="1" fill="var(--person0)"/>
+                <circle id="person1" cx="10" cy="15" r="1" fill="var(--person1)"/>
+                <circle id="person2" cx="15" cy="15" r="1" fill="var(--person2)"/>
+                <circle id="person3" cx="60" cy="15" r="1" fill="var(--person3)"/>
+                <circle id="person4" cx="70" cy="15" r="1" fill="var(--person4)"/>
+                <circle id="person5" cx="80" cy="15" r="1" fill="var(--person5)"/>
                 <text x="85" y="15" dy=".45em" class="vakkerFont">Solo</text>
             </g>
             <g> <!-- fydi - fysisk eller digitalt -->
                 <text x="2" y="20" dy=".45em" class="vakkerFont">Fysisk</text>
                 <line x1="10" y1="20" x2="80" y2="20" stroke="#000000" stroke-width="0.5" />
-                <circle id="person0" cx="15" cy="20" r="1" fill="var(--person1)"/>
-                <circle id="person1" cx="10" cy="20" r="1" fill="var(--person2)"/>
-                <circle id="person2" cx="15" cy="20" r="1" fill="var(--person3)"/>
-                <circle id="person3" cx="60" cy="20" r="1" fill="var(--person4)"/>
-                <circle id="person4" cx="70" cy="20" r="1" fill="var(--person5)"/>
-                <circle id="person5" cx="80" cy="20" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="20" r="1" fill="var(--person0)"/>
+                <circle id="person1" cx="10" cy="20" r="1" fill="var(--person1)"/>
+                <circle id="person2" cx="15" cy="20" r="1" fill="var(--person2)"/>
+                <circle id="person3" cx="60" cy="20" r="1" fill="var(--person3)"/>
+                <circle id="person4" cx="70" cy="20" r="1" fill="var(--person4)"/>
+                <circle id="person5" cx="80" cy="20" r="1" fill="var(--person5)"/>
                 <text x="85" y="20" dy=".45em" class="vakkerFont">Digitalt</text>
             </g>
             <g> <!-- krek - kreativ eller kontroll -->
                 <text x="2" y="25" dy=".45em" class="vakkerFont">Kreativ</text>
                 <line x1="10" y1="25" x2="80" y2="25" stroke="#000000" stroke-width="0.5" />
-                <circle id="person0" cx="15" cy="25" r="1" fill="var(--person1)"/>
-                <circle id="person1" cx="10" cy="25" r="1" fill="var(--person2)"/>
-                <circle id="person2" cx="15" cy="25" r="1" fill="var(--person3)"/>
-                <circle id="person3" cx="60" cy="25" r="1" fill="var(--person4)"/>
-                <circle id="person4" cx="70" cy="25" r="1" fill="var(--person5)"/>
-                <circle id="person5" cx="80" cy="25" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="25" r="1" fill="var(--person0)"/>
+                <circle id="person1" cx="10" cy="25" r="1" fill="var(--person1)"/>
+                <circle id="person2" cx="15" cy="25" r="1" fill="var(--person2)"/>
+                <circle id="person3" cx="60" cy="25" r="1" fill="var(--person3)"/>
+                <circle id="person4" cx="70" cy="25" r="1" fill="var(--person4)"/>
+                <circle id="person5" cx="80" cy="25" r="1" fill="var(--person5)"/>
                 <text x="85" y="25" dy=".45em" class="vakkerFont">Kontroll</text>
             </g>
             <g> <!-- fops - Forbredt eller på sparket -->
                 <text x="2" y="30" dy=".45em" class="vakkerFont">Forbredt</text>
                 <line x1="10" y1="30" x2="80" y2="30" stroke="#000000" stroke-width="0.5" />
-                <circle id="person0" cx="15" cy="30" r="1" fill="var(--person1)"/>
-                <circle id="person1" cx="10" cy="30" r="1" fill="var(--person2)"/>
-                <circle id="person2" cx="15" cy="30" r="1" fill="var(--person3)"/>
-                <circle id="person3" cx="60" cy="30" r="1" fill="var(--person4)"/>
-                <circle id="person4" cx="70" cy="30" r="1" fill="var(--person5)"/>
-                <circle id="person5" cx="80" cy="30" r="1" fill="var(--person6)"/>
+                <circle id="person0" cx="15" cy="30" r="1" fill="var(--person0)"/>
+                <circle id="person1" cx="10" cy="30" r="1" fill="var(--person1)"/>
+                <circle id="person2" cx="15" cy="30" r="1" fill="var(--person2)"/>
+                <circle id="person3" cx="60" cy="30" r="1" fill="var(--person3)"/>
+                <circle id="person4" cx="70" cy="30" r="1" fill="var(--person4)"/>
+                <circle id="person5" cx="80" cy="30" r="1" fill="var(--person5)"/>
                 <text x="85" y="30" dy=".45em" class="vakkerFont">Sparket</text>
             </g>
 
@@ -209,7 +209,6 @@
                     }
                 });
         }
-        //Amalie
         function drawMultipleData(){
             /* Viser til hvilken link som passer til hvem, trenger forsåvidt ikke være "let" i en kommentar men har tanker om å bruke det videre til eks når man ->
                trykker på navnene så er det kun de sirklene som passer til navnene som kommer opp /// eller at alle de andre sirklene får display: none :)
