@@ -7,7 +7,7 @@
 
 <hr><hr>
 
-# sluttRappor()
+# sluttRapport()
 ***
 ~~God Påske~~
 
