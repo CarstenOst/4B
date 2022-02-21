@@ -39,8 +39,6 @@ async function startThis(){
             console.log(k + " sec b4 startup again...")
             await sleep(1000)
         }
-
-
     }
 }
 
