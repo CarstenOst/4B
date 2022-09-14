@@ -3,6 +3,8 @@
 ##### Or don't, your loss
 (in hwr-report.html you can click on "----------Fetch data----------")
 
+merge conflict?
+
 <!-- https://patorjk.com/software/taag/#p=display&f=Graffiti&t=just%20do%20it -->
 ```  __                __        .___       .__  __   
     |__|__ __  _______/  |_    __| _/____   |__|/  |_ 
